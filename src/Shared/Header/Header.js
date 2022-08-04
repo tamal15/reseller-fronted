@@ -13,24 +13,15 @@ const Header = () => {
 
     // console.log(user.photoURL)
 
-    const [isSticky, setSticky] = useState(false);
-    useEffect(() => {
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 50) {
-                setSticky(true)
-            } else {
-                setSticky(false)
-            }
-        })
-    }, []);
+  
 
     return (
 
         <div className='header-area'>
-            <Navbar expand="lg"  bg="red"  className={(isSticky) ? "navbar  navbar-expand-lg  bg-dark texts fixed-top" : "navbar  navbar-expand-lg "}>
+            <Navbar expand="lg">
                 <Container>
                 {/* onClick={handleClick} */}
-                    <NavLink  to="/" className='logo'><span>Edu Desk</span></NavLink>
+                    <NavLink  to="/" className='logo'><span>E-Commerce</span></NavLink>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                     {/* onClick={handleClick} */}
@@ -39,7 +30,7 @@ const Header = () => {
                             <Nav.Link as={NavLink} to="/question" className='menu-item'>Product</Nav.Link>
                             <Nav.Link as={NavLink} to="/allSyllbus" className='menu-item'>Shirt</Nav.Link>
                             <Nav.Link as={NavLink} to="/allBlogs" className='menu-item'>Pant</Nav.Link>
-                            <Nav.Link as={NavLink} to="/allNotes" className='menu-item'>Three-Piece</Nav.Link>
+                            <Nav.Link as={NavLink} to="/buyer" className='menu-item'>Three-Piece</Nav.Link>
                          
                             
                             <Nav.Link as={NavLink} to="/allbooks" className='menu-item'>T-shirt</Nav.Link>

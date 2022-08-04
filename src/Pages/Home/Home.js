@@ -1,9 +1,13 @@
 import React from 'react';
 
+import BuyerProduct from './BuyerProduct/BuyerProduct';
+
 const Home = () => {
     return (
         <div>
-            <h1>tamal</h1>
+          
+            <BuyerProduct></BuyerProduct>
+        
             
         </div>
     );
