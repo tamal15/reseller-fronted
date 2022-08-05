@@ -4,11 +4,13 @@ import './App.css';
 import Header from './Shared/Header/Header';
 import Home from './Pages/Home/Home';
 import BuyerDashboard from './Pages/Home/BuyerDashboard/BuyerDashboard';
+import AuthProvider from './context/AuthProvider';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+    {/* <AuthProvider> */}
+    <BrowserRouter>
       <Header></Header>
       <Routes>
       <Route path="/" element={<Home />} />
@@ -17,6 +19,7 @@ function App() {
       </Routes>
       </BrowserRouter>
      
+    {/* </AuthProvider> */}
     </div>
   );
 }
