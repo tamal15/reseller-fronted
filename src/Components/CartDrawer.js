@@ -39,7 +39,7 @@ export default function CartDrawer() {
 
   let navigate = useNavigate();
   const bookOrderReview = () => {
-    return navigate('OrderReview');
+    return navigate('/OrderReview');
   }
 
   const list = () => (
