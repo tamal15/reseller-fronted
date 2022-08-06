@@ -6,7 +6,7 @@ import { FcGoogle } from 'react-icons/fc'
 
 
 import './Register.css'
-import useAuth from '../../hooks/useAuth';
+import useAuth from '../../Hooks/useAuth';
 
 
 

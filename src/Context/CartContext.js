@@ -9,6 +9,8 @@ const CartContextProvider = ({ children }) => {
     const allCart = JSON.parse(localStorage.getItem("productCart"));
     if (allCart) setCart(allCart);
   }, []);
+
+  
   return (
     <CartContext.Provider value={[cart, setCart]}>
       {children}

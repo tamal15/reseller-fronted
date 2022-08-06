@@ -7,15 +7,16 @@ import BuyerDashboard from './Pages/Home/BuyerDashboard/BuyerDashboard';
 import CartContextProvider from './Context/CartContext';
 import OrderReviewPage from './Pages/OrderReviewPage/OrderReviewPage';
 import Payment from './Pages/Payment/Payment';
-import AuthProvider from './context/AuthProvider';
 import Login from './Login/Login/Login';
 import Register from './Login/Register/Register';
+import AuthProvider from './Context/AuthProvider';
+
 
 function App() {
   return (
     <div className="App">
-      <CartContextProvider>
-        <AuthProvider>
+      <AuthProvider>
+        <CartContextProvider>
           <BrowserRouter>
             <Header></Header>
             <Routes>
@@ -27,8 +28,8 @@ function App() {
               <Route path="/register" element={<Register />} />
             </Routes>
           </BrowserRouter>
-        </AuthProvider>
-      </CartContextProvider>
+        </CartContextProvider>
+      </AuthProvider>
     </div>
   );
 }
