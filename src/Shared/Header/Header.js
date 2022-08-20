@@ -6,6 +6,8 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth'
 import CartDrawer from '../../Components/CartDrawer'
 import './Header.css'
+// import NavDropdown from 'react-bootstrap/NavDropdown';
+import Dropdown from 'react-bootstrap/Dropdown'
 
 
 const Header = () => {
@@ -27,22 +29,53 @@ const Header = () => {
     return (
 
         <div className='header-area'>
-            <Navbar expand="lg"  bg="red"  className={(isSticky) ? "navbar  navbar-expand-lg  bg-dark texts fixed-top" : "navbar  navbar-expand-lg "}>
+            <Navbar expand="lg"  bg="red"  className={(isSticky) ? "navbar  navbar-expand-lg  background-design texts fixed-top" : "navbar  navbar-expand-lg "}>
                 <Container>
                 {/* onClick={handleClick} */}
-                    <NavLink  to="/" className='logo'><span>Sarong</span></NavLink>
+                    <NavLink  to="/" className='logo'><span>SARONG</span></NavLink>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                     {/* onClick={handleClick} */}
                         <Nav  className="ms-auto menu d-flex align-items-center">
 
-                            <Nav.Link as={NavLink} to="/question" className='menu-item'>Questions</Nav.Link>
-                            <Nav.Link as={NavLink} to="/allSyllbus" className='menu-item'>Syllabus</Nav.Link>
-                            <Nav.Link as={NavLink} to="/allBlogs" className='menu-item'>Blogs</Nav.Link>
-                            <Nav.Link as={NavLink} to="/allNotes" className='menu-item'>Notes</Nav.Link>
-                            <Nav.Link as={NavLink} to="/allLabs" className='menu-item'>Labs</Nav.Link>
-                            {/* <Nav.Link as={NavLink} to="/forum" className='menu-item'>Forums</Nav.Link> */}
-                            <Nav.Link as={NavLink} to="/allbooks" className='menu-item'>All BOOKS</Nav.Link>
+                          
+                            {/* <Nav style={{color:'white'}}> */}
+                            <Dropdown>
+      <Dropdown.Toggle className='drops' id="dropdown-basic">
+        All Catagories
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu className='drop-menu'>
+        {/* start  */}
+
+        <Dropdown>
+      <Dropdown.Toggle className='drops' id="dropdown-basic">
+        Share
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu className='drops-menu'>
+        <Dropdown.Item className='down-color' href="/tat">Tater Share</Dropdown.Item>
+        <Dropdown.Item className='down-color' href="/all-categories">ALL Categories</Dropdown.Item>
+        <Dropdown.Item className='down-color' href="#/action-3">Sells Bazar BD</Dropdown.Item>
+        <Dropdown.Item className='down-color' href="jamdani">Jamdani</Dropdown.Item>
+        <Dropdown.Item className='down-color' href="#/action-3">Usha Fashion</Dropdown.Item>
+       
+      </Dropdown.Menu>
+    </Dropdown>
+
+        {/* end  */}
+        <Dropdown.Item className='down-color' href="#/action-2">Naksi katha</Dropdown.Item>
+        <Dropdown.Item className='down-color' href="#/action-3">Nakshi Pakha</Dropdown.Item>
+        <Dropdown.Item className='down-color' href="#/action-3">Shitalpati</Dropdown.Item>
+        <Dropdown.Item className='down-color' href="pottery">Pottery</Dropdown.Item>
+        <Dropdown.Item className='down-color' href="#/action-3">Jamdany</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+                            {/* </Nav> */}
+                            <Nav.Link as={NavLink} to="/allSyllbus" className='menu-item'>Home</Nav.Link>
+                            <Nav.Link as={NavLink} to="/allBlogs" className='menu-item'>Product</Nav.Link>
+                            <Nav.Link as={NavLink} to="/allNotes" className='menu-item'>About</Nav.Link>
+                           
                             <Nav.Link as={NavLink} to="/contact" className='menu-item'>Contact</Nav.Link>
                            <CartDrawer/>
                            

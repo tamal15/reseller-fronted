@@ -23,6 +23,7 @@ import initial from "../Login/Firebase/firebase.init";
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const [admin, setAdmin] = useState(false)
+  const [buyer, setBuyer] = useState(false)
 
 //   navbar toggle 
 const [toggle,setToggle]=useState(false)
@@ -34,10 +35,10 @@ const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
 
 //   register email and password 
-const registerUser = (email, password, name, location, navigate) => {
+const registerUser = (email, password, name,client, location, navigate) => {
     // sendUser(email)
     setIsLoading(true)
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password, client)
 
       .then((userCredential) => {
 
@@ -45,10 +46,10 @@ const registerUser = (email, password, name, location, navigate) => {
         // navigate(destination)
         setError("");
 
-        const newUser = { email, displayName: name };
+        const newUser = { email, displayName: name,client };
         setUser(newUser)
         // save use to database 
-        sendUser(email, name, 'POST');
+        sendUser(email, name,client, 'POST');
         // send name to firebase after creation 
         updateProfile(auth.currentUser, {
           displayName: name
@@ -113,8 +114,8 @@ const registerUser = (email, password, name, location, navigate) => {
 
 
   // save user to database 
-  const sendUser = (email, displayName,method) => {
-    const user = { email, displayName };
+  const sendUser = (email, displayName,client,method) => {
+    const user = { email, displayName,client };
     fetch('http://localhost:5000/users', {
       method: method,
       headers: { 'content-type': 'application/json' },
@@ -142,14 +143,21 @@ const registerUser = (email, password, name, location, navigate) => {
     return () => unsubscribe;
   }, [auth]);
 
-  //ADMIN CONDITIONAL DATALOAD
-//   useEffect(() => {
-//     fetch(`http://localhost:5000/users/${user.email}`)
-//       .then(res => res.json())
-//       .then(data => {
-//         setAdmin(data?.role)
-//       })
-//   }, [user.email])
+  // buyer CONDITIONAL DATALOAD
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setBuyer(data?.buyer)
+      })
+  }, [user.email])
+
+ // admin role the database 
+ useEffect(()=>{
+  fetch(`http://localhost:5000/userLogin/${user.email}`)
+  .then(res=>res.json())
+  .then(data=>setAdmin(data?.admin))
+},[user.email])
 
   return {
     user,
@@ -162,7 +170,8 @@ const registerUser = (email, password, name, location, navigate) => {
     toggle,
     setToggle,
     handleClick,
-    admin
+    admin,
+    buyer
    
   }
   }

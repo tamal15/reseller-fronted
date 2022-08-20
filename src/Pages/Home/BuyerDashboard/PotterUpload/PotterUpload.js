@@ -1,24 +1,27 @@
 import React from 'react';
 import { Col, Row, Container,Form } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import Header from '../../../Shared/Header/Header';
+import useAuth from '../../../../Hooks/useAuth';
+// import Header from '../../../Shared/Header/Header';
 // import {  Form,Col} from "react-bootstrap";
 // import useAuth from '../../hooks/useAuth';
 
 // import useFirebase from '../../../hooks/useFirebase';
 // import Swal from 'sweetalert/sweetalert';
 
-const BuyerDashboard = () => {
-    // const { user } = useAuth()
+const PotterUpload = () => {
+    const { user } = useAuth()
     // const {admin}=useAuth()
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset } = useForm()
     const onSubmit = data => {
         // data.userName = user.displayName
-        // data.email = user.email
+        
+        // const useing=user.email
+        data.likeed = []
         // data.status = 'Pending'
      
 
-        fetch("http://localhost:5000/PostBuyer", {
+        fetch("http://localhost:5000/postPotter", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -41,7 +44,7 @@ const BuyerDashboard = () => {
                 <Row>
                     <Col md={{ span: 8, offset: 2 }}>
                         <div className="login-form text-center shadow" style={{background:"#7E2231",borderRadius:"20px"}}>
-                            <h2 className='mb-5 text-white'>Add Your Sharee</h2>
+                            <h2 className='mb-5 text-white'>Add Your Potter</h2>
                             <form onSubmit={handleSubmit(onSubmit)}>
 
                                 <input
@@ -57,12 +60,10 @@ const BuyerDashboard = () => {
                                  style={{fontWeight:"600",color:" #0E1621"}}
                                  className='w-75 mb-3' {...register("img", { required: true })} placeholder="img url"/>
                                  
-                                <input
+                                {/* <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
-                                className='w-75 mb-3'  {...register("sizing", { required: true })} placeholder='Size example : M' /> <br />
-                                <input
-                                style={{fontWeight:"600",color:" #0E1621"}}
-                                className='w-75 mb-3'  {...register("gender", { required: true })} placeholder='Gender' /> <br />
+                                className='w-75 mb-3'  {...register("sizing", { required: true })} placeholder='Size example : M' /> <br /> */}
+                              
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("categories", { required: true })} placeholder='categories' /> <br />
@@ -73,15 +74,11 @@ const BuyerDashboard = () => {
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("warrenty", { required: true })} placeholder='warrenty example : 1 month' />
-                                <input
-                                style={{fontWeight:"600",color:" #0E1621"}}
-                                className='w-75 mb-3'  {...register("material", { required: true })} placeholder='Main Material example : silk' />
-                                {/* <input
-                                style={{fontWeight:"600",color:" #0E1621"}}
-                                className='w-75 mb-3'  {...register("likes")} placeholder='likes' /> */}
+                             
+                              
 
                                 {/* <input> */}
-                                <Form.Group as={Col} controlId="formGridRating"        style={{marginLeft:"84px",marginRight:"84px", borderRadius:"15px"}}>
+                                <Form.Group as={Col} controlId="formGridRating"        style={{marginLeft:"84px",marginRight:"84px", borderRadius:"15px",color:"white"}}>
                                         <Form.Label>
                                             Give Us A Rating (1 is the wrost , 5 is the best)
                                         </Form.Label>
@@ -122,4 +119,4 @@ const BuyerDashboard = () => {
     );
 };
 
-export default BuyerDashboard;
+export default PotterUpload;

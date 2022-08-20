@@ -31,7 +31,7 @@ const Register = () => {
             return;
         }
 
-        registerUser(data.email, data.password, data.name, location, navigate)
+        registerUser(data.email, data.password, data.name,data.client, location, navigate)
     }
     return (
      <div className='signin-background'>
@@ -64,6 +64,17 @@ const Register = () => {
                             <input
                             style={{fontWeight:"500"}}
                             className='w-75 mb-3' {...register("password2", { required: true })} placeholder='Re-enter Password' /> <br />
+                            <input
+                            style={{fontWeight:"500"}}
+                            className='w-75 mb-3' {...register("client", { required: true })} placeholder='buyer / user' /> <br />
+                            {/* <div >
+                                    <select name="client"  className="pending p-2 ">
+                                        <option defaultValue="">please Select</option>
+                                        <option defaultValue="buyer">Buyer</option>
+                                        <option defaultValue="user">User</option>
+                                       
+                                    </select>
+                                </div> */}
 
                             <button className='submit-all' type='submit'>Sign Up</button>
                         </form>

@@ -2,7 +2,10 @@ import { Button } from '@mui/material';
 import React from 'react';
 import Cart from '../../Components/Cart';
 import CartCalculation from '../../Hooks/UseCartCalculation';
-
+import Footer from '../../Shared/Footer/Footer';
+import Header from '../../Shared/Header/Header';
+import Banner from './Banner/Banner';
+import './Banner/Banner.css'
 import BuyerProduct from './BuyerProduct/BuyerProduct';
 
 const Home = () => {
@@ -10,8 +13,10 @@ const Home = () => {
 
     return (
         <div>
-
+            <Header></Header>
+            <Banner></Banner>
             <BuyerProduct></BuyerProduct>
+            <Footer></Footer>
         </div>
     );
 };

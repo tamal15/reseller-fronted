@@ -1,12 +1,42 @@
 .header-area {
     /* background: #1289A7; */
-    background: #182533;
+    /* background: #182533; */
+    /* background: #D0425C; */
+    background: #7E2231;
     /* background: #1f2833; */
     padding: 8px 0;
     /* box-shadow: 0px -3px 10px 2px #EE5A24; */
     position: relative;
 }
- 
+ .drops{
+    color:white !important;
+    /* background-color: #182533 !important; */
+    background-color: #7E2231 !important;
+    /* border:2px solid #182533 !important; */
+    border:2px solid #7E2231 !important;
+    /* font-size: 20px; */
+    font-weight: 600;
+    text-transform: uppercase;
+ }
+
+ .background-design{
+    background-color: #D0425C;
+ }
+
+ .drop-menu{
+    /* background-color: #182533; */
+    background-color: #7E2231;
+    /* color:white !important; */
+ }
+ .drops-menu{
+    /* background: #1289A7; */
+    background-color: #D0425C;
+    /* color:white !important; */
+ }
+ .down-color{
+    color:white;
+    font-weight: 500;
+ }
 .header-area .logo {
     color: white;
     font-size: 28px;
@@ -58,7 +88,7 @@
 .toggle-menu{
     width: 150px;
     /* background-color: #51a5b9; */
-    background-color: #182533;
+    background-color: #7E2231;
     position: absolute;
     right: 110px;
     margin-top: 20px;
