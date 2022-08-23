@@ -43,8 +43,8 @@ const Login = () => {
                     </div>
                     <div className='col-lg-8'>
                     <Col md={{ span: 8, offset: 2 }}>
-                        <div className="login-form text-center shadow" style={{background:"#182533",borderRadius:"20px"}}>
-                            <h2 className='mb-5 text-white'>Login to Education Desk</h2>
+                        <div className="login-form text-center shadow" style={{background:"#7E2239",borderRadius:"20px"}}>
+                            <h2 className='mb-5 text-white'>Login to SARONG</h2>
                             {/* onSubmit={handleSubmit(onSubmit)} */}
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <input

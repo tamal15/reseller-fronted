@@ -7,6 +7,7 @@ import Header from '../../Shared/Header/Header';
 import Banner from './Banner/Banner';
 import './Banner/Banner.css'
 import BuyerProduct from './BuyerProduct/BuyerProduct';
+import Categories from './Categories/Categories';
 
 const Home = () => {
     const { shipping, tax, totalQuantity, total, grandtotal, cartProducts } = CartCalculation();
@@ -16,6 +17,7 @@ const Home = () => {
             <Header></Header>
             <Banner></Banner>
             <BuyerProduct></BuyerProduct>
+            <Categories></Categories>
             <Footer></Footer>
         </div>
     );
