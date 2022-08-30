@@ -57,11 +57,11 @@ const Dashboard = () => {
                                 })}><FaBookmark className='me-1' /> Upload Potter</NavLink>
                             </li>
                                 
-                                {/* <li>
-                                <NavLink className="des" to={`add`} style={({ isActive }) => ({
+                                <li>
+                                <NavLink className="des" to={`customerorder`} style={({ isActive }) => ({
                                     color: isActive ? "#CCCCCC" : "#CCCCCC",
-                                })}><FaBookmark className='me-1' /> Add Question</NavLink>
-                            </li> */}
+                                })}><FaBookmark className='me-1' /> Order</NavLink>
+                            </li>
                                 {/* <li>
                                 <NavLink className="des" to={`addBook`} style={({ isActive }) => ({
                                     color: isActive ? "#CCCCCC" : "#CCCCCC",
@@ -134,6 +134,11 @@ const Dashboard = () => {
                                   <NavLink className="des" to={`useraddQuestion`} style={({ isActive }) => ({
                                       color: isActive ? "#CCCCCC" : "#CCCCCC",
                                   })}><FaBookmark className='me-1' /> Add Questions</NavLink>
+                              </li>
+                                  <li>
+                                  <NavLink className="des" to={`myorder`} style={({ isActive }) => ({
+                                      color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                  })}><FaBookmark className='me-1' /> My Order</NavLink>
                               </li>
                             </div>
                         }

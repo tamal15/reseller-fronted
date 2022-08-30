@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Row, Container,Form } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import useAuth from '../../../Hooks/useAuth';
 import Header from '../../../Shared/Header/Header';
 // import {  Form,Col} from "react-bootstrap";
 // import useAuth from '../../hooks/useAuth';
@@ -9,12 +10,14 @@ import Header from '../../../Shared/Header/Header';
 // import Swal from 'sweetalert/sweetalert';
 
 const BuyerDashboard = () => {
-    // const { user } = useAuth()
+    const { user } = useAuth()
     // const {admin}=useAuth()
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         // data.userName = user.displayName
-        // data.email = user.email
+
+        data.buyerEmail = user.email
+        data.likeed = []
         // data.status = 'Pending'
      
 
@@ -68,6 +71,9 @@ const BuyerDashboard = () => {
                                 className='w-75 mb-3'  {...register("categories", { required: true })} placeholder='categories' /> <br />
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
+                                className='w-75 mb-3'  {...register("shop", { required: true })} placeholder='Shop Name' /> <br />
+                                <input
+                                style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("description", { required: true })} placeholder='Description' /> 
 
                                 <input
@@ -81,7 +87,7 @@ const BuyerDashboard = () => {
                                 className='w-75 mb-3'  {...register("likes")} placeholder='likes' /> */}
 
                                 {/* <input> */}
-                                <Form.Group as={Col} controlId="formGridRating"        style={{marginLeft:"84px",marginRight:"84px", borderRadius:"15px"}}>
+                                <Form.Group as={Col} controlId="formGridRating"        style={{marginLeft:"84px",marginRight:"84px", borderRadius:"15px",color:"white"}}>
                                         <Form.Label>
                                             Give Us A Rating (1 is the wrost , 5 is the best)
                                         </Form.Label>

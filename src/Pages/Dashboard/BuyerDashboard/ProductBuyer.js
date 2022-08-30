@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 // import './UserAddQuestion.css'
 import { Link } from 'react-router-dom';
-import useAuth from '../../../Hooks/useAuth';
+// import useAuth from '../../../Hooks/useAuth';
 import {
     Box,
     Button,
@@ -20,26 +20,24 @@ import {
 import UploadProductBuyer from './UploadProductBuyer';
 // import UserUploadSyllbus from './UserUploadSyllbus';
 import './ProductBuyer.css'
+import useAuth from '../../../Hooks/useAuth';
 
 
 const ProductBuyer = () => {
 
-    // const { user } = useAuth()
+    const { user } = useAuth()
     const [service,setService]=useState([])
     // delete 
-
+    // email: user.email
    
 
    
 
-    useEffect(() => {
-        fetch('http://localhost:5000/postBuyer')
-            .then((res) => res.json())
-            .then((data) => {
-                setService(data)
-                // setsyllbus(data)
-            });
-    }, []);
+    useEffect(()=>{
+      fetch(`http://localhost:5000/buyerproducts/${user?.email}`)
+      .then(res=>res.json())
+      .then(data=>setService(data))
+  },[user?.email])
 
 
     const handleDelete=(id)=>{
@@ -87,7 +85,7 @@ const ProductBuyer = () => {
                   <Grid item xs={12} sm={12} md={12}>
                   <div className='photo'>
                     <div className='photoShops'>
-                      <img height="230" width="250" style={{borderRadius:"15px"}} src={single?.img}></img>
+                      <img height="200" width="250" style={{borderRadius:"15px"}} src={single?.img}></img>
                    
                     </div>
                    </div>
