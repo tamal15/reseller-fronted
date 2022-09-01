@@ -47,6 +47,12 @@
 .photoShops:hover img{
     transform: scale(1.5);
 }
+.likedesign{
+    color:black;
+}
+.likedesign:hover{
+    color:#D0425C;
+}
 
 .hitings{
     margin-top: 110px;
@@ -56,6 +62,22 @@ font-weight: 600;
 font-size: 50px;
 
 margin-bottom: 60px;
+}
+
+.viewmore{
+    margin-top: 20px;
+    font-size: 23px;
+    background-color: #D0425C;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.viewmore:hover{
+    color:black;
+    background-color:azure;
 }
 
 .details-show{

@@ -17,6 +17,8 @@ import {
     Stack,
     Typography,
   } from "@mui/material";
+  import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import useAuth from '../../../Hooks/useAuth';
 import { CartContext } from '../../../Context/CartContext';
 // import './TaterSharee.css'
@@ -64,7 +66,8 @@ const Jamdani = () => {
         setPage(data.selected);
     }
 
-    const {admin}=useAuth()
+    const {user}=useAuth()
+    const userData = { email: user.email, name: user.displayName };
    
     // checkbox er value true or false return kore
 
@@ -74,21 +77,79 @@ const Jamdani = () => {
     //         .then(data => setQuestions(data.TaterSharee))
     // }, [])
 
-    useEffect(() => {
-        console.log(type, year, code)
-        fetch('http://localhost:5000/sharee')
-            .then(res => res.json())
-            .then(data => {
-                setQuestions(data.allQuestions)
-                setModel(data.allQuestions)
-                // setSearchValue(data.TaterSharees)
-                // console.log(data)
+    // useEffect(() => {
+    //     console.log(type, year, code)
+    //     fetch('http://localhost:5000/sharee')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setQuestions(data.allQuestions)
+    //             setModel(data.allQuestions)
+    //             // setSearchValue(data.TaterSharees)
+    //             // console.log(data)
 
-                const count = data.count;
-                const pageNumber = Math.ceil(count / size)
-                setPageCount(pageNumber)
-            })
-    }, [type, year, code, page]);
+    //             const count = data.count;
+    //             const pageNumber = Math.ceil(count / size)
+    //             setPageCount(pageNumber)
+    //         })
+    // }, [type, year, code, page]);
+
+    const fetchData = () => {
+      fetch('http://localhost:5000/sharee')
+      .then(res => res.json())
+      .then(data => {
+          setQuestions(data.allQuestions)
+          setModel(data.allQuestions)
+          // setSearchValue(data.TaterSharees)
+          // console.log(data)
+
+          const count = data.count;
+          const pageNumber = Math.ceil(count / size)
+          setPageCount(pageNumber)
+      })
+    }
+    useEffect(() => {
+      fetchData()
+    }, [type, year, code, page])
+
+    const handleLike = (id) => {
+      fetch(`http://localhost:5000/like/${id}`, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(userData)
+      }).then(res => {
+        console.log(res)
+        if (res.status === 200) {
+          fetchData()
+          alert("Liked");
+        } else if (res.status === 400) {
+          alert("Already Liked");
+        } else {
+          alert("server error");
+        }
+      }).catch(err => console.log(err));
+  
+  
+    }
+    const handleUnLike = (id) => {
+      fetch(`http://localhost:5000/unlike/${id}`, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(userData)
+      }).then(res => {
+  
+        if (res.status === 200) {
+          fetchData()
+          alert("Unlike");
+        } else if (res.status === 400) {
+          alert("Already Unlike");
+        } else {
+          alert("server error");
+        }
+      }).catch(err => console.log(err));
+  
+    }
+  
+
 
 
     useEffect(()=>{
@@ -241,7 +302,7 @@ const Jamdani = () => {
                   margin: "auto",
                   maxWidth: 500,
                   flexGrow: 1,
-                  boxShadow: "0px 14px 22px rgb(42 135 158 / 20%)"
+                  boxShadow: "0px 14px 22px rgb(42 135 158 / 50%)"
                 }}
               >
                 <Grid  container spacing={2} columns={{ xs: 4, sm: 8, md: 4 }}>
@@ -260,21 +321,32 @@ const Jamdani = () => {
                      
 
                     <Typography variant="body">
-                        <h5 style={{ fontWeight: 700 }}> price : ${single?.ProductPrice}</h5>
+                        <h5 style={{ fontWeight: 700 }}> price : TK.{single?.ProductPrice}</h5>
                         
                       </Typography>
                       
                       <Typography variant="body">
                         <span style={{ fontWeight: 700 }}> Brand :  {single?.categories} </span>
+                        
                        
                       </Typography>
                       <br />
                       <Rating
                         name="half-rating-read"
+                        style={{color:"#D0425C"}}
                         defaultValue={single?.rating}
                         precision={0.5}
                         readOnly
                       />
+
+                         {/* like handler ================== */}
+                         <Box style={{display:"flex"}}>
+                      <Typography  style={{color:"#D0425C",fontWeight:"700"}}>
+                       <ThumbUpIcon className='likedesign' onClick={() => handleLike(single?._id)}></ThumbUpIcon>{single?.likes?.length}
+                       </Typography>
+                     
+                      <Typography> <ThumbDownIcon  className='ms-3 likedesign' onClick={() => handleUnLike(single?._id)}></ThumbDownIcon></Typography>
+                      </Box>
                     </Box>
                   </Grid>
                 </Grid>

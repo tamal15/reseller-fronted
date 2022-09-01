@@ -52,7 +52,7 @@ const Dashboard = () => {
                                 })}><FaBookmark className='me-1' /> Upload Sharee</NavLink>
                             </li>
                                 <li>
-                                <NavLink className="des" to={`potterupload`} style={({ isActive }) => ({
+                                <NavLink className="des" to={`potterDataUpload`} style={({ isActive }) => ({
                                     color: isActive ? "#CCCCCC" : "#CCCCCC",
                                 })}><FaBookmark className='me-1' /> Upload Potter</NavLink>
                             </li>
@@ -104,20 +104,17 @@ const Dashboard = () => {
                                       color: isActive ? "#CCCCCC" : "#CCCCCC",
                                   })}><FaBookmark className='me-1' /> Add Labs</NavLink>
                               </li> */}
+                              
+                             
                               <li>
-                                  <NavLink className="des" to={`userBook`} style={({ isActive }) => ({
+                                  <NavLink className="des " to={`adminAllProduct`} style={({ isActive }) => ({
                                       color: isActive ? "#CCCCCC" : "#CCCCCC",
-                                  })}><FaCommentDots className='me-1' /> Add Books</NavLink>
+                                  })}><FaTasks className='me-1' />Add Product</NavLink>
                               </li>
                               <li>
-                                  <NavLink className="des" to={`userDisplaySyllbus`} style={({ isActive }) => ({
+                                  <NavLink className="des " to={`adminsproducts`} style={({ isActive }) => ({
                                       color: isActive ? "#CCCCCC" : "#CCCCCC",
-                                  })}><FaSchool className='me-1' /> Add Syllabus</NavLink>
-                              </li>
-                              <li>
-                                  <NavLink className="des " to={`review`} style={({ isActive }) => ({
-                                      color: isActive ? "#CCCCCC" : "#CCCCCC",
-                                  })}><FaTasks className='me-1' /> UserReview</NavLink>
+                                  })}><FaTasks className='me-1' />All Products</NavLink>
                               </li>
 
                            </div>

@@ -28,7 +28,7 @@ import Header from '../../../../Shared/Header/Header';
 import Footer from '../../../../Shared/Footer/Footer';
 // import { CartContext } from '../../../../Context/CartContext';
 // import spinner from './../../../Assets/Images/Infinity-1s-200px.svg'
-const Power = () => {
+const BrotherShop = () => {
 
     
 
@@ -103,7 +103,7 @@ const Power = () => {
 
     // const managePost = questions?.filter(models => models?.role === true);
     const managePost = model?.filter(models => models?.shop
-        === 'Power Mall');
+        === 'brother');
     console.log(model)
     console.log(managePost)
     
@@ -123,7 +123,7 @@ const Power = () => {
             <Header></Header>
             
           <div className="container text-black mt-5 mb-5">
-          <h2 style={{fontWeight:"700"}}><span style={{color:"#D0425C"}}>TopUp</span> Fashion</h2>
+          {/* <h2 style={{fontWeight:"700"}}><span style={{color:"#D0425C"}}>Redviolet</span> Fashion</h2> */}
           
             <div className="row ">
                
@@ -263,4 +263,4 @@ const Power = () => {
     );
 };
 
-export default Power;
+export default BrotherShop;

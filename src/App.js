@@ -35,6 +35,17 @@ import OrderShow from './Pages/Home/BuyerDashboard/OrderShow/OrderShow';
 import Power from './Pages/Home/BestSellers/Shop/Power';
 import Topup from './Pages/Home/BestSellers/Shop/Topup';
 import Expert from './Pages/Home/BestSellers/Expert';
+import RajKonna from './Pages/Home/BestSellers/Shop/Rajkonna';
+import RedvioletShop from './Pages/Home/BestSellers/Shop/RedvioletShop';
+import BrotherShop from './Pages/Home/BestSellers/Shop/BrotherShop';
+import PotterDataUpload from './Pages/Dashboard/BuyerDashboard/PotterDataUpload/PotterDataUpload';
+import EditPotterData from './Pages/Dashboard/BuyerDashboard/PotterDataUpload/EditPotterData/EditPotterData';
+import BuyerAllProduct from './Pages/Home/BuyerProduct/BuyerAllProduct';
+import About from './Pages/Home/About/About';
+import AdminAllProductUpload from './Pages/Dashboard/AdminDashboard/AdminAllProductUpload/AdminAllProductUpload';
+import AdminAllProductShow from './Pages/Dashboard/AdminDashboard/AdminAllProductUpload/AdminAllProductShow';
+import AdminProductDetails from './Pages/Dashboard/AdminDashboard/AdminAllProductUpload/AdminProductDetails';
+import AdminProducts from './Pages/Dashboard/AdminDashboard/AdminProducts/AdminProducts';
 
 function App() {
   return (
@@ -61,9 +72,17 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/fashion" element={<FashionProductUpload />} />
               <Route path="/features" element={<FeaturesProductUpload />} />
+              <Route path="/buyerAllproduct" element={<BuyerAllProduct />} />
+              <Route path="/about" element={<About />} />
               <Route path="/powerShop" element={<Power />} />
               <Route path="/topShop" element={<Topup />} />
               <Route path="/expertShop" element={<Expert />} />
+              <Route path="/rajShop" element={<RajKonna />} />
+              <Route path="/redvioletShop" element={<RedvioletShop />} />
+              <Route path="/brother" element={<BrotherShop />} />
+             
+              <Route path="/adminproductshow" element={<AdminAllProductShow />} />
+              <Route path="/adminsproducts" element={<AdminProducts />} />
              
               <Route path="success/:id" element={<SuccessOrder />} />
              
@@ -71,6 +90,9 @@ function App() {
               <Route
               path="bookDetails/:id"
               element={<ProductDetails />}/>
+              <Route
+              path="adminbookDetails/:id"
+              element={<AdminProductDetails />}/>
 
               {/* buyer dashboard  */}
 
@@ -87,7 +109,11 @@ function App() {
               {/* <Route path="/dashboard/featuresProductUpload" element={<FeaturesProductUpload/>} /> */}
               <Route path="/dashboard/updateProduct" element={<BuyerProductUpdate />} />
               <Route path="/dashboard/customerorder" element={<OrderShow />} />
+              <Route path="/dashboard/potterDataUpload" element={<PotterDataUpload />} />
               <Route path="/dashboard/users/update/:id" element={<UpdateProducts />} />
+              <Route path="/dashboard/userspotter/updatepotter/:id" element={<EditPotterData />} />
+              <Route path="/dashboard/adminsproducts" element={<AdminProducts />} />
+              <Route path="/dashboard/adminAllProduct" element={<AdminAllProductUpload />} />
 
               </Route>
              {/* product categories  */}

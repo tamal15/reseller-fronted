@@ -17,7 +17,7 @@ const BuyerDashboard = () => {
         // data.userName = user.displayName
 
         data.buyerEmail = user.email
-        data.likeed = []
+        data.likes = []
         // data.status = 'Pending'
      
 
@@ -62,13 +62,13 @@ const BuyerDashboard = () => {
                                  
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
-                                className='w-75 mb-3'  {...register("sizing", { required: true })} placeholder='Size example : M' /> <br />
+                                className='w-75 mb-3'  {...register("sizing", { required: true })} placeholder='Size example :  S/M/L/XL/XXL' /> <br />
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("gender", { required: true })} placeholder='Gender' /> <br />
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
-                                className='w-75 mb-3'  {...register("categories", { required: true })} placeholder='categories' /> <br />
+                                className='w-75 mb-3'  {...register("categories", { required: true })} placeholder='Jamdani/TaterSharee/Pottery' /> <br />
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("shop", { required: true })} placeholder='Shop Name' /> <br />
@@ -78,10 +78,10 @@ const BuyerDashboard = () => {
 
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
-                                className='w-75 mb-3'  {...register("warrenty", { required: true })} placeholder='warrenty example : 1 month' />
+                                className='w-75 mb-3'  {...register("warrenty", { required: true })} placeholder='warrenty example : 1 month/6 month/9 month' />
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
-                                className='w-75 mb-3'  {...register("material", { required: true })} placeholder='Main Material example : silk' />
+                                className='w-75 mb-3'  {...register("material", { required: true })} placeholder='Main Material example : silk/Cotton/Half Silk/Katan/Tissure' />
                                 {/* <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("likes")} placeholder='likes' /> */}

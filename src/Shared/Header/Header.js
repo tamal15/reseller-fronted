@@ -73,8 +73,8 @@ const Header = () => {
     </Dropdown>
                             {/* </Nav> */}
                             <Nav.Link as={NavLink} to="/allSyllbus" className='menu-item'>Home</Nav.Link>
-                            <Nav.Link as={NavLink} to="/allBlogs" className='menu-item'>Product</Nav.Link>
-                            <Nav.Link as={NavLink} to="/allNotes" className='menu-item'>About</Nav.Link>
+                            <Nav.Link as={NavLink} to="/adminproductshow" className='menu-item'>Product</Nav.Link>
+                            <Nav.Link as={NavLink} to="/about" className='menu-item'>About</Nav.Link>
                            
                             <Nav.Link as={NavLink} to="/contact" className='menu-item'>Contact</Nav.Link>
                            <CartDrawer/>

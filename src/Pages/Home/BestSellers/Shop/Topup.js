@@ -103,7 +103,7 @@ const Topup = () => {
 
     // const managePost = questions?.filter(models => models?.role === true);
     const managePost = model?.filter(models => models?.shop
-        === 'Top Up');
+        === 'topup');
     console.log(model)
     console.log(managePost)
     

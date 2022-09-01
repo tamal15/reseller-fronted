@@ -19,15 +19,19 @@ import {
     Typography,
   } from "@mui/material";
 
-import { CartContext } from '../../../Context/CartContext';
+// import { CartContext } from '../../../Context/CartContext';
 
 import ReactPaginate from 'react-paginate';
-import Header from '../../../Shared/Header/Header';
-import Footer from '../../../Shared/Footer/Footer';
-import '../TaterSharee/TaterSharee.css'
-import useAuth from '../../../Hooks/useAuth';
+// import Header from '../../../Shared/Header/Header';
+// import Footer from '../../../Shared/Footer/Footer';
+// import '../TaterSharee/TaterSharee.css'
+import useAuth from '../../../../Hooks/useAuth';
+import Header from '../../../../Shared/Header/Header';
+import Footer from '../../../../Shared/Footer/Footer';
+import { CartContext } from '../../../../Context/CartContext';
+// import useAuth from '../../../Hooks/useAuth';
 
-const AllCategoriesSharee = () => {
+const AdminAllProductShow = () => {
 
     const [cart, setCart] = useContext(CartContext);
     const {user}=useAuth();
@@ -71,7 +75,7 @@ const AllCategoriesSharee = () => {
         setPage(data.selected);
     }
     const fetchData = () => {
-        fetch(`http://localhost:5000/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+        fetch(`http://localhost:5000/adminShowproduct?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
         .then(res => res.json())
         .then(data => {
             setQuestions(data.allQuestions)
@@ -86,7 +90,7 @@ const AllCategoriesSharee = () => {
       }, [categories, page,size,sizing,warrenty,material,size])
 
       const handleLike = (id) => {
-        fetch(`http://localhost:5000/like/${id}`, {
+        fetch(`http://localhost:5000/adminlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -105,7 +109,7 @@ const AllCategoriesSharee = () => {
     
       }
       const handleUnLike = (id) => {
-        fetch(`http://localhost:5000/unlike/${id}`, {
+        fetch(`http://localhost:5000/adminunlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -143,7 +147,7 @@ const AllCategoriesSharee = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/sharee')
+        fetch('http://localhost:5000/adminShowproduct')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
@@ -417,7 +421,7 @@ const AllCategoriesSharee = () => {
                      
 
                     <Typography variant="body">
-                        <h5 style={{ fontWeight: 700 }}> price : ${single?.ProductPrice}</h5>
+                        <h5 style={{ fontWeight: 700 }}> price : TK.{single?.ProductPrice}</h5>
                         
                       </Typography>
                     
@@ -447,18 +451,18 @@ const AllCategoriesSharee = () => {
                 </Grid>
                 <Box sx={{ display: 'flex', justifyContent: '' }}>
                   <NavLink
-                    to={`/bookDetails/${single._id}`}
+                    to={`/adminbookDetails/${single._id}`}
                     style={{ textDecoration: "none",textAlign:"left" }}
                   >
                     <Button
                      className='btn-style download-btn '
                      style={{textAlign:"left"}}
                     size="small">
-                      Details
+                      Check
                     </Button>
                   </NavLink>
                   <NavLink
-                    to={`/bookDetails/${single._id}`}
+                    to={`/adminbookDetails/${single._id}`}
                     className="details-show"
                     style={{ textDecoration: "none", marginRight: "4px" }}
                   >
@@ -525,4 +529,4 @@ const AllCategoriesSharee = () => {
     );
 };
 
-export default AllCategoriesSharee;
+export default AdminAllProductShow;

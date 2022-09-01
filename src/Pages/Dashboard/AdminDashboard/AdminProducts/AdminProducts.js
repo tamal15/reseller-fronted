@@ -17,35 +17,19 @@ import {
     Stack,
     Typography,
   } from "@mui/material";
-import useAuth from '../../../Hooks/useAuth';
-import { CartContext } from '../../../Context/CartContext';
-import './TaterSharee.css'
-import Header from '../../../Shared/Header/Header';
-import Footer from '../../../Shared/Footer/Footer';
+  
+// import useAuth from '../../../Hooks/useAuth';
+
+// import Header from '../../../Shared/Header/Header';
+// import Footer from '../../../Shared/Footer/Footer';
 import ReactPaginate from 'react-paginate';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import useAuth from '../../../../Hooks/useAuth';
 // import spinner from './../../../Assets/Images/Infinity-1s-200px.svg'
-const TaterSharee = () => {
+const AdminProducts = () => {
 
-    const [cart, setCart] = useContext(CartContext);
+ 
 
-    const handleAddToCart = (product) => {
-        const exists = cart.find(pd => pd._id === product._id);
-        let newCart = [];
-        if (exists) {
-            const rest = cart.filter(pd => pd._id !== product._id);
-            exists.quantity = exists.quantity + 1;
-            newCart = [...rest, product];
-        } else {
-            product.quantity = 1;
-            newCart = [...cart, product]
-
-        }
-        localStorage.setItem("productCart", JSON.stringify(newCart));
-        setCart(() => newCart);
-        alert('Add to Cart Successfully');
-    };
+   
 
     const [questions, setQuestions] = useState([]);
     const [model, setModel] = useState([]);
@@ -66,7 +50,6 @@ const TaterSharee = () => {
         setPage(data.selected);
     }
 
-  
     const {user}=useAuth()
     const userData = { email: user.email, name: user.displayName };
    
@@ -95,7 +78,7 @@ const TaterSharee = () => {
     // }, [type, year, code, page]);
 
     const fetchData = () => {
-      fetch('http://localhost:5000/sharee')
+      fetch('http://localhost:5000/adminShowproduct')
       .then(res => res.json())
       .then(data => {
           setQuestions(data.allQuestions)
@@ -112,53 +95,31 @@ const TaterSharee = () => {
       fetchData()
     }, [type, year, code, page])
 
+   
+    const handleDelete=(id)=>{
+        const proceed=window.confirm('are you sure, you want to delete');
+        fetch(`http://localhost:5000/deleteadmin/${id}`,{
+            method:'DELETE'
+        }).then(res=>res.json())
+        .then(data=>{
+            if(data.deletedCount>0){
+                alert('Delete')
+                const remaining=model.filter(service=>service._id !== id)
+                setQuestions(remaining)
+                setModel(remaining)
+            }
+        });
+        console.log(id)
+    }
+  
+
+
 
     useEffect(()=>{
-        fetch('http://localhost:5000/sharee')
+        fetch('http://localhost:5000/adminShowproduct')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
-
-
-    // like 
-    const handleLike = (id) => {
-      fetch(`http://localhost:5000/like/${id}`, {
-        method: "PUT",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(userData)
-      }).then(res => {
-        console.log(res)
-        if (res.status === 200) {
-          fetchData()
-          alert("Liked");
-        } else if (res.status === 400) {
-          alert("Already Liked");
-        } else {
-          alert("server error");
-        }
-      }).catch(err => console.log(err));
-  
-  
-    }
-    const handleUnLike = (id) => {
-      fetch(`http://localhost:5000/unlike/${id}`, {
-        method: "PUT",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(userData)
-      }).then(res => {
-  
-        if (res.status === 200) {
-          fetchData()
-          alert("Unlike");
-        } else if (res.status === 400) {
-          alert("Already Unlike");
-        } else {
-          alert("server error");
-        }
-      }).catch(err => console.log(err));
-  
-    }
-  
       
     const handleValue = (e) => {
       
@@ -177,11 +138,7 @@ const TaterSharee = () => {
       
     }
 
-    // const managePost = questions?.filter(models => models?.role === true);
-    const managePost = model?.filter(models => models?.categories
-        === 'taterSharee' || models.role==='admin');
-    console.log(model)
-    console.log(managePost)
+    
     
 
     const  handleSearch=(e)=>{
@@ -201,7 +158,7 @@ const TaterSharee = () => {
     <div>
         {/* <Header></Header> */}
           <div  style={{background:""}}>
-            <Header></Header>
+            {/* <Header></Header> */}
           <div className="container text-black mt-5 mb-5">
             <div className="row ">
                 <div className="col-md-4">
@@ -296,8 +253,8 @@ const TaterSharee = () => {
           sx={{ mt: 6 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-         {managePost?.map((single) => (
-            <Grid sx={{ py: 3 }} key={single._id} item xs={4} sm={4} md={3}>
+         {model?.map((single) => (
+            <Grid sx={{ py: 3 }} key={single._id} item xs={4} sm={4} md={4}>
               <Paper
                 sx={{
                   p: 1,
@@ -307,44 +264,32 @@ const TaterSharee = () => {
                   boxShadow: "0px 14px 22px rgb(42 135 158 / 50%)"
                 }}
               >
-                <Grid  container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
+                <Grid  container spacing={2} columns={{ xs: 4, sm: 8, md: 4 }}>
                   <Grid item xs={12} sm={12} md={12}>
-
                   <div className='photo'>
-                  <div className='photoShops'>
-
-                  <img height="230" width="250" style={{borderRadius:"15px"}} src={single?.img}></img>
-
-                  </div>
-                  </div>
-                 
-                    {/* <CardMedia
-                      component="img"
-                      sx={{ objectFit: "cover", height: 200 }}
-                      alt="complex"
-                      src={single?.img}
-                    /> */}
+                    <div className='photoShops'>
+                      <img height="230" width="250" style={{borderRadius:"15px"}} src={single?.img}></img>
+                   
+                    </div>
+                   </div>
                   </Grid>
                   <Grid item xs={2} sm={4} md={8} pl={2} my={3}>
                     <Box style={{textAlign:"left"}}>
                     <h5 style={{fontWeight:"700"}}>Name : {single?.productName}</h5>
 
-                      {/* <Typography variant="body">
-                        <span style={{ fontWeight: 700 }}> লেখক: </span>{" "}
-                        <span>{single?.author}</span>
-                      </Typography> */}
-                      {/* <br /> */}
+                     
 
-                      <Typography variant="body">
-                        <h5 style={{ fontWeight: 700 }}> price : ${single?.ProductPrice}</h5>
+                    <Typography variant="body">
+                        <h5 style={{ fontWeight: 700 }}> price : TK.{single?.ProductPrice}</h5>
                         
                       </Typography>
                       
                       <Typography variant="body">
-                        <h6 style={{ fontWeight: 700 }}> Brand :  {single?.categories} </h6>
+                        <span style={{ fontWeight: 700 }}> Brand :  {single?.categories} </span>
+                        
                        
                       </Typography>
-                     
+                      <br />
                       <Rating
                         name="half-rating-read"
                         style={{color:"#D0425C"}}
@@ -352,49 +297,29 @@ const TaterSharee = () => {
                         precision={0.5}
                         readOnly
                       />
-                      {/* like handler ================== */}
-                      <Box style={{display:"flex"}}>
-                      <Typography  style={{color:"#D0425C",fontWeight:"700"}}>
-                       <ThumbUpIcon className='likedesign' onClick={() => handleLike(single?._id)}></ThumbUpIcon>{single?.likes?.length}
-                       </Typography>
-                     
-                      <Typography> <ThumbDownIcon  className='ms-3 likedesign' onClick={() => handleUnLike(single?._id)}></ThumbDownIcon></Typography>
-                      </Box>
+
+                       
                     </Box>
                   </Grid>
                 </Grid>
-                <Box sx={{ display: 'flex', justifyContent: '' }}>
+                <Box sx={{ display: 'flex', justifyContent: 'right' }}>
                   <NavLink
-                    to={`/bookDetails/${single._id}`}
-                    style={{ textDecoration: "none",textAlign:"left" }}
+                    to={`/dashboard/userspotter/updatepotter/${single._id}`}
+                    style={{ textDecoration: "none", marginRight: "5px" }}
                   >
                     <Button
-                     className='btn-style download-btn '
-                     style={{textAlign:"left"}}
+                     className='btn-style download-btn'
                     size="small">
-                      Details
-                    </Button>
-                  </NavLink>
-                  <NavLink
-                    to={`/bookDetails/${single._id}`}
-                    className="details-show"
-                    style={{ textDecoration: "none", marginRight: "4px" }}
-                  >
-                    <Button
-                     className='btn-style download-btn details-show'
-                     style={{padding:"5px"}}
-                    size="small">
-                      Details
+                      Edit
                     </Button>
                   </NavLink>
                   <Button
                   className='btn-style download-btn'
                     size="small"
                     // sx={ButtonStyle}
-                    style={{textAlign:"left"}}
-                    onClick={() => handleAddToCart(single)}
+                    onClick={()=>handleDelete(single?._id)}
                   >
-                    Add cart
+                    Delete
                   </Button>
                 </Box>
               </Paper>
@@ -403,7 +328,7 @@ const TaterSharee = () => {
         </Grid>
                             {/* </div> */}
                     
-                 </div>
+                </div>
 
                 <div className="d-flex mt-5">
                     <div className='mx-auto'>
@@ -437,10 +362,10 @@ const TaterSharee = () => {
 
 
         </div >
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
       </div>
     </div>
     );
 };
 
-export default TaterSharee;
+export default AdminProducts;

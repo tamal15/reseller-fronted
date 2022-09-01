@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 // import QuestionCart from './QuestionCart';
 import { NavLink } from "react-router-dom";
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+// import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 
 // import useAuth from '../../hooks/useAuth';
@@ -22,10 +22,13 @@ import {
 // import './PotteryProduct.css'
 
 import ReactPaginate from 'react-paginate';
-import useAuth from '../../Hooks/useAuth';
+// import useAuth from '../../Hooks/useAuth';
 import Header from '../../Shared/Header/Header';
 import Footer from '../../Shared/Footer/Footer';
 import { CartContext } from '../../Context/CartContext';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import useAuth from '../../Hooks/useAuth';
 
 const PotteryProduct = () => {
 
@@ -69,6 +72,7 @@ const PotteryProduct = () => {
     }
 
     const {user}=useAuth()
+    const userData = { email: user.email, name: user.displayName };
    
     // checkbox er value true or false return kore
 
@@ -78,23 +82,44 @@ const PotteryProduct = () => {
     //         .then(data => setQuestions(data.PotteryProduct))
     // }, [])
 
-    useEffect(() => {
-        console.log(type, year, code)
-        fetch('http://localhost:5000/getPotter')
-            .then(res => res.json())
-            .then(data => {
-              setQuestions(data.allQuestions)
-              setModel(data.allQuestions)
-                // console.log(data.allQuestions)
-                // console.log(data.allQuestions)
-                // setSearchValue(data.PotteryProducts)
-                // console.log(data)
+    // useEffect(() => {
+    //     console.log(type, year, code)
+    //     fetch('http://localhost:5000/getPotter')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //           setQuestions(data.allQuestions)
+    //           setModel(data.allQuestions)
+    //             // console.log(data.allQuestions)
+    //             // console.log(data.allQuestions)
+    //             // setSearchValue(data.PotteryProducts)
+    //             // console.log(data)
 
-                const count = data.count;
-                const pageNumber = Math.ceil(count / size)
-                setPageCount(pageNumber)
-            })
-    }, [type, year, code, page]);
+    //             const count = data.count;
+    //             const pageNumber = Math.ceil(count / size)
+    //             setPageCount(pageNumber)
+    //         })
+    // }, [type, year, code, page]);
+
+    const fetchData = () => {
+      // console.log(type, year, code,page)
+      fetch('http://localhost:5000/getPotter')
+          .then(res => res.json())
+          .then(data => {
+            setQuestions(data.allQuestions)
+            setModel(data.allQuestions)
+              // console.log(data.allQuestions)
+              // console.log(data.allQuestions)
+              // setSearchValue(data.PotteryProducts)
+              // console.log(data)
+
+              const count = data.count;
+              const pageNumber = Math.ceil(count / size)
+              setPageCount(pageNumber)
+          })
+    }
+    useEffect(() => {
+      fetchData()
+    }, [type, year, code, page])
 
 
     useEffect(()=>{
@@ -102,6 +127,47 @@ const PotteryProduct = () => {
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
+
+    const handleLike = (id) => {
+      fetch(`http://localhost:5000/potterlike/${id}`, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(userData)
+      }).then(res => {
+        console.log(res)
+        if (res.status === 200) {
+          fetchData()
+          alert("Liked");
+        } else if (res.status === 400) {
+          alert("Already Liked");
+        } else {
+          alert("server error");
+        }
+      }).catch(err => console.log(err));
+  
+  
+    }
+    const handleUnLike = (id) => {
+      fetch(`http://localhost:5000/potterunlike/${id}`, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(userData)
+      }).then(res => {
+  
+        if (res.status === 200) {
+          fetchData()
+          alert("Unlike");
+        } else if (res.status === 400) {
+          alert("Already Unlike");
+        } else {
+          alert("server error");
+        }
+      }).catch(err => console.log(err));
+  
+    }
+  
+
+
     // useEffect(()=>{
     //     fetch('http://localhost:5000/likes')
     //     .then(res=>res.json())
@@ -119,7 +185,7 @@ const PotteryProduct = () => {
         // console.log(questions)
         const newValue = model?.filter(ques => ques?.productName?.toLocaleLowerCase()?.includes(searchValue))
         
-        // console.log(newValue)
+        console.log(newValue)
         // newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
         // console.log(newValue)
         setModel(newValue)
@@ -149,23 +215,7 @@ const PotteryProduct = () => {
 
       // useEffect(()=>{
 
-        const likepost=(id)=>{
-          fetch(`http://localhost:5000/like/${id}`, {
-              method: "PUT",
-              headers: { "content-type": "application/json" },
-              body: JSON.stringify(user),
-          })
-              .then((res) => res.json())
-              .then((result) => {
-                console.log(result)
-                  // if(result.insertedId){
-                  //     alert('added successfully');
-                     
-                  // }
-                  
-              });
-      
-         }
+        
 
       // },[])
        
@@ -270,7 +320,7 @@ const PotteryProduct = () => {
           sx={{ mt: 6 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-         {questions?.map((single) => (
+         {model?.map((single) => (
             <Grid sx={{ py: 3 }} key={single._id} item xs={4} sm={4} md={3}>
               <Paper
                 sx={{
@@ -278,7 +328,7 @@ const PotteryProduct = () => {
                   margin: "auto",
                   maxWidth: 500,
                   flexGrow: 1,
-                  boxShadow: "0px 14px 22px rgb(42 135 158 / 20%)"
+                  boxShadow: "0px 14px 22px rgb(42 135 158 / 50%)"
                 }}
               >
                 <Grid  container spacing={2} columns={{ xs: 4, sm: 8, md: 4 }}>
@@ -307,10 +357,19 @@ const PotteryProduct = () => {
                     
                       <Rating
                         name="half-rating-read"
+                        style={{color:"#D0425C"}}
                         defaultValue={single?.rating}
                         precision={0.5}
                         readOnly
                       />
+                        {/* like handler ================== */}
+                        <Box style={{display:"flex"}}>
+                      <Typography  style={{color:"#D0425C",fontWeight:"700"}}>
+                       <ThumbUpIcon className='likedesign' onClick={() => handleLike(single?._id)}></ThumbUpIcon>{single?.likes?.length}
+                       </Typography>
+                     
+                      <Typography> <ThumbDownIcon  className='ms-3 likedesign' onClick={() => handleUnLike(single?._id)}></ThumbDownIcon></Typography>
+                      </Box>
                     </Box>
                   </Grid>
                 </Grid>

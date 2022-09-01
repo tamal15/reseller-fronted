@@ -120,11 +120,11 @@ const BestSellers = () => {
             
             <Box style={{padding:"10px",textAlign:"",fontWeight:"700",marginTop:"30px",marginBottom:"10px"}}>
             {/* <h6 style={{fontSize:"15px"}}>  {reviews.name} </h6> */}
-            {/* {reviews.productName} */}<a  href='/expertShop' className="visits"  style={{background:"", color:"black"}}>Top Up</a>
+            {/* {reviews.productName} */}<a  href='/topShop' className="visits"  style={{background:"", color:"black"}}>Top Up</a>
             
             <br></br>
             
-            <a  style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href='/expertShop' className="visitShop mt-2">Visit</a></a>
+            <a  style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href='/topShop' className="visitShop mt-2">Visit</a></a>
             <p>
             
             </p>
@@ -188,11 +188,11 @@ const BestSellers = () => {
             
             <Box style={{padding:"10px",textAlign:"",fontWeight:"700",marginTop:"30px",marginBottom:"10px"}}>
             {/* <h6 style={{fontSize:"15px"}}>  {reviews.name} </h6> */}
-            {/* {reviews.productName} */}<a  href='/expertShop' className="visits"  style={{background:"", color:"black"}}>Power</a>
+            {/* {reviews.productName} */}<a  href='/powerShop' className="visits"  style={{background:"", color:"black"}}>Power</a>
             
             <br></br>
             
-            <a style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href='/expertShop' className="visitShop">Visit</a></a>
+            <a style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href='/powerShop' className="visitShop">Visit</a></a>
             <p>
             
             </p>
@@ -307,7 +307,7 @@ const BestSellers = () => {
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
                <img height="140" width="110" style={{borderRadius:""}}
-                src='https://i.ibb.co/8sSFzGb/rocket-1.png'
+                src='https://storage.googleapis.com/monarchmart-storage/uploads/all/L08qfQvzkmjys8mLnw76ZTyvqhrGM0nJWKE9VNd0.jpg'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -323,11 +323,11 @@ const BestSellers = () => {
             
             <Box style={{padding:"10px",textAlign:"",fontWeight:"700",marginTop:"30px",marginBottom:"10px"}}>
             {/* <h6 style={{fontSize:"15px"}}>  {reviews.name} </h6> */}
-            {/* {reviews.productName} */}<a style={{background:"", color:"black"}}>Bata</a>
+            {/* {reviews.productName} */}<a href='/rajShop' className="visits" style={{background:"", color:"black"}}>RajKonna</a>
             
             {/* <br></br> */}
             
-            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a className="visitShop">Visit</a></p>
+            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href='/rajShop' className="visitShop">Visit</a></p>
             <p>
             
             </p>
@@ -374,8 +374,8 @@ const BestSellers = () => {
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', width:"200px" }}>
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
-               <img height="140" width="110" style={{borderRadius:""}}
-                src='https://i.ibb.co/8sSFzGb/rocket-1.png'
+               <img className="mt-3" height="90" width="110" style={{borderRadius:""}}
+                src='https://monarchmart.com/uploads/all/Ol5SclwbgX1ziihhK3rnxLSJdPzr0BrnCXpqaDhP.jpg'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -391,11 +391,11 @@ const BestSellers = () => {
             
             <Box style={{padding:"10px",textAlign:"",fontWeight:"700",marginTop:"30px",marginBottom:"10px"}}>
             {/* <h6 style={{fontSize:"15px"}}>  {reviews.name} </h6> */}
-            {/* {reviews.productName} */}<a style={{background:"", color:"black"}}>Bata</a>
+            {/* {reviews.productName} */}<a href='/redvioletShop' className="visits" style={{background:"", color:"black"}}>Redviolet</a>
             
             {/* <br></br> */}
             
-            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a className="visitShop">Visit</a></p>
+            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href='/redvioletShop' className="visitShop">Visit</a></p>
             <p>
             
             </p>
@@ -425,7 +425,7 @@ const BestSellers = () => {
                          <Box>
             
 
-            <SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
+                         <SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
             
             {/* <Paper
                             sx={{
@@ -440,8 +440,8 @@ const BestSellers = () => {
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', width:"200px" }}>
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
-               <img height="140" width="110" style={{borderRadius:""}}
-                src='https://i.ibb.co/8sSFzGb/rocket-1.png'
+               <img className="mt-3" height="80" width="110" style={{borderRadius:""}}
+                src='https://monarchmart.com/uploads/all/AzmG4jmLq0Egc1e1yL1MurJt8P5Cx7PK59AOcYje.jpg'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -457,11 +457,11 @@ const BestSellers = () => {
             
             <Box style={{padding:"10px",textAlign:"",fontWeight:"700",marginTop:"30px",marginBottom:"10px"}}>
             {/* <h6 style={{fontSize:"15px"}}>  {reviews.name} </h6> */}
-            {/* {reviews.productName} */}<a style={{background:"", color:"black"}}>Bata</a>
+            {/* {reviews.productName} */}<a href='/brother' className="visits" style={{background:"", color:"black"}}>Brothers</a>
             
             {/* <br></br> */}
             
-            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a className="visitShop">Visit</a></p>
+            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href='/brother' className="visitShop">Visit</a></p>
             <p>
             
             </p>
@@ -556,58 +556,58 @@ const BestSellers = () => {
              <Box>
             
 
-<SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
-
-{/* <Paper
-                sx={{
-                  p: 1,
-                  margin: "auto",
-                //   maxWidth: 400,
-                  flexGrow: 1,
-                  boxShadow: "0px 10px 22px rgb(42 135 158 / 30%)"
-                }}
-              > */}
-
-<div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', width:"200px" }}>
- 
- <Box sx={{ display: "flex", justifyContent: "center" }}>
-   <img height="140" width="110" style={{borderRadius:""}}
-    src='https://i.ibb.co/8sSFzGb/rocket-1.png'
-     sx={{
-       width: 0,
-       borderRadius:"100%",
-       height: 30,
-       padding:"2px",
-       border: "1px solid lightgray",
-       marginBottom:"10px",
-       
-       marginTop:"10px"
-     }}
-   />
- </Box>
-
-<Box style={{padding:"10px",textAlign:"",fontWeight:"700",marginTop:"30px",marginBottom:"10px"}}>
-{/* <h6 style={{fontSize:"15px"}}>  {reviews.name} </h6> */}
-{/* {reviews.productName} */}<a style={{background:"", color:"black"}}>Bata</a>
-
-{/* <br></br> */}
-
-<p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href="" className="visitShop">Visit</a></p>
-<p>
-
-</p>
-
-</Box>
- </div>
-
-
-
-              {/* </Paper> */}
-              
-           
-         
-                
-             </SwiperSlide>
+             <SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
+            
+            {/* <Paper
+                            sx={{
+                              p: 1,
+                              margin: "auto",
+                            //   maxWidth: 400,
+                              flexGrow: 1,
+                              boxShadow: "0px 10px 22px rgb(42 135 158 / 30%)"
+                            }}
+                          > */}
+            
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', width:"200px" }}>
+             
+             <Box sx={{ display: "flex", justifyContent: "center" }}>
+               <img className="mt-3" height="120" width="110" style={{borderRadius:""}}
+                src='https://monarchmart.com/uploads/all/Mz8HGE1s4NSeVAZcIaykqekDXY3LI0IaYeG3S7Ie.png'
+                 sx={{
+                   width: 0,
+                   borderRadius:"100%",
+                   height: 30,
+                   padding:"2px",
+                   border: "1px solid lightgray",
+                   marginBottom:"10px",
+                   
+                   marginTop:"10px"
+                 }}
+               />
+             </Box>
+            
+            <Box style={{padding:"10px",textAlign:"",fontWeight:"700",marginTop:"30px",marginBottom:"10px"}}>
+            {/* <h6 style={{fontSize:"15px"}}>  {reviews.name} </h6> */}
+            {/* {reviews.productName} */}<a href='/redvioletShop' className="visits" style={{background:"", color:"black"}}>Skmei</a>
+            
+            {/* <br></br> */}
+            
+            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href='/redvioletShop' className="visitShop">Visit</a></p>
+            <p>
+            
+            </p>
+            
+            </Box>
+             </div>
+            
+            
+            
+                          {/* </Paper> */}
+                          
+                       
+                     
+                            
+                         </SwiperSlide>
 
 
 
@@ -624,7 +624,7 @@ const BestSellers = () => {
              <Box>
             
 
-            <SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
+             <SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
             
             {/* <Paper
                             sx={{
@@ -639,8 +639,8 @@ const BestSellers = () => {
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', width:"200px" }}>
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
-               <img height="140" width="110" style={{borderRadius:""}}
-                src='https://i.ibb.co/8sSFzGb/rocket-1.png'
+               <img className="mt-3" height="120" width="110" style={{borderRadius:""}}
+                src='https://monarchmart.com/uploads/all/BYSnRdnTYnmlaQFOWy4DznrR4KHZlkHlYLnmykyv.png'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -656,11 +656,11 @@ const BestSellers = () => {
             
             <Box style={{padding:"10px",textAlign:"",fontWeight:"700",marginTop:"30px",marginBottom:"10px"}}>
             {/* <h6 style={{fontSize:"15px"}}>  {reviews.name} </h6> */}
-            {/* {reviews.productName} */}<a style={{background:"", color:"black"}}>Bata</a>
+            {/* {reviews.productName} */}<a href='/expertShop' className="visits" style={{background:"", color:"black"}}>DeshiShop</a>
             
             {/* <br></br> */}
             
-            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a className="visitShop">Visit</a></p>
+            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href='/expertShop' className="visitShop">Visit</a></p>
             <p>
             
             </p>
@@ -691,7 +691,7 @@ const BestSellers = () => {
                          <Box>
             
 
-            <SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
+                         <SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
             
             {/* <Paper
                             sx={{
@@ -706,8 +706,8 @@ const BestSellers = () => {
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', width:"200px" }}>
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
-               <img height="140" width="110" style={{borderRadius:""}}
-                src='https://i.ibb.co/8sSFzGb/rocket-1.png'
+               <img className="mt-3" height="120" width="110" style={{borderRadius:""}}
+                src='https://monarchmart.com/uploads/all/L5kLubP078w7iJieDKKMdnIuvZSoQDAZrTaVl8Nw.png'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -723,11 +723,11 @@ const BestSellers = () => {
             
             <Box style={{padding:"10px",textAlign:"",fontWeight:"700",marginTop:"30px",marginBottom:"10px"}}>
             {/* <h6 style={{fontSize:"15px"}}>  {reviews.name} </h6> */}
-            {/* {reviews.productName} */}<a style={{background:"", color:"black"}}>Bata</a>
+            {/* {reviews.productName} */}<a href='/PowerShop' className="visits" style={{background:"", color:"black"}}>Zabeenbd</a>
             
             {/* <br></br> */}
             
-            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a className="visitShop">Visit</a></p>
+            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href='/PowerShop' className="visitShop">Visit</a></p>
             <p>
             
             </p>
@@ -759,7 +759,7 @@ const BestSellers = () => {
                          <Box>
             
 
-            <SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
+                         <SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
             
             {/* <Paper
                             sx={{
@@ -774,8 +774,8 @@ const BestSellers = () => {
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', width:"200px" }}>
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
-               <img height="140" width="110" style={{borderRadius:""}}
-                src='https://i.ibb.co/8sSFzGb/rocket-1.png'
+               <img className="mt-4" height="80" width="110" style={{borderRadius:""}}
+                src='https://monarchmart.com/uploads/all/QjkFqDMZTmXhIcpAgQKv7LvVugSvIMvUNJggLEAu.jpg'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -791,11 +791,11 @@ const BestSellers = () => {
             
             <Box style={{padding:"10px",textAlign:"",fontWeight:"700",marginTop:"30px",marginBottom:"10px"}}>
             {/* <h6 style={{fontSize:"15px"}}>  {reviews.name} </h6> */}
-            {/* {reviews.productName} */}<a style={{background:"", color:"black"}}>Bata</a>
+            {/* {reviews.productName} */}<a href='/topShop' className="visits" style={{background:"", color:"black"}}>Hobby</a>
             
             {/* <br></br> */}
             
-            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a className="visitShop">Visit</a></p>
+            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href='/topShop' className="visitShop">Visit</a></p>
             <p>
             
             </p>
@@ -827,7 +827,7 @@ const BestSellers = () => {
                          <Box>
             
 
-            <SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
+                         <SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
             
             {/* <Paper
                             sx={{
@@ -842,8 +842,8 @@ const BestSellers = () => {
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', width:"200px" }}>
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
-               <img height="140" width="110" style={{borderRadius:""}}
-                src='https://i.ibb.co/8sSFzGb/rocket-1.png'
+               <img className="mt-4" height="90" width="110" style={{borderRadius:""}}
+                src='https://monarchmart.com/uploads/all/c9WIvBseK1cjauOYofu04NPZhnsCJxzKCRdBLKc6.jpg'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -859,11 +859,11 @@ const BestSellers = () => {
             
             <Box style={{padding:"10px",textAlign:"",fontWeight:"700",marginTop:"30px",marginBottom:"10px"}}>
             {/* <h6 style={{fontSize:"15px"}}>  {reviews.name} </h6> */}
-            {/* {reviews.productName} */}<a style={{background:"", color:"black"}}>Bata</a>
+            {/* {reviews.productName} */}<a href='/rajShop' className="visits" style={{background:"", color:"black"}}>L4Fashion</a>
             
             {/* <br></br> */}
             
-            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a className="visitShop">Visit</a></p>
+            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href='/rajShop' className="visitShop">Visit</a></p>
             <p>
             
             </p>
@@ -893,7 +893,7 @@ const BestSellers = () => {
                          <Box>
             
 
-            <SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
+                         <SwiperSlide className="" style={{width:"300px",  background:" ",padding:"12px",borderRadius:"12px"}}>  
             
             {/* <Paper
                             sx={{
@@ -908,8 +908,8 @@ const BestSellers = () => {
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', width:"200px" }}>
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
-               <img height="140" width="110" style={{borderRadius:""}}
-                src='https://i.ibb.co/8sSFzGb/rocket-1.png'
+               <img className="" height="150" width="110" style={{borderRadius:""}}
+                src='https://monarchmart.com/uploads/all/TqO70AeAHPErgfXb6oxTRxaGO3xjyH2n0JT9LbYQ.jpg'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -925,11 +925,11 @@ const BestSellers = () => {
             
             <Box style={{padding:"10px",textAlign:"",fontWeight:"700",marginTop:"30px",marginBottom:"10px"}}>
             {/* <h6 style={{fontSize:"15px"}}>  {reviews.name} </h6> */}
-            {/* {reviews.productName} */}<a style={{background:"", color:"black"}}>Bata</a>
+            {/* {reviews.productName} */}<a href='/rajShop' className="visits" style={{background:"", color:"black"}}>Sara</a>
             
             {/* <br></br> */}
             
-            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a className="visitShop">Visit</a></p>
+            <p style={{fontSize:"16px",textAlign:"",fontWeight:"700",marginTop:"5px"}}><a href='/rajShop' className="visitShop">Visit</a></p>
             <p>
             
             </p>
