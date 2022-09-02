@@ -46,6 +46,7 @@ import AdminAllProductUpload from './Pages/Dashboard/AdminDashboard/AdminAllProd
 import AdminAllProductShow from './Pages/Dashboard/AdminDashboard/AdminAllProductUpload/AdminAllProductShow';
 import AdminProductDetails from './Pages/Dashboard/AdminDashboard/AdminAllProductUpload/AdminProductDetails';
 import AdminProducts from './Pages/Dashboard/AdminDashboard/AdminProducts/AdminProducts';
+import UserOrders from './Pages/Dashboard/AdminDashboard/UserOrders/UserOrders';
 
 function App() {
   return (
@@ -109,6 +110,7 @@ function App() {
               {/* <Route path="/dashboard/featuresProductUpload" element={<FeaturesProductUpload/>} /> */}
               <Route path="/dashboard/updateProduct" element={<BuyerProductUpdate />} />
               <Route path="/dashboard/customerorder" element={<OrderShow />} />
+              <Route path="/dashboard/usercustomerorder" element={<UserOrders />} />
               <Route path="/dashboard/potterDataUpload" element={<PotterDataUpload />} />
               <Route path="/dashboard/users/update/:id" element={<UpdateProducts />} />
               <Route path="/dashboard/userspotter/updatepotter/:id" element={<EditPotterData />} />

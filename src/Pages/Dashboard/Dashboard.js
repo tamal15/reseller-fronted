@@ -116,6 +116,11 @@ const Dashboard = () => {
                                       color: isActive ? "#CCCCCC" : "#CCCCCC",
                                   })}><FaTasks className='me-1' />All Products</NavLink>
                               </li>
+                              <li>
+                                  <NavLink className="des " to={`usercustomerorder`} style={({ isActive }) => ({
+                                      color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                  })}><FaTasks className='me-1' />User Products</NavLink>
+                              </li>
 
                            </div>
                            
