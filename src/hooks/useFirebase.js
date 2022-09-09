@@ -116,7 +116,7 @@ const registerUser = (email, password, name,client, location, navigate) => {
   // save user to database 
   const sendUser = (email, displayName,client,method) => {
     const user = { email, displayName,client };
-    fetch('http://localhost:5000/users', {
+    fetch('https://boiling-coast-70144.herokuapp.com/users', {
       method: method,
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(user)
@@ -145,7 +145,7 @@ const registerUser = (email, password, name,client, location, navigate) => {
 
   // buyer CONDITIONAL DATALOAD
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://boiling-coast-70144.herokuapp.com/users/${user.email}`)
       .then(res => res.json())
       .then(data => {
         setBuyer(data?.buyer)
@@ -154,7 +154,7 @@ const registerUser = (email, password, name,client, location, navigate) => {
 
  // admin role the database 
  useEffect(()=>{
-  fetch(`http://localhost:5000/userLogin/${user.email}`)
+  fetch(`https://boiling-coast-70144.herokuapp.com/userLogin/${user.email}`)
   .then(res=>res.json())
   .then(data=>setAdmin(data?.admin))
 },[user.email])

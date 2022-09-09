@@ -71,7 +71,7 @@ const AllCategoriesSharee = () => {
         setPage(data.selected);
     }
     const fetchData = () => {
-        fetch(`http://localhost:5000/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+        fetch(`https://boiling-coast-70144.herokuapp.com/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
         .then(res => res.json())
         .then(data => {
             setQuestions(data.allQuestions)
@@ -86,7 +86,7 @@ const AllCategoriesSharee = () => {
       }, [categories, page,size,sizing,warrenty,material,size])
 
       const handleLike = (id) => {
-        fetch(`http://localhost:5000/like/${id}`, {
+        fetch(`https://boiling-coast-70144.herokuapp.com/like/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -105,7 +105,7 @@ const AllCategoriesSharee = () => {
     
       }
       const handleUnLike = (id) => {
-        fetch(`http://localhost:5000/unlike/${id}`, {
+        fetch(`https://boiling-coast-70144.herokuapp.com/unlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -130,7 +130,7 @@ const AllCategoriesSharee = () => {
 
 //     useEffect(() => {
 //       // console.log(department, year, semester)
-//       fetch(`http://localhost:5000/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+//       fetch(`https://boiling-coast-70144.herokuapp.com/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
 //           .then(res => res.json())
 //           .then(data => {
 //               setQuestions(data.allQuestions)
@@ -143,7 +143,7 @@ const AllCategoriesSharee = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/sharee')
+        fetch('https://boiling-coast-70144.herokuapp.com/sharee')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
@@ -225,7 +225,7 @@ const AllCategoriesSharee = () => {
                             <h5 className='text-white texts-design'>Brand</h5>
                            <div className="form-check align-items-center me-3">
                                 <input className="form-check-input" type="checkbox" value="jamdani" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-5 text-black" for="flexCheckDefault">
+                                <label className="form-check-label fw-bold all text-black me-4" for="flexCheckDefault">
                                     Jamdani
                                 </label>
                             </div>

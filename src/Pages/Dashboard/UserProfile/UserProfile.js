@@ -11,7 +11,7 @@ const UserProfile = () => {
     const [userInfo, setUserInfo] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/updateUser/${user.email}`)
+        fetch(`https://boiling-coast-70144.herokuapp.com/updateUser/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setUserInfo(data)

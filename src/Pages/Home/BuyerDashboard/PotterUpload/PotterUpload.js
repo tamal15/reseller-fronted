@@ -22,7 +22,7 @@ const PotterUpload = () => {
         // data.status = 'Pending'
      
 
-        fetch("http://localhost:5000/postPotter", {
+        fetch("https://boiling-coast-70144.herokuapp.com/postPotter", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

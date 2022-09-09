@@ -22,7 +22,7 @@ const AdminAllProductUpload = () => {
         // data.status = 'Pending'
      
 
-        fetch("http://localhost:5000/postadminProduct", {
+        fetch("https://boiling-coast-70144.herokuapp.com/postadminProduct", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

@@ -20,7 +20,7 @@ const SuccessOrder = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${id}`)
+        fetch(`https://boiling-coast-70144.herokuapp.com/orders/${id}`)
             .then(res => res.json())
             .then(data => {
                 setBook(data);

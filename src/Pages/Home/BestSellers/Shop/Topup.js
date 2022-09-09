@@ -56,14 +56,14 @@ const Topup = () => {
     // checkbox er value true or false return kore
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/TaterSharees')
+    //     fetch('https://boiling-coast-70144.herokuapp.com/TaterSharees')
     //         .then(res => res.json())
     //         .then(data => setQuestions(data.TaterSharee))
     // }, [])
 
     useEffect(() => {
         console.log(type)
-        fetch('http://localhost:5000/sharee')
+        fetch('https://boiling-coast-70144.herokuapp.com/sharee')
             .then(res => res.json())
             .then(data => {
                 setQuestions(data.allQuestions)
@@ -79,7 +79,7 @@ const Topup = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/sharee')
+        fetch('https://boiling-coast-70144.herokuapp.com/sharee')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])

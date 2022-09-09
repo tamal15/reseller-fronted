@@ -34,7 +34,7 @@ const ProductBuyer = () => {
    
 
     useEffect(()=>{
-      fetch(`http://localhost:5000/buyerproducts/${user?.email}`)
+      fetch(`https://boiling-coast-70144.herokuapp.com/buyerproducts/${user?.email}`)
       .then(res=>res.json())
       .then(data=>setService(data))
   },[user?.email])
@@ -42,7 +42,7 @@ const ProductBuyer = () => {
 
     const handleDelete=(id)=>{
       const proceed=window.confirm('are you sure, you want to delete');
-      fetch(`http://localhost:5000/deleteProduct/${id}`,{
+      fetch(`https://boiling-coast-70144.herokuapp.com/deleteProduct/${id}`,{
           method:'DELETE'
       }).then(res=>res.json())
       .then(data=>{

@@ -53,7 +53,7 @@ const BuyerAllProduct = () => {
     //   },[])
 
     const fetchData = () => {
-      fetch('http://localhost:5000/postBuyer')
+      fetch('https://boiling-coast-70144.herokuapp.com/postBuyer')
         .then(res => res.json())
         // .then(data => setWork(data))
         .then(data => {
@@ -70,7 +70,7 @@ const BuyerAllProduct = () => {
 
 
     const handleLike = (id) => {
-      fetch(`http://localhost:5000/like/${id}`, {
+      fetch(`https://boiling-coast-70144.herokuapp.com/like/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -89,7 +89,7 @@ const BuyerAllProduct = () => {
   
     }
     const handleUnLike = (id) => {
-      fetch(`http://localhost:5000/unlike/${id}`, {
+      fetch(`https://boiling-coast-70144.herokuapp.com/unlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)

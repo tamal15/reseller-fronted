@@ -32,7 +32,7 @@ const PaymentFrom = () => {
     reset({
       cus_name: user.displayName,
       cus_email: user.email,
-      date: new Date().toLocaleDateString(),
+      date: new Date().toLocaleDateString()
     });
   }, [reset, user.displayName, user.email]);
 
@@ -44,7 +44,7 @@ const PaymentFrom = () => {
       status: "Pending",
     };
     axios
-      .post('http://localhost:5000/init', paymentData)
+      .post('https://boiling-coast-70144.herokuapp.com/init', paymentData)
       .then((res) => {
         window.location.replace(res?.data);
         localStorage.removeItem('productCart');

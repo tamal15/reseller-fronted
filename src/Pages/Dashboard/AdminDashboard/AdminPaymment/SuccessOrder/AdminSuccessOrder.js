@@ -20,7 +20,7 @@ const AdminSuccessOrder = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/adminorders/${id}`)
+        fetch(`https://boiling-coast-70144.herokuapp.com/adminorders/${id}`)
             .then(res => res.json())
             .then(data => {
                 setBook(data);

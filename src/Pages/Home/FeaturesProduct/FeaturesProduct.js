@@ -18,7 +18,7 @@ const FeaturesProduct = () => {
 //  const {user}=useAuth()
   const [review,setReview]=useState([])
   useEffect(()=>{
-    fetch('http://localhost:5000/features')
+    fetch('https://boiling-coast-70144.herokuapp.com/features')
     .then(res=>res.json())
     .then(data=>setReview(data))
   },[])

@@ -56,7 +56,7 @@ import Footer from "../../../Shared/Footer/Footer";
     const [isFetched, setIsFetched] = useState(0);
   
     useEffect(() => {
-      fetch(`http://localhost:5000/product/${id}`)
+      fetch(`https://boiling-coast-70144.herokuapp.com/product/${id}`)
         .then((res) => res.json())
         .then((data) => setBook(data));
     }, [id]);
@@ -72,7 +72,7 @@ import Footer from "../../../Shared/Footer/Footer";
     const onSubmit = (data) => {
         console.log(data);
 
-        fetch("http://localhost:5000/review", {
+        fetch("https://boiling-coast-70144.herokuapp.com/review", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

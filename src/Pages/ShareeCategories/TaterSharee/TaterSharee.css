@@ -127,16 +127,23 @@
 }
 
 /* .all{
-    margin-left: -70px;
+    margin-left: 10px;
 } */
+@media (max-width:393px) {
+    .all {
+        margin-left: 10px;
+    }
 
-@media (max-width:760px) {
+    
+}
+
+/* @media (max-width:760px) {
     .all {
         margin-left: -170px;
     }
 
     
-}
+} */
 
 @media (max-width:768px) {
     .details-show {

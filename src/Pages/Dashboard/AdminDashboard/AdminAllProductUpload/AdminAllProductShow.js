@@ -75,7 +75,7 @@ const AdminAllProductShow = () => {
         setPage(data.selected);
     }
     const fetchData = () => {
-        fetch(`http://localhost:5000/adminShowproduct?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+        fetch(`https://boiling-coast-70144.herokuapp.com/adminShowproduct?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
         .then(res => res.json())
         .then(data => {
             setQuestions(data.allQuestions)
@@ -90,7 +90,7 @@ const AdminAllProductShow = () => {
       }, [categories, page,size,sizing,warrenty,material,size])
 
       const handleLike = (id) => {
-        fetch(`http://localhost:5000/adminlike/${id}`, {
+        fetch(`https://boiling-coast-70144.herokuapp.com/adminlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -109,7 +109,7 @@ const AdminAllProductShow = () => {
     
       }
       const handleUnLike = (id) => {
-        fetch(`http://localhost:5000/adminunlike/${id}`, {
+        fetch(`https://boiling-coast-70144.herokuapp.com/adminunlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -134,7 +134,7 @@ const AdminAllProductShow = () => {
 
 //     useEffect(() => {
 //       // console.log(department, year, semester)
-//       fetch(`http://localhost:5000/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+//       fetch(`https://boiling-coast-70144.herokuapp.com/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
 //           .then(res => res.json())
 //           .then(data => {
 //               setQuestions(data.allQuestions)
@@ -147,7 +147,7 @@ const AdminAllProductShow = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/adminShowproduct')
+        fetch('https://boiling-coast-70144.herokuapp.com/adminShowproduct')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])

@@ -18,7 +18,7 @@ const FashionProductUpload = () => {
         // data.status = 'Pending'
      
 
-        fetch("http://localhost:5000/fashion", {
+        fetch("https://boiling-coast-70144.herokuapp.com/fashion", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

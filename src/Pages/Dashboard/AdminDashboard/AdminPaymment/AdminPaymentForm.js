@@ -47,7 +47,7 @@ const AdminPaymentForm = () => {
       status: "Pending",
     };
     axios
-      .post('http://localhost:5000/inits', paymentData)
+      .post('https://boiling-coast-70144.herokuapp.com/inits', paymentData)
       .then((res) => {
         window.location.replace(res?.data);
         localStorage.removeItem('productCart');
