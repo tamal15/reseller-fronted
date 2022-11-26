@@ -34,7 +34,7 @@ const ProductBuyer = () => {
    
 
     useEffect(()=>{
-      fetch(`https://boiling-coast-70144.herokuapp.com/buyerproducts/${user?.email}`)
+      fetch(`https://evening-chamber-61046.herokuapp.com/buyerproducts/${user?.email}`)
       .then(res=>res.json())
       .then(data=>setService(data))
   },[user?.email])
@@ -42,7 +42,7 @@ const ProductBuyer = () => {
 
     const handleDelete=(id)=>{
       const proceed=window.confirm('are you sure, you want to delete');
-      fetch(`https://boiling-coast-70144.herokuapp.com/deleteProduct/${id}`,{
+      fetch(`https://evening-chamber-61046.herokuapp.com/deleteProduct/${id}`,{
           method:'DELETE'
       }).then(res=>res.json())
       .then(data=>{
@@ -84,7 +84,7 @@ const ProductBuyer = () => {
                 <Grid  container spacing={2} columns={{ xs: 4, sm: 8, md: 4 }}>
                   <Grid item xs={12} sm={12} md={12}>
                   <div className='photo'>
-                    <div className='photoShops'>
+                    <div className='photoShops photoalbums'>
                       <img height="200" width="250" style={{borderRadius:"15px"}} src={single?.img}></img>
                    
                     </div>

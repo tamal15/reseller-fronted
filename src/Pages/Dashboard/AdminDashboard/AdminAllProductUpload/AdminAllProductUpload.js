@@ -9,7 +9,7 @@ import useAuth from '../../../../Hooks/useAuth';
 
 // import useFirebase from '../../../hooks/useFirebase';
 // import Swal from 'sweetalert/sweetalert';
-
+import './AdminAllProductUpload.css'
 const AdminAllProductUpload = () => {
     const { user } = useAuth()
     // const {admin}=useAuth()
@@ -22,7 +22,7 @@ const AdminAllProductUpload = () => {
         // data.status = 'Pending'
      
 
-        fetch("https://boiling-coast-70144.herokuapp.com/postadminProduct", {
+        fetch("https://evening-chamber-61046.herokuapp.com/postadminProduct", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -44,8 +44,8 @@ const AdminAllProductUpload = () => {
             <Container>
                 <Row>
                     <Col md={{ span: 8, offset: 2 }}>
-                        <div className="login-form text-center shadow" style={{background:"#7E2231",borderRadius:"20px"}}>
-                            <h2 className='mb-5 text-white'>Add Your Admin Products</h2>
+                        <div className="login-form text-center" style={{background:"#7E2231",borderRadius:"20px"}}>
+                            <h2 className='mb-5 text-white '>Add Your Admin Products</h2>
                             <form onSubmit={handleSubmit(onSubmit)}>
 
                                 <input
@@ -117,7 +117,18 @@ const AdminAllProductUpload = () => {
 
                                
 
-                                <button className='submit-all' type='submit'>Submit</button>
+                               <div className='paterns'>
+                              
+                             <button className='submit-all ' type='submit'>Submit</button>
+                               <div className='paterns'>
+
+</div>
+                               </div>
+
+                              
+
+
+                           
                             </form>
 
                         </div>

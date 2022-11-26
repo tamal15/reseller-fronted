@@ -25,6 +25,9 @@ import { CartContext } from '../../../Context/CartContext';
 import Header from '../../../Shared/Header/Header';
 import Footer from '../../../Shared/Footer/Footer';
 import ReactPaginate from 'react-paginate';
+import { CircularProgress} from '@mui/material';
+import Swal from 'sweetalert2';
+import SearchBar from '../TaterSharee/SearchBar';
 // import spinner from './../../../Assets/Images/Infinity-1s-200px.svg'
 const Jamdani = () => {
 
@@ -72,14 +75,14 @@ const Jamdani = () => {
     // checkbox er value true or false return kore
 
     // useEffect(() => {
-    //     fetch('https://boiling-coast-70144.herokuapp.com/TaterSharees')
+    //     fetch('https://evening-chamber-61046.herokuapp.com/TaterSharees')
     //         .then(res => res.json())
     //         .then(data => setQuestions(data.TaterSharee))
     // }, [])
 
     // useEffect(() => {
     //     console.log(type, year, code)
-    //     fetch('https://boiling-coast-70144.herokuapp.com/sharee')
+    //     fetch('https://evening-chamber-61046.herokuapp.com/sharee')
     //         .then(res => res.json())
     //         .then(data => {
     //             setQuestions(data.allQuestions)
@@ -94,7 +97,7 @@ const Jamdani = () => {
     // }, [type, year, code, page]);
 
     const fetchData = () => {
-      fetch('https://boiling-coast-70144.herokuapp.com/sharee')
+      fetch('https://evening-chamber-61046.herokuapp.com/sharee')
       .then(res => res.json())
       .then(data => {
           setQuestions(data.allQuestions)
@@ -112,7 +115,7 @@ const Jamdani = () => {
     }, [type, year, code, page])
 
     const handleLike = (id) => {
-      fetch(`https://boiling-coast-70144.herokuapp.com/like/${id}`, {
+      fetch(`https://evening-chamber-61046.herokuapp.com/like/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -131,7 +134,7 @@ const Jamdani = () => {
   
     }
     const handleUnLike = (id) => {
-      fetch(`https://boiling-coast-70144.herokuapp.com/unlike/${id}`, {
+      fetch(`https://evening-chamber-61046.herokuapp.com/unlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -153,7 +156,7 @@ const Jamdani = () => {
 
 
     useEffect(()=>{
-        fetch('https://boiling-coast-70144.herokuapp.com/sharee')
+        fetch('https://evening-chamber-61046.herokuapp.com/sharee')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
@@ -182,17 +185,36 @@ const Jamdani = () => {
     console.log(managePost)
     
 
-    const  handleSearch=(e)=>{
-        e.preventDefault()
-        const values = e.target.value;
-        // console.log(values)
-        setSearchValue(values)
-    }
+    const  handleOnChange=(e)=>{
+      e.preventDefault()
+      const values = e.target.value;
+      const newValue = questions?.filter(ques => ques?.productName?.toLowerCase()?.includes(values.toLowerCase()))
+      // console.log(values)
+      newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
+      setModel(newValue)
+  }
+
+  const loading =
+  <Box sx={{ textAlign: 'center', padding: '100px 0' }}>
+      <CircularProgress color="secondary" />
+      <Typography>Loading...</Typography>
+  </Box>
+
+   // alert 
+   const alert = (icon, title, text) => {
+    Swal.fire({
+        position: 'center',
+        icon: icon,
+        title: title,
+        text: text,
+        showConfirmButton: false,
+        timer: 1500
+    })
+}
     
  
-    const handleSubmit=() =>{
-        // handleValue()
-       }
+     const placeholder = 'Search by Sharee Product Name';
+
 
     return (
         
@@ -202,21 +224,8 @@ const Jamdani = () => {
             <Header></Header>
           <div className="container text-black mt-5 mb-5">
             <div className="row ">
-                <div className="col-md-4">
-                   
-                </div>
-                <div className="col">
-                    <div className="search-box mb-8">
-                        <form onSubmit={handleValue}>
-                         
-                            <input onBlur={handleSearch} type="text" name='search'
-                            style={{fontWeight:"600"}}
-                            placeholder='Example : achol  productName ' />
-                           
-                            <button type='submit'>Search</button>
-                        </form>
-                    </div>
-                </div>
+            <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
+                
             </div>
             {/* {questions.length ? */}
             <div className="row g-4" >
@@ -308,7 +317,7 @@ const Jamdani = () => {
                 <Grid  container spacing={2} columns={{ xs: 4, sm: 8, md: 4 }}>
                   <Grid item xs={12} sm={12} md={12}>
                   <div className='photo'>
-                    <div className='photoShops'>
+                    <div className='photoShops photoalbum'>
                       <img height="230" width="250" style={{borderRadius:"15px"}} src={single?.img}></img>
                    
                     </div>
@@ -351,15 +360,15 @@ const Jamdani = () => {
                   </Grid>
                 </Grid>
                 <Box sx={{ display: 'flex', justifyContent: '' }}>
-                  <NavLink
-                    to={`/bookDetails/${single._id}`}
+                <NavLink
+                    to={`/payment`}
                     style={{ textDecoration: "none",textAlign:"left" }}
                   >
                     <Button
                      className='btn-style download-btn '
                      style={{textAlign:"left"}}
                     size="small">
-                      Details
+                      Check
                     </Button>
                   </NavLink>
                   <NavLink
@@ -368,7 +377,7 @@ const Jamdani = () => {
                     style={{ textDecoration: "none", marginRight: "4px" }}
                   >
                     <Button
-                     className='btn-style download-btn details-show'
+                     className='btn-style download-btn details-show downpart'
                      style={{padding:"5px"}}
                     size="small">
                       Details

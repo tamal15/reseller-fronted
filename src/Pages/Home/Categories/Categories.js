@@ -20,7 +20,7 @@ const Categories = () => {
 //  const {user}=useAuth()
 //   const [review,setReview]=useState([])
 //   useEffect(()=>{
-//     fetch('https://boiling-coast-70144.herokuapp.com/review')
+//     fetch('https://evening-chamber-61046.herokuapp.com/review')
 //     .then(res=>res.json())
 //     .then(data=>setReview(data))
 //   },[])

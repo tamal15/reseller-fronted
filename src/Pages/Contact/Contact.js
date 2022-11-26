@@ -57,15 +57,15 @@ reset();
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12, lg: 12 }} sx={{mt:3}}>
           <Grid item xs={4} sm={4} md={5} lg={5}>
             <Box style={{marginTop:"80px"}}>
-              <img style={{ width: "370px" }} src={connectImg} alt="" />
+              <img style={{ width: "320px" }} src={connectImg} alt="" />
             </Box>
           </Grid>
 
           <Grid item xs={4} sm={4} md={7} lg={7}>
             <Box sx={{ mb: 5 }}>
               <Box style={{marginTop:"80px"}}>
-                <Typography sx={{ mb: 2 }} variant='h4'>Get in Touch</Typography>
-                <Typography sx={{ mb: 4 }} variant='body'>You can find out any information about e-commerce in this website.If you have any question or confusion! Don't be shy. Feel free to connect with us. We are waitting for your response.</Typography>
+                <Typography sx={{ mb: 2 , fontWeight:"600"}} variant='h4'>Get in Touch</Typography>
+                <Typography sx={{ mb: 4 ,fontWeight:"700"}} variant='body'>You can find out any information about e-commerce in this website.If you have any question or confusion! Don't be shy. Feel free to connect with us. We are waitting for.</Typography>
 
               </Box>
 

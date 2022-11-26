@@ -47,32 +47,110 @@ import AdminAllProductShow from './Pages/Dashboard/AdminDashboard/AdminAllProduc
 import AdminProductDetails from './Pages/Dashboard/AdminDashboard/AdminAllProductUpload/AdminProductDetails';
 import AdminProducts from './Pages/Dashboard/AdminDashboard/AdminProducts/AdminProducts';
 import UserOrders from './Pages/Dashboard/AdminDashboard/UserOrders/UserOrders';
+import StoreProduct from './Pages/OrderReviewPage/StoreProduct';
+import Silk from './Pages/ShareeCategories/Silk/Silk';
+import HalfSilk from './Pages/ShareeCategories/HalfSilk/HalfSilk';
+import Cotton from './Pages/ShareeCategories/Cotton/Cotton';
+import Katan from './Pages/ShareeCategories/Katan/Katan';
+import Tissure from './Pages/ShareeCategories/Tissure/Tissure';
+import NakshiKatha from './Pages/Shilpo/NakshiKatha/NakshiKatha';
+import NakshiPakha from './Pages/Shilpo/NakshiPakha/NakshiPakha';
+import ShitalPati from './Pages/Shilpo/ShitalPati/ShitalPati';
+import DhatobShilpo from './Pages/Shilpo/DhatobShilpo/DhatobShilpo';
+import DaruShilpo from './Pages/Shilpo/DaruShilpo/DaruShilpo';
+import JhinukShilpo from './Pages/Shilpo/JhinukShilpo/JhinukShilpo';
+import PutulShilpo from './Pages/Shilpo/PutulShilpo/PutulShilpo';
+import PitolKashaShilpo from './Pages/Shilpo/PitolKashaShilpo/PitolKashaShilpo';
+import BateShilpo from './Pages/Shilpo/BateShilpo/BateShilpo';
+import ShankhoShilpo from './Pages/Shilpo/ShankhoShilpo/ShankhoShilpo';
+import DarkAndWhiteTheme from './Pages/Home/Mood/DarkAndWhiteTheme';
 
+import { useState } from 'react';
+import styled, { ThemeProvider } from "styled-components";
+import { darkTheme, GlobalStyle, GlobalTextStyle, LightTheme } from './Pages/Home/Mood/Theme';
+import BuyerOrder from './Pages/Home/BuyerDashboard/BuyerOrder/BuyerOrder';
+import ManageOrder from './Pages/Dashboard/AdminDashboard/ManageOrder/ManageOrder';
+import UpdateOrder from './Pages/Dashboard/AdminDashboard/UpdateOrder/UpdateOrder';
+import Abouts from './Pages/Home/About/Abouts';
+import UpdateCollection from './Pages/Home/UpdateCollection/UpdateCollection';
+import AllpotterShow from './Pages/Home/ShowBuyerPotter/AllpotterShow';
+import AdminPotterUpload from './Pages/Dashboard/AdminDashboard/AdminPotterUpload/AdminPotterUpload';
+import Feedback from './Pages/Home/Feedback/Feedback';
+import AdminSeeFeedback from './Pages/Home/Feedback/AdminSeeFeedback';
+import PotterDetails from './Pages/Home/PotterDetails/PotterDetails';
+import ProductCustomize from './Pages/Home/Editing/ProductCustomize';
+import ProductCustomize2 from './Pages/Home/Editing/ProductCustomize2';
+import ProductCustomize3 from './Pages/Home/Editing/ProductCustomize3';
+import ProductCustomize4 from './Pages/Home/Editing/ProductCustomize4';
+// import { darkTheme, LightTheme,GlobalStyle } from '';
+
+
+const StyledApp=styled.div`
+color: ${(props)=>props.theme.textColor};
+`;
 function App() {
+
+  const  [theme,setTheme]=useState("light");
+
+    
+
+  const themeToggler=()=>{
+        theme==="light" ? setTheme("dark") : setTheme("light");
+  }
   return (
     <div className="App">
       <AuthProvider>
         <CartContextProvider>
           <BrowserRouter>
            
-            <Routes>
+           <ThemeProvider
+            theme={theme==="light" ? LightTheme : darkTheme}
+           >
+             <GlobalStyle></GlobalStyle>
+             <GlobalTextStyle></GlobalTextStyle>
+          {/* <StyledApp> */}
+          {/* <button onClick={()=>themeToggler()}>Change Theme</button> */}
+          <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/OrderReview" element={<OrderReviewPage />} />
               <Route path="/payment" element={<Payment />} />
               {/* <Route path="/buyer" element={<BuyerDashboard />} /> */}
               <Route path="/login" element={<Login />} />
+              <Route path="/theme" element={<DarkAndWhiteTheme />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/store" element={<StoreProduct />} />
+              <Route path="/productcustomize" element={<ProductCustomize />} />
+              <Route path="/productcustomize2" element={<ProductCustomize2 />} />
+              <Route path="/productcustomize3" element={<ProductCustomize3 />} />
+              <Route path="/productcustomize4" element={<ProductCustomize4 />} />
               {/* <Route path="/success" element={<SuccessOrder />} /> */}
               
               <Route path="/tat" element={<TaterSharee />} />
+              <Route path="/silk" element={<Silk />} />
+              <Route path="/halfsilk" element={<HalfSilk />} />
+              <Route path="/cotton" element={<Cotton />} />
+              <Route path="/katan" element={<Katan />} />
+              <Route path="/tissure" element={<Tissure />} />
               {/* <Route path="/jamdani" element={<Jamdani />} /> */}
               <Route path="/all-categories" element={<AllCategoriesSharee />} />
               <Route path="/pottery" element={<PotteryProduct />} />
+              <Route path="/NakshiKatha" element={<NakshiKatha />} />
+              <Route path="/NakshiPakha" element={<NakshiPakha />} />
+              <Route path="/shitalPati" element={<ShitalPati />} />
+              <Route path="/darushilpo" element={<DaruShilpo />} />
+              <Route path="/jhinukshilpo" element={<JhinukShilpo />} />
+              <Route path="/putulshilpo" element={<PutulShilpo />} />
+              <Route path="/pitolkasha" element={<PitolKashaShilpo />} />
+              <Route path="/shankho" element={<ShankhoShilpo />} />
+              <Route path="/bateshilpo" element={<BateShilpo />} />
+              <Route path="/updateCollection" element={<UpdateCollection />} />
+              <Route path="/dhatobshilpo" element={<DhatobShilpo />} />
               <Route path="/users/update/:id" element={<UpdateProducts />} />
               <Route path="/jamdani" element={<Jamdani />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/fashion" element={<FashionProductUpload />} />
               <Route path="/features" element={<FeaturesProductUpload />} />
+              <Route path="/abouts" element={<Abouts />} />
               <Route path="/buyerAllproduct" element={<BuyerAllProduct />} />
               <Route path="/about" element={<About />} />
               <Route path="/powerShop" element={<Power />} />
@@ -81,6 +159,7 @@ function App() {
               <Route path="/rajShop" element={<RajKonna />} />
               <Route path="/redvioletShop" element={<RedvioletShop />} />
               <Route path="/brother" element={<BrotherShop />} />
+              <Route path="/allPotter" element={<AllpotterShow />} />
              
               <Route path="/adminproductshow" element={<AdminAllProductShow />} />
               <Route path="/adminsproducts" element={<AdminProducts />} />
@@ -91,6 +170,9 @@ function App() {
               <Route
               path="bookDetails/:id"
               element={<ProductDetails />}/>
+              <Route
+              path="potterDetails/:id"
+              element={<PotterDetails />}/>
               <Route
               path="adminbookDetails/:id"
               element={<AdminProductDetails />}/>
@@ -103,10 +185,16 @@ function App() {
               <Route path="/dashboard/userProfile" element={<UserProfile/>} />
               <Route path="/dashboard/userUpdate" element={<UserUpdateProfile/>} />
               <Route path="/dashboard/makeadmin" element={<MakeAdmin/>} />
+              <Route path="/dashboard/adminCheck" element={<ManageOrder/>} />
+              <Route path="/dashboard/userfeedback" element={<AdminSeeFeedback/>} />
+              <Route path="/dashboard/feedback" element={<Feedback/>} />
+              <Route path="/dashboard/buyerOrder" element={<BuyerOrder/>} />
               <Route path="/dashboard/uploadProduct" element={<ProductBuyer />} />
               <Route path="/dashboard/potterupload" element={<PotterUpload />} />
+              <Route path="/dashboard/adminPotters" element={<AdminPotterUpload />} />
               <Route path="/dashboard/buyer" element={<BuyerDashboard />} />
               <Route path="/dashboard/myorder" element={<MyOrder/>} />
+              <Route path="/dashboard/adminUpdateOrder" element={<UpdateOrder/>} />
               {/* <Route path="/dashboard/featuresProductUpload" element={<FeaturesProductUpload/>} /> */}
               <Route path="/dashboard/updateProduct" element={<BuyerProductUpdate />} />
               <Route path="/dashboard/customerorder" element={<OrderShow />} />
@@ -125,11 +213,15 @@ function App() {
               </Route> */}
     
             </Routes>
+          {/* </StyledApp> */}
+           </ThemeProvider>
           </BrowserRouter>
         </CartContextProvider>
       </AuthProvider>
     </div>
+    
   );
+  
 }
 
-export default App;
+export  default  App;

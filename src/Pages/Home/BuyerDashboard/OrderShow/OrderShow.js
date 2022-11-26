@@ -23,7 +23,7 @@ const OrderShow = () => {
     const [status, setStatus] = useState('')
 
     useEffect(()=>{
-        fetch(`https://boiling-coast-70144.herokuapp.com/my/${user?.email}`)
+        fetch(`https://evening-chamber-61046.herokuapp.com/my/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setOrder(data)
@@ -32,7 +32,7 @@ const OrderShow = () => {
 
 
     const handleUpdate = (id) => {
-        fetch(`https://boiling-coast-70144.herokuapp.com/updateStatus/${id}`, {
+        fetch(`https://evening-chamber-61046.herokuapp.com/updateStatus/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status }),
@@ -54,7 +54,7 @@ const OrderShow = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://boiling-coast-70144.herokuapp.com/manageAllOrderDelete/${id}`)
+                axios.delete(`https://evening-chamber-61046.herokuapp.com/manageAllOrderDelete/${id}`)
                     .then((response) => {
                         response.status === 204 &&
                             Swal.fire(
@@ -84,7 +84,7 @@ const OrderShow = () => {
             <Toolbar />
             <Divider>
                 <Fab variant="extended" size="small" color={color} aria-label="add">
-                    <AddShoppingCartIcon />{ordering.length === 0 ? "My Order Not Found" : "MY Order"}
+                    <AddShoppingCartIcon />{ordering.length === 0 ? "My Order Not Found" : "Customer Order"}
                 </Fab>
             </Divider>
            

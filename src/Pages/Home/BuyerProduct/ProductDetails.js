@@ -26,6 +26,7 @@ import { useForm } from "react-hook-form";
 import { CartContext } from "../../../Context/CartContext";
 import Header from "../../../Shared/Header/Header";
 import Footer from "../../../Shared/Footer/Footer";
+import useAuth from "../../../Hooks/useAuth";
 //   import { alert, ButtonStyle } from "../../Hooks/useStyle";
   
  
@@ -53,13 +54,35 @@ import Footer from "../../../Shared/Footer/Footer";
     const [hover, setHover] = useState(-1);
     const { id } = useParams();
     const [number, setNumber] = useState(1);
+    const [review, setReview] = useState([]);
+    // const [number, setNumber] = useState(1);
     const [isFetched, setIsFetched] = useState(0);
-  
+     const {user}=useAuth;
     useEffect(() => {
-      fetch(`https://boiling-coast-70144.herokuapp.com/product/${id}`)
+      fetch(`https://evening-chamber-61046.herokuapp.com/product/${id}`)
         .then((res) => res.json())
         .then((data) => setBook(data));
     }, [id]);
+
+    useEffect(()=>{
+
+      fetch("https://evening-chamber-61046.herokuapp.com/review")
+      .then(res=>res.json())
+      .then(data=>{
+        // const managePost = data?.data.data
+        //   .filter((review) => review.review_type === "name")
+        //   .filter((review) => review.name === id);
+        // const managePost = data?.filter(models => models?.review_type === 'name' || models.review.name===id);
+        // const reviewsChunk = managePost.slice(0, number * 2);
+        // setIsFetched(Math.ceil(managePost.length / 2) === number);
+        setReview(data)
+        // console.log(data)
+      })
+    },[])
+
+    // useEffect(() => {
+    //   fetchReviews();
+    // }, [number]);
 
     const {
         register,
@@ -72,7 +95,7 @@ import Footer from "../../../Shared/Footer/Footer";
     const onSubmit = (data) => {
         console.log(data);
 
-        fetch("https://boiling-coast-70144.herokuapp.com/review", {
+        fetch("https://evening-chamber-61046.herokuapp.com/review", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -243,6 +266,25 @@ import Footer from "../../../Shared/Footer/Footer";
                                     Your review helps us to improve our operating system and
                                     provide you better services.
                                 </p>
+
+
+                             
+
+
+                                    <Form.Group
+                                        className="mb-3 "
+                                        controlId="exampleForm.ControlTextarea1"
+                                    >
+                                        <Form.Label>Your Name</Form.Label>
+                                        <Form.Control
+                                            className="shadow-none"
+                                            // as="textarea"
+                                            value={user?.displayName}
+                                            rows={3}
+                                            placeholder="your Name..."
+                                            {...register("name", { required: true })}
+                                        />
+                                    </Form.Group>
                                 
                                 {/* <Row className="mb-3"> */}
                                     <Form.Group
@@ -296,8 +338,57 @@ import Footer from "../../../Shared/Footer/Footer";
               </Box>
             </Grid>
   
-            <Grid item xs={4} sm={8} md={4}>
-             
+            <Grid style={{textAlign:"left"}} item xs={4} sm={8} md={4}>
+             {/* {
+              review.map((reviews)=>(
+                <React.Fragment>
+                <h4>Name: {reviews.name}</h4>
+                <h4>Description: {reviews.comment}</h4>
+                <h4>
+                  Rating:
+                  <Rating
+                    name="half-rating-read"
+                    value={reviews.rating}
+                    precision={0.5}
+                    readOnly
+                  />
+                </h4>
+                <hr />
+              </React.Fragment>
+              ))
+             } */}
+
+
+
+
+{review?.length > 0 ? (
+                  review?.reverse()?.map((reviews) => (
+                    <React.Fragment>
+                      <h4>Name: {reviews.name}</h4>
+                      <h4>Description: {reviews.comment}</h4>
+                      <h4>
+                        Rating:
+                        <Rating
+                          name="half-rating-read"
+                          value={reviews.rating}
+                          precision={0.5}
+                          readOnly
+                        />
+                      </h4>
+                      <hr />
+                    </React.Fragment>
+                  ))
+                ) : (
+                  <p>No reviews yet. Be the first one to review this tutor.</p>
+                )}
+                <Button
+                  type="submit"
+                  variant="outlined"
+                  disabled={isFetched || reviews.length === 0}
+                  onClick={() => setNumber(number + 1)}
+                >
+                  {isFetched ? "No More Reviews To Show" : "Load More Reviews"}
+                </Button>
             </Grid>
           </Grid>
         </Container>

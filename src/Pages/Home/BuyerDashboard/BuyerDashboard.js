@@ -17,11 +17,12 @@ const BuyerDashboard = () => {
         // data.userName = user.displayName
 
         data.buyerEmail = user.email
+        // data.schedules=''
         data.likes = []
         // data.status = 'Pending'
      
 
-        fetch("https://boiling-coast-70144.herokuapp.com/PostBuyer", {
+        fetch("https://evening-chamber-61046.herokuapp.com/PostBuyer", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -68,7 +69,7 @@ const BuyerDashboard = () => {
                                 className='w-75 mb-3'  {...register("gender", { required: true })} placeholder='Gender' /> <br />
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
-                                className='w-75 mb-3'  {...register("categories", { required: true })} placeholder='Jamdani/TaterSharee/Pottery' /> <br />
+                                className='w-75 mb-3'  {...register("categories", { required: true })} placeholder='Jamdani/taterSharee/silk/half-silk/cotton/katan/tissure' /> <br />
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("shop", { required: true })} placeholder='Shop Name' /> <br />
@@ -79,9 +80,9 @@ const BuyerDashboard = () => {
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("warrenty", { required: true })} placeholder='warrenty example : 1 month/6 month/9 month' />
-                                <input
+                                {/* <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
-                                className='w-75 mb-3'  {...register("material", { required: true })} placeholder='Main Material example : silk/Cotton/Half Silk/Katan/Tissure' />
+                                className='w-75 mb-3'  {...register("material", { required: true })} placeholder='Main Material example : silk/Cotton/Half Silk/Katan/Tissure' /> */}
                                 {/* <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("likes")} placeholder='likes' /> */}
@@ -115,8 +116,11 @@ const BuyerDashboard = () => {
                                 
 
                                
-
+                                <div className='paterns'>
                                 <button className='submit-all' type='submit'>Submit</button>
+
+                                </div>
+                                
                             </form>
 
                         </div>

@@ -9,7 +9,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
 import { Avatar, Box, Container, Rating, Typography , Paper} from "@mui/material";
-import "./FeaturesProduct.css";
+// import "./FeaturesProduct.css";
 
 // import required modules
 import { FreeMode, Pagination,Autoplay } from "swiper";
@@ -18,12 +18,12 @@ const FeaturesProduct = () => {
 //  const {user}=useAuth()
   const [review,setReview]=useState([])
   useEffect(()=>{
-    fetch('https://boiling-coast-70144.herokuapp.com/features')
+    fetch('https://evening-chamber-61046.herokuapp.com/features')
     .then(res=>res.json())
     .then(data=>setReview(data))
   },[])
   return (
-    <div className="container">
+    <div data-aos="fade-up" className="container">
         <h2 className="features">Features Product</h2>
      <div className="row">
       <div className="">

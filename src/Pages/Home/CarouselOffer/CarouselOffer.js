@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 const CarouselOffer = () => {
     return (
-        <div className='mb-5 mt-4'>
+        <div data-aos="fade-up" className='mb-5 mt-4'>
 
 <Carousel className="banners">
   <Carousel.Item className="carousel-design values">

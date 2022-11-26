@@ -6,9 +6,10 @@ import Marquee from "react-fast-marquee";
 import Bird from "./img/flying-bird-gif-bird.gif";
 const Partner = () => {
   return (
-    <Box>
+    <Box data-aos="fade-up">
      <Container>
      <Typography
+    
         variant="h3"
         sx={{
           lineHeight: "30px",

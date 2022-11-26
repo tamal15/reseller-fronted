@@ -2,13 +2,17 @@ import { Container, Grid, Toolbar } from '@mui/material';
 import React from 'react';
 // import Cart from '../Shared/Cart/Cart';
 import Cart from '../../Components/Cart'
+import Footer from '../../Shared/Footer/Footer';
+import Header from '../../Shared/Header/Header';
 // import Footer from '../Shared/Footer/Footer';
 // import NavigationBar from '../Shared/NavigationBar/NavigationBar';
 import PaymentFrom from './PaymentForm';
 
+
 const Payment = () => {
     return (
         <>
+        <Header></Header>
             {/* <NavigationBar /> */}
             <Toolbar/>
             <Container>
@@ -25,7 +29,7 @@ const Payment = () => {
                     </Grid>
                 </Grid>
             </Container>
-            {/* <Footer /> */}
+            <Footer />
         </>
     );
 };

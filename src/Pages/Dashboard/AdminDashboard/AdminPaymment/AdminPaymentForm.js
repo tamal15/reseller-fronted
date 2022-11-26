@@ -47,7 +47,7 @@ const AdminPaymentForm = () => {
       status: "Pending",
     };
     axios
-      .post('https://boiling-coast-70144.herokuapp.com/inits', paymentData)
+      .post('https://evening-chamber-61046.herokuapp.com/inits', paymentData)
       .then((res) => {
         window.location.replace(res?.data);
         localStorage.removeItem('productCart');

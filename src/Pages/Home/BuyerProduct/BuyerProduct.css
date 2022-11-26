@@ -81,7 +81,7 @@ margin-bottom: 60px;
 }
 
 .details-show{
-  margin-left: 40px;
+  margin-left: 43px;
 }
 
 .details-button{
@@ -112,7 +112,7 @@ margin-bottom: 60px;
 }
 @media (max-width:1024px) {
     .details-show {
-        margin-left: 5px;
+        margin-left: 8px;
     }
     .photoShops img{
         height:220px;
@@ -152,5 +152,15 @@ margin-bottom: 60px;
         width:310px;
     }
 
+    
+}
+
+
+@media only screen and  (min-width:1824px) {
+    
+
+    .photoalbum img{
+        width:200px;
+    }
     
 }

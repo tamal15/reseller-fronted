@@ -20,6 +20,8 @@ import {
   } from "@mui/material";
 import { CartContext } from '../../../Context/CartContext';
 import useAuth from '../../../Hooks/useAuth';
+import { BorderVertical } from '@mui/icons-material';
+// import OrderReviewPage from '../../OrderReviewPage/OrderReviewPage';
 const BuyerProduct = () => {
     const [work, setWork] = useState([])
 
@@ -51,7 +53,7 @@ const BuyerProduct = () => {
     //   },[])
 
     const fetchData = () => {
-      fetch('https://boiling-coast-70144.herokuapp.com/postBuyer')
+      fetch('https://evening-chamber-61046.herokuapp.com/postBuyer')
         .then(res => res.json())
         // .then(data => setWork(data))
         .then(data => {
@@ -68,7 +70,7 @@ const BuyerProduct = () => {
 
 
     const handleLike = (id) => {
-      fetch(`https://boiling-coast-70144.herokuapp.com/like/${id}`, {
+      fetch(`https://evening-chamber-61046.herokuapp.com/like/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -87,7 +89,7 @@ const BuyerProduct = () => {
   
     }
     const handleUnLike = (id) => {
-      fetch(`https://boiling-coast-70144.herokuapp.com/unlike/${id}`, {
+      fetch(`https://evening-chamber-61046.herokuapp.com/unlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -113,14 +115,20 @@ const BuyerProduct = () => {
         <Container>
        
         <Grid
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
           container
           spacing={2}
           sx={{ mt: 6 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
           {work?.map((single) => (
-            <Grid sx={{ py: 3 }} key={single._id} item xs={4} sm={4} md={3}>
+            <Grid data-aos="fade-up" sx={{ py: 3 }} key={single._id} item xs={4} sm={4} md={3}>
               <Paper
+              // data-aos="fade-right"
+              // data-aos-offset="300"
+              // data-aos-easing="ease-in-sine"
                 sx={{
                   p: 1,
                   margin: "auto",
@@ -129,8 +137,8 @@ const BuyerProduct = () => {
                   boxShadow: "0px 10px 22px rgb(42 135 158 / 50%)"
                 }}
               >
-                <Grid  container spacing={2} columns={{ xs: 4, sm: 8, md: 4 }}>
-                  <Grid item xs={12} sm={12} md={12}>
+                <Grid   container spacing={2} columns={{ xs: 4, sm: 8, md: 4 }}>
+                  <Grid  item xs={12} sm={12} md={12}>
                    <div className='photo'>
                     <div className='photoShops'>
                       <img height="230" width="250" style={{borderRadius:"15px"}} src={single?.img}></img>
@@ -151,7 +159,7 @@ const BuyerProduct = () => {
                        {/* <br></br> */}
                        {/* <h4>{single?.length}</h4> */}
                       <Typography variant="body">
-                        <h5 style={{ fontWeight: 700 }}> price : TK.{single?.ProductPrice}</h5>
+                        <h5 style={{ fontWeight: 700 }}> Price : TK.{single?.ProductPrice}</h5>
                         
                       </Typography>
                     
@@ -181,7 +189,7 @@ const BuyerProduct = () => {
                     </Box>
                   </Grid>
                 </Grid>
-                <Box sx={{ display: 'flex', justifyContent: '' }}>
+                <Box sx={{ display: 'flex', justifyContent: '', marginBottom:"" }}>
                   <NavLink
                     to={`/payment`}
                     style={{ textDecoration: "none",textAlign:"left" }}
@@ -199,7 +207,7 @@ const BuyerProduct = () => {
                     style={{ textDecoration: "none", marginRight: "4px" }}
                   >
                     <Button
-                     className='btn-style download-btn details-show'
+                     className='btn-style download-btn details-show ms-2'
                      style={{padding:"5px"}}
                     size="small">
                       Details
@@ -225,7 +233,20 @@ const BuyerProduct = () => {
         </Stack>
 
         <a href='/buyerAllproduct' className='viewmore mt-5'>View more</a>
+
+        {/* <Box>
+        {
+  work.map(booking=> <OrderReviewPage
+    key={booking.id}
+    booking={booking}>
+
+  </OrderReviewPage>)
+}
+        </Box> */}
       </Container>
+    
+
+
     );
 };
 

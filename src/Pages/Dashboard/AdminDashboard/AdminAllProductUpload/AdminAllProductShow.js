@@ -30,6 +30,9 @@ import Header from '../../../../Shared/Header/Header';
 import Footer from '../../../../Shared/Footer/Footer';
 import { CartContext } from '../../../../Context/CartContext';
 // import useAuth from '../../../Hooks/useAuth';
+import { CircularProgress} from '@mui/material';
+import Swal from 'sweetalert2';
+import SearchBar from '../../../ShareeCategories/TaterSharee/SearchBar';
 
 const AdminAllProductShow = () => {
 
@@ -75,7 +78,7 @@ const AdminAllProductShow = () => {
         setPage(data.selected);
     }
     const fetchData = () => {
-        fetch(`https://boiling-coast-70144.herokuapp.com/adminShowproduct?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+        fetch(`https://evening-chamber-61046.herokuapp.com/adminShowproduct?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
         .then(res => res.json())
         .then(data => {
             setQuestions(data.allQuestions)
@@ -90,7 +93,7 @@ const AdminAllProductShow = () => {
       }, [categories, page,size,sizing,warrenty,material,size])
 
       const handleLike = (id) => {
-        fetch(`https://boiling-coast-70144.herokuapp.com/adminlike/${id}`, {
+        fetch(`https://evening-chamber-61046.herokuapp.com/adminlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -109,7 +112,7 @@ const AdminAllProductShow = () => {
     
       }
       const handleUnLike = (id) => {
-        fetch(`https://boiling-coast-70144.herokuapp.com/adminunlike/${id}`, {
+        fetch(`https://evening-chamber-61046.herokuapp.com/adminunlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -134,7 +137,7 @@ const AdminAllProductShow = () => {
 
 //     useEffect(() => {
 //       // console.log(department, year, semester)
-//       fetch(`https://boiling-coast-70144.herokuapp.com/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+//       fetch(`https://evening-chamber-61046.herokuapp.com/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
 //           .then(res => res.json())
 //           .then(data => {
 //               setQuestions(data.allQuestions)
@@ -147,7 +150,7 @@ const AdminAllProductShow = () => {
 
 
     useEffect(()=>{
-        fetch('https://boiling-coast-70144.herokuapp.com/adminShowproduct')
+        fetch('https://evening-chamber-61046.herokuapp.com/adminShowproduct')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
@@ -188,6 +191,37 @@ const AdminAllProductShow = () => {
         // handleValue()
        }
 
+       const  handleOnChange=(e)=>{
+        e.preventDefault()
+        const values = e.target.value;
+        const newValue = questions?.filter(ques => ques?.productName?.toLowerCase()?.includes(values.toLowerCase()))
+        // console.log(values)
+        newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
+        setModel(newValue)
+    }
+  
+    const loading =
+    <Box sx={{ textAlign: 'center', padding: '100px 0' }}>
+        <CircularProgress color="secondary" />
+        <Typography>Loading...</Typography>
+    </Box>
+  
+     // alert 
+     const alert = (icon, title, text) => {
+      Swal.fire({
+          position: 'center',
+          icon: icon,
+          title: title,
+          text: text,
+          showConfirmButton: false,
+          timer: 1500
+      })
+  }
+      
+   
+       const placeholder = 'Search by Sharee Product Name';
+  
+
     return (
         
     <div>
@@ -196,21 +230,9 @@ const AdminAllProductShow = () => {
             <Header></Header>
           <div className="container text-black mt-5 mb-5">
             <div className="row ">
-                <div className="col-md-4">
-                   
-                </div>
-                <div className="col">
-                    <div className="search-box mb-8">
-                        <form onSubmit={handleValue}>
-                         
-                            <input onBlur={handleSearch} type="text" name='search'
-                            style={{fontWeight:"600"}}
-                            placeholder='Example : achol55  productName ' />
-                           
-                            <button type='submit'>Search</button>
-                        </form>
-                    </div>
-                </div>
+               
+            <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
+               
             </div>
             {/* {questions.length ? */}
             <div className="row g-4" >
@@ -226,16 +248,16 @@ const AdminAllProductShow = () => {
                           model.map((models)=>( */}
                             {/* <div> */}
                            <div className='brands mt-3'>
-                            <h5 className='text-white texts-design'>Brand</h5>
+                            <h5 className='text-black texts-design main-parts'>Brand</h5>
                            <div className="form-check align-items-center me-3">
-                                <input className="form-check-input" type="checkbox" value="jamdani" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-5 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="jamdani" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-5 text-black sharee-design" for="flexCheckDefault">
                                     Jamdani
                                 </label>
                             </div>
                             <div className="form-check align-items-center me-3">
-                                <input className="form-check-input" type="checkbox" value="taterSharee" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-4 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="taterSharee" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-4 text-black sharee-design" for="flexCheckDefault">
                                     TaterSharee
                                 </label>
                             </div>
@@ -251,32 +273,32 @@ const AdminAllProductShow = () => {
 <div className='brands'>
                             <h5 className='text-white texts-designs'>Size</h5>
                            <div className="form-check align-items-center me-3">
-                                <input className="form-check-input" type="checkbox" value="S" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-5 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="S" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-5 text-black sharee-design" for="flexCheckDefault">
                                     S
                                 </label>
                             </div>
                             <div className="form-check align-items-center me-3">
-                                <input className="form-check-input" type="checkbox" value="M" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-4 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="M" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-4 text-black sharee-design" for="flexCheckDefault">
                                     M
                                 </label>
                             </div>
                             <div className="form-check align-items-center me-5">
-                                <input className="form-check-input" type="checkbox" value="L" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-5 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="L" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-5 text-black sharee-design" for="flexCheckDefault">
                                     L
                                 </label>
                             </div>
                             <div className="form-check align-items-center me-5">
-                                <input className="form-check-input" type="checkbox" value="XL" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-5 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="XL" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-5 text-black sharee-design " for="flexCheckDefault">
                                     XL
                                 </label>
                             </div>
                             <div className="form-check align-items-center me-5">
-                                <input className="form-check-input" type="checkbox" value="XXL" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-5 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="XXL" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-5 text-black sharee-design" for="flexCheckDefault">
                                     XXL
                                 </label>
                             </div>
@@ -294,32 +316,32 @@ const AdminAllProductShow = () => {
 <div className='brands'>
                             <h5 className='text-white texts-designs'>Warrenty Period</h5>
                            <div className="form-check align-items-center me-3">
-                                <input className="form-check-input" type="checkbox" value="7 Days" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-5 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="7 Days" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-5 text-black sharee-design" for="flexCheckDefault">
                                     7 Days
                                 </label>
                             </div>
                             <div className="form-check align-items-center me-3">
-                                <input className="form-check-input" type="checkbox" value="1 month" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-4 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="1 month" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-4 text-black sharee-design" for="flexCheckDefault">
                                     1 Month
                                 </label>
                             </div>
-                            <div className="form-check align-items-center me-5">
-                                <input className="form-check-input" type="checkbox" value="6 month" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-3 text-black" for="flexCheckDefault">
+                            <div className="form-check align-items-center me-3">
+                                <input className="form-check-input mt-2" type="checkbox" value="6 month" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-4 text-black sharee-design" for="flexCheckDefault">
                                     6 Month
                                 </label>
                             </div>
-                            <div className="form-check align-items-center me-5">
-                                <input className="form-check-input" type="checkbox" value="9 month" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-3 text-black" for="flexCheckDefault">
+                            <div className="form-check align-items-center me-3">
+                                <input className="form-check-input mt-2" type="checkbox" value="9 month" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-4 text-black sharee-design" for="flexCheckDefault">
                                     9 Month
                                 </label>
                             </div>
-                            <div className="form-check align-items-center me-5">
-                                <input className="form-check-input" type="checkbox" value="1 Year" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-5 text-black" for="flexCheckDefault">
+                            <div className="form-check align-items-center me-3">
+                                <input className="form-check-input mt-2" type="checkbox" value="1 Year" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-4 text-black sharee-design" for="flexCheckDefault">
                                     1 Year
                                 </label>
                             </div>
@@ -337,32 +359,32 @@ const AdminAllProductShow = () => {
 <div className='brands'>
                             <h5 className='text-white texts-designs'>Main Material</h5>
                            <div className="form-check align-items-center me-3">
-                                <input className="form-check-input" type="checkbox" value="silk" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-5 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="silk" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-5 text-black sharee-design" for="flexCheckDefault">
                                     Silk
                                 </label>
                             </div>
                             <div className="form-check align-items-center me-3">
-                                <input className="form-check-input" type="checkbox" value="Half Silk" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-4 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="Half Silk" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-4 text-black sharee-design" for="flexCheckDefault">
                                     Half Silk
                                 </label>
                             </div>
                             <div className="form-check align-items-center me-5">
-                                <input className="form-check-input" type="checkbox" value="Cotton" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-3 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="Cotton" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-3 text-black sharee-design" for="flexCheckDefault">
                                     Cotton
                                 </label>
                             </div>
                             <div className="form-check align-items-center me-5">
-                                <input className="form-check-input" type="checkbox" value="Katan" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-3 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="Katan" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-3 text-black sharee-design" for="flexCheckDefault">
                                     Katan
                                 </label>
                             </div>
                             <div className="form-check align-items-center me-5">
-                                <input className="form-check-input" type="checkbox" value="Tissure" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-5 text-black" for="flexCheckDefault">
+                                <input className="form-check-input mt-2" type="checkbox" value="Tissure" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-5 text-black sharee-design" for="flexCheckDefault">
                                     Tissure
                                 </label>
                             </div>
@@ -408,7 +430,7 @@ const AdminAllProductShow = () => {
                 <Grid  container spacing={2} columns={{ xs: 4, sm: 8, md: 4 }}>
                   <Grid item xs={12} sm={12} md={12}>
                   <div className='photo'>
-                    <div className='photoShops'>
+                    <div className='photoShops photoalbums'>
                       <img height="230" width="280" style={{borderRadius:"10px"}} src={single?.img}></img>
                    
                     </div>
@@ -467,7 +489,7 @@ const AdminAllProductShow = () => {
                     style={{ textDecoration: "none", marginRight: "4px" }}
                   >
                     <Button
-                     className='btn-style download-btn details-show'
+                     className='btn-style download-btn details-show partdetsils ms-4'
                      style={{padding:"5px"}}
                     size="small">
                       Details

@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import image1 from '../../../../images/developer.jpg'
 // import image2 from '../../../../images/mern.png'
 // import image3 from '../../../../images/designer.jpg'
 import './Bonus.css'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 const Bonus = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+    });
+  }, []);
     return (
         <div>
             <div className="container mb-5 p-3 mt-5">

@@ -9,7 +9,7 @@ const UserUpdateProfile = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         data.complete = true
-        fetch(`https://boiling-coast-70144.herokuapp.com/updateUser`, {
+        fetch(`https://evening-chamber-61046.herokuapp.com/updateUser`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

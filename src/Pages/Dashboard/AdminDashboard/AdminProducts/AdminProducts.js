@@ -56,14 +56,14 @@ const AdminProducts = () => {
     // checkbox er value true or false return kore
 
     // useEffect(() => {
-    //     fetch('https://boiling-coast-70144.herokuapp.com/TaterSharees')
+    //     fetch('https://evening-chamber-61046.herokuapp.com/TaterSharees')
     //         .then(res => res.json())
     //         .then(data => setQuestions(data.TaterSharee))
     // }, [])
 
     // useEffect(() => {
     //     console.log(type, year, code)
-    //     fetch('https://boiling-coast-70144.herokuapp.com/sharee')
+    //     fetch('https://evening-chamber-61046.herokuapp.com/sharee')
     //         .then(res => res.json())
     //         .then(data => {
     //             setQuestions(data.allQuestions)
@@ -78,7 +78,7 @@ const AdminProducts = () => {
     // }, [type, year, code, page]);
 
     const fetchData = () => {
-      fetch('https://boiling-coast-70144.herokuapp.com/adminShowproduct')
+      fetch('https://evening-chamber-61046.herokuapp.com/adminShowproduct')
       .then(res => res.json())
       .then(data => {
           setQuestions(data.allQuestions)
@@ -98,7 +98,7 @@ const AdminProducts = () => {
    
     const handleDelete=(id)=>{
         const proceed=window.confirm('are you sure, you want to delete');
-        fetch(`https://boiling-coast-70144.herokuapp.com/deleteadmin/${id}`,{
+        fetch(`https://evening-chamber-61046.herokuapp.com/deleteadmin/${id}`,{
             method:'DELETE'
         }).then(res=>res.json())
         .then(data=>{
@@ -116,7 +116,7 @@ const AdminProducts = () => {
 
 
     useEffect(()=>{
-        fetch('https://boiling-coast-70144.herokuapp.com/adminShowproduct')
+        fetch('https://evening-chamber-61046.herokuapp.com/adminShowproduct')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
@@ -267,7 +267,7 @@ const AdminProducts = () => {
                 <Grid  container spacing={2} columns={{ xs: 4, sm: 8, md: 4 }}>
                   <Grid item xs={12} sm={12} md={12}>
                   <div className='photo'>
-                    <div className='photoShops'>
+                    <div className='photoShops photoalbums'>
                       <img height="230" width="250" style={{borderRadius:"15px"}} src={single?.img}></img>
                    
                     </div>

@@ -211,3 +211,51 @@
 
     
 }
+
+
+@media only screen and  (min-width:1824px) {
+    
+
+    .photoalbum img{
+        width:295px !important;
+    }
+
+    .downpart{
+        margin-left: 46px !important;
+      }
+    
+}
+@media only screen and  (min-width:1624px) {
+    
+
+    .photoalbum img{
+        width:295px !important;
+    }
+    .downpart{
+        margin-left: 46px !important;
+      }
+    
+}
+@media only screen and  (min-width:1524px) {
+    
+
+    .photoalbum img{
+        width:295px !important;
+    }
+
+    .downpart{
+        margin-left: 46px !important;
+      }
+    
+}
+@media only screen and  (min-width:1324px) {
+    
+
+    .photoalbum img{
+        width:295px !important;
+    }
+    .downpart{
+        margin-left: 46px !important;
+      }
+    
+}

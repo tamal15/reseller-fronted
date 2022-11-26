@@ -19,7 +19,7 @@ const MyOrder = () => {
     const [rowsPerPage, setRowsPerPage] = React.useState(4);
 
     useEffect(()=>{
-        fetch(`https://boiling-coast-70144.herokuapp.com/myOrder/${user?.email}`)
+        fetch(`https://evening-chamber-61046.herokuapp.com/myOrder/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setOrder(data)
@@ -38,7 +38,7 @@ const MyOrder = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://boiling-coast-70144.herokuapp.com/manageAllOrderDelete/${id}`)
+                axios.delete(`https://evening-chamber-61046.herokuapp.com/manageAllOrderDelete/${id}`)
                     .then((response) => {
                         response.status === 204 &&
                             Swal.fire(

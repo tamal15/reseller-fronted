@@ -12,7 +12,7 @@ import Header from '../../Shared/Header/Header';
 import Footer from '../../Shared/Footer/Footer';
 
 const Dashboard = () => {
-    const { admin, userLogOut ,buyer} = useAuth()
+    const { admin, userLogOut ,buyers} = useAuth()
     return (
         <div  className='dashboard' style={{background:""}}>
             <Header></Header>
@@ -43,7 +43,7 @@ const Dashboard = () => {
 
 
                             {
-                                buyer &&
+                                buyers &&
                                <div>
                                  
                                 <li>
@@ -60,7 +60,12 @@ const Dashboard = () => {
                                 <li>
                                 <NavLink className="des" to={`customerorder`} style={({ isActive }) => ({
                                     color: isActive ? "#CCCCCC" : "#CCCCCC",
-                                })}><FaBookmark className='me-1' /> Order</NavLink>
+                                })}><FaBookmark className='me-1' />User Order</NavLink>
+                            </li>
+                                <li>
+                                <NavLink className="des" to={`buyerOrder`} style={({ isActive }) => ({
+                                    color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                })}><FaBookmark className='me-1' />Order</NavLink>
                             </li>
                                 {/* <li>
                                 <NavLink className="des" to={`addBook`} style={({ isActive }) => ({
@@ -99,6 +104,11 @@ const Dashboard = () => {
                                     color: isActive ? "#CCCCCC" : "#CCCCCC",
                                 })}><FaBookmark className='me-1' /> Make Admin</NavLink>
                             </li>
+                              <li>
+                                <NavLink className="des" to={`userfeedback`} style={({ isActive }) => ({
+                                    color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                })}><FaBookmark className='me-1' /> User Feedback</NavLink>
+                            </li>
                               {/* <li>
                                   <NavLink className="des" to={`my-labs`} style={({ isActive }) => ({
                                       color: isActive ? "#CCCCCC" : "#CCCCCC",
@@ -109,7 +119,12 @@ const Dashboard = () => {
                               <li>
                                   <NavLink className="des " to={`adminAllProduct`} style={({ isActive }) => ({
                                       color: isActive ? "#CCCCCC" : "#CCCCCC",
-                                  })}><FaTasks className='me-1' />Add Product</NavLink>
+                                  })}><FaTasks className='me-1' />Upload Sharee</NavLink>
+                              </li>
+                              <li>
+                                  <NavLink className="des " to={`adminPotters`} style={({ isActive }) => ({
+                                      color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                  })}><FaTasks className='me-1' />Upload Potter</NavLink>
                               </li>
                               <li>
                                   <NavLink className="des " to={`adminsproducts`} style={({ isActive }) => ({
@@ -121,6 +136,16 @@ const Dashboard = () => {
                                       color: isActive ? "#CCCCCC" : "#CCCCCC",
                                   })}><FaTasks className='me-1' />User Products</NavLink>
                               </li>
+                              <li>
+                                  <NavLink className="des " to={`adminCheck`} style={({ isActive }) => ({
+                                      color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                  })}><FaTasks className='me-1' />User Check</NavLink>
+                              </li>
+                              <li>
+                                  <NavLink className="des " to={`adminUpdateOrder`} style={({ isActive }) => ({
+                                      color: isActive ? "#CCCCCC" : "#CCCCCC",
+                                  })}><FaTasks className='me-1' />Update Product</NavLink>
+                              </li>
 
                            </div>
                            
@@ -130,12 +155,12 @@ const Dashboard = () => {
                         }
 
                         {
-                            !admin && !buyer &&
+                            !admin && !buyers &&
                             <div>
                                   <li>
-                                  <NavLink className="des" to={`useraddQuestion`} style={({ isActive }) => ({
+                                  <NavLink className="des" to={`feedback`} style={({ isActive }) => ({
                                       color: isActive ? "#CCCCCC" : "#CCCCCC",
-                                  })}><FaBookmark className='me-1' /> Add Questions</NavLink>
+                                  })}><FaBookmark className='me-1' /> Feedback</NavLink>
                               </li>
                                   <li>
                                   <NavLink className="des" to={`myorder`} style={({ isActive }) => ({

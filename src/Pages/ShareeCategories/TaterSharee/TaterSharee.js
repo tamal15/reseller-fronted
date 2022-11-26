@@ -25,6 +25,9 @@ import Footer from '../../../Shared/Footer/Footer';
 import ReactPaginate from 'react-paginate';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import { CircularProgress} from '@mui/material';
+import SearchBar from './SearchBar';
+import Swal from 'sweetalert2';
 // import spinner from './../../../Assets/Images/Infinity-1s-200px.svg'
 const TaterSharee = () => {
 
@@ -73,14 +76,14 @@ const TaterSharee = () => {
     // checkbox er value true or false return kore
 
     // useEffect(() => {
-    //     fetch('https://boiling-coast-70144.herokuapp.com/TaterSharees')
+    //     fetch('https://evening-chamber-61046.herokuapp.com/TaterSharees')
     //         .then(res => res.json())
     //         .then(data => setQuestions(data.TaterSharee))
     // }, [])
 
     // useEffect(() => {
     //     console.log(type, year, code)
-    //     fetch('https://boiling-coast-70144.herokuapp.com/sharee')
+    //     fetch('https://evening-chamber-61046.herokuapp.com/sharee')
     //         .then(res => res.json())
     //         .then(data => {
     //             setQuestions(data.allQuestions)
@@ -95,7 +98,7 @@ const TaterSharee = () => {
     // }, [type, year, code, page]);
 
     const fetchData = () => {
-      fetch('https://boiling-coast-70144.herokuapp.com/sharee')
+      fetch('https://evening-chamber-61046.herokuapp.com/sharee')
       .then(res => res.json())
       .then(data => {
           setQuestions(data.allQuestions)
@@ -114,7 +117,7 @@ const TaterSharee = () => {
 
 
     useEffect(()=>{
-        fetch('https://boiling-coast-70144.herokuapp.com/sharee')
+        fetch('https://evening-chamber-61046.herokuapp.com/sharee')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
@@ -122,7 +125,7 @@ const TaterSharee = () => {
 
     // like 
     const handleLike = (id) => {
-      fetch(`https://boiling-coast-70144.herokuapp.com/like/${id}`, {
+      fetch(`https://evening-chamber-61046.herokuapp.com/like/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -141,7 +144,7 @@ const TaterSharee = () => {
   
     }
     const handleUnLike = (id) => {
-      fetch(`https://boiling-coast-70144.herokuapp.com/unlike/${id}`, {
+      fetch(`https://evening-chamber-61046.herokuapp.com/unlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -160,22 +163,22 @@ const TaterSharee = () => {
     }
   
       
-    const handleValue = (e) => {
+    // const handleValue = (e) => {
       
-        e.preventDefault()
-        // const values = e.target.value;
-        // console.log(values)
-        // console.log(questions)
-        const newValue = model?.filter(ques => ques?.productName?.toLocaleLowerCase()?.includes(searchValue))
+    //     e.preventDefault()
+    //     // const values = e.target.value;
+    //     // console.log(values)
+    //     // console.log(questions)
+    //     const newValue = model?.filter(ques => ques?.productName?.toLocaleLowerCase()?.includes(searchValue))
         
-        // console.log(newValue)
-        // newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
-        // console.log(newValue)
-        setModel(newValue)
-        // console.log(newValue)
+    //     // console.log(newValue)
+    //     // newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
+    //     // console.log(newValue)
+    //     setModel(newValue)
+    //     // console.log(newValue)
        
       
-    }
+    // }
 
     // const managePost = questions?.filter(models => models?.role === true);
     const managePost = model?.filter(models => models?.categories
@@ -184,18 +187,38 @@ const TaterSharee = () => {
     console.log(managePost)
     
 
-    const  handleSearch=(e)=>{
+    const  handleOnChange=(e)=>{
         e.preventDefault()
         const values = e.target.value;
+        const newValue = questions?.filter(ques => ques?.productName?.toLowerCase()?.includes(values.toLowerCase()))
         // console.log(values)
-        setSearchValue(values)
+        newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
+        setModel(newValue)
     }
     
  
+    // alert 
+    const alert = (icon, title, text) => {
+      Swal.fire({
+          position: 'center',
+          icon: icon,
+          title: title,
+          text: text,
+          showConfirmButton: false,
+          timer: 1500
+      })
+  }
+
     const handleSubmit=() =>{
         // handleValue()
        }
 
+       const loading =
+    <Box sx={{ textAlign: 'center', padding: '100px 0' }}>
+        <CircularProgress color="secondary" />
+        <Typography>Loading...</Typography>
+    </Box>
+const placeholder = 'Search by Sharee Product Name';
     return (
         
     <div>
@@ -204,20 +227,21 @@ const TaterSharee = () => {
             <Header></Header>
           <div className="container text-black mt-5 mb-5">
             <div className="row ">
-                <div className="col-md-4">
+                {/* <div className="col-md-4">
                    
-                </div>
+                </div> */}
                 <div className="col">
-                    <div className="search-box mb-8">
-                        <form onSubmit={handleValue}>
+                    {/* <div className="search-box mb-8"> */}
+                        {/* <form onSubmit={handleValue}>
                          
                             <input onBlur={handleSearch} type="text" name='search'
                             style={{fontWeight:"600"}}
                             placeholder='Example : achol  productName ' />
                            
                             <button type='submit'>Search</button>
-                        </form>
-                    </div>
+                        </form> */}
+                           <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
+                    {/* </div> */}
                 </div>
             </div>
             {/* {questions.length ? */}
@@ -296,7 +320,14 @@ const TaterSharee = () => {
           sx={{ mt: 6 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-         {managePost?.map((single) => (
+          
+         {
+
+questions.length === 0 ?loading
+:
+         
+         
+         managePost?.map((single) => (
             <Grid sx={{ py: 3 }} key={single._id} item xs={4} sm={4} md={3}>
               <Paper
                 sx={{
@@ -311,7 +342,7 @@ const TaterSharee = () => {
                   <Grid item xs={12} sm={12} md={12}>
 
                   <div className='photo'>
-                  <div className='photoShops'>
+                  <div className='photoShops photoalbum'>
 
                   <img height="230" width="250" style={{borderRadius:"15px"}} src={single?.img}></img>
 
@@ -363,16 +394,20 @@ const TaterSharee = () => {
                     </Box>
                   </Grid>
                 </Grid>
-                <Box sx={{ display: 'flex', justifyContent: '' }}>
+               
+
+               {/* button  */}
+
+               <Box sx={{ display: 'flex', justifyContent: '', marginBottom:"" }}>
                   <NavLink
-                    to={`/bookDetails/${single._id}`}
+                    to={`/payment`}
                     style={{ textDecoration: "none",textAlign:"left" }}
                   >
                     <Button
                      className='btn-style download-btn '
                      style={{textAlign:"left"}}
                     size="small">
-                      Details
+                      Check
                     </Button>
                   </NavLink>
                   <NavLink
@@ -381,7 +416,7 @@ const TaterSharee = () => {
                     style={{ textDecoration: "none", marginRight: "4px" }}
                   >
                     <Button
-                     className='btn-style download-btn details-show'
+                     className='btn-style download-btn details-show downpart'
                      style={{padding:"5px"}}
                     size="small">
                       Details

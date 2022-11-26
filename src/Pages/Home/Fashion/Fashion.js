@@ -29,7 +29,7 @@ const Fashion = () => {
     //   },[])
 
     useEffect(() => {
-        fetch('https://boiling-coast-70144.herokuapp.com/fashion')
+        fetch('https://evening-chamber-61046.herokuapp.com/fashion')
             .then(res => res.json())
             // .then(data => setWork(data))
             .then(data=>{
@@ -53,7 +53,7 @@ const Fashion = () => {
         >
           {work?.map((single) => (
             <Grid sx={{ py: 3 }} key={single._id} item xs={4} sm={4} md={3}>
-              <Paper
+              <Paper data-aos="fade-up"
                 sx={{
                   p: 1,
                   margin: "auto",

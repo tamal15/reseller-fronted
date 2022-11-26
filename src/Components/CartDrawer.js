@@ -51,7 +51,7 @@ export default function CartDrawer() {
       <List sx={{ pt: 0 }}>
         <Cart>
 
-          <Button onClick={bookOrderReview} sx={{ width: 1 }}>Review Now</Button>
+          <Button className="orders-design" onClick={bookOrderReview} sx={{ width: 1 }}>Review Now</Button>
 
         </Cart>
       </List>

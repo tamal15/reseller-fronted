@@ -6,7 +6,7 @@ const UpdateProducts = () => {
    const [user,setUser]=useState({})
    const {id}=useParams()
    useEffect(()=>{
-    fetch(`https://boiling-coast-70144.herokuapp.com/update/${id}`)
+    fetch(`https://evening-chamber-61046.herokuapp.com/update/${id}`)
     .then(res=>res.json())
     .then(data=>setUser(data))
    },[])
@@ -15,7 +15,7 @@ const UpdateProducts = () => {
     const handleupdate=e=>{
         e.preventDefault()
 
-        fetch(`https://boiling-coast-70144.herokuapp.com/updateProduct/${id}`, {
+        fetch(`https://evening-chamber-61046.herokuapp.com/updateProduct/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(user)

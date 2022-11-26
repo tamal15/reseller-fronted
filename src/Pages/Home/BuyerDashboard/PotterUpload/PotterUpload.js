@@ -22,7 +22,7 @@ const PotterUpload = () => {
         // data.status = 'Pending'
      
 
-        fetch("https://boiling-coast-70144.herokuapp.com/postPotter", {
+        fetch("https://evening-chamber-61046.herokuapp.com/postPotter", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -107,8 +107,10 @@ const PotterUpload = () => {
                                 
 
                                
-
-                                <button className='submit-all' type='submit'>Submit</button>
+                               <div className='paterns'>
+                               <button className='submit-all' type='submit'>Submit</button>
+                               </div>
+                                
                             </form>
 
                         </div>
