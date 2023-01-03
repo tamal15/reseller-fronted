@@ -29,7 +29,7 @@ const Fashion = () => {
     //   },[])
 
     useEffect(() => {
-        fetch('https://evening-chamber-61046.herokuapp.com/fashion')
+        fetch('http://localhost:5000/fashion')
             .then(res => res.json())
             // .then(data => setWork(data))
             .then(data=>{
@@ -44,7 +44,8 @@ const Fashion = () => {
   //  ]
     return (
         <Container>
-        <h2 style={{textAlign:"left"}}>Fashion</h2>
+        <h2 style={{fontSize:"3em", fontWeight:"700", textAlign:"center", marginTop:"100px", color: "#7E2231"}}>Fashion Design</h2>
+        <hr className='' style={{  width: '15%', height: '5px', backgroundColor: 'black', display:"inline-block", border:0}} />
         <Grid
           container
           spacing={2}

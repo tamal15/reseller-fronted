@@ -5,6 +5,8 @@ import './Login.css';
 import { FcGoogle } from 'react-icons/fc'
 import useAuth from '../../Hooks/useAuth';
 import { TextField, Toolbar, Typography,Alert } from "@mui/material";
+import Header from '../../Shared/Header/Header';
+import Footer from '../../Shared/Footer/Footer';
 
 
 
@@ -30,9 +32,11 @@ const Login = () => {
         loginWithOwnEmailAndPass(data.email, data.password, location, navigate)
     }
     return (
-      <div className='login-background'>
+<div>
+<Header></Header>
+<div className='login-background'>
           <div className='py-5'>
-            {/* <Header></Header> */}
+
             <Container>
                 <Row>
                 <div className='row'>
@@ -82,6 +86,8 @@ const Login = () => {
           
         </div>
       </div>
+      <Footer></Footer>
+</div>
     );
 };
 

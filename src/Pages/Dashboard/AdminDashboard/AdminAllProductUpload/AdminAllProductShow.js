@@ -55,7 +55,11 @@ const AdminAllProductShow = () => {
         }
         localStorage.setItem("productCart", JSON.stringify(newCart));
         setCart(() => newCart);
-        alert('Add to Cart Successfully');
+        // alert('Add to Cart Successfully');
+        Swal.fire(
+          'Success Product!',
+          
+      )
     };
 
     const [questions, setQuestions] = useState([]);
@@ -78,7 +82,7 @@ const AdminAllProductShow = () => {
         setPage(data.selected);
     }
     const fetchData = () => {
-        fetch(`https://evening-chamber-61046.herokuapp.com/adminShowproduct?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+        fetch(`http://localhost:5000/adminShowproduct?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
         .then(res => res.json())
         .then(data => {
             setQuestions(data.allQuestions)
@@ -93,7 +97,7 @@ const AdminAllProductShow = () => {
       }, [categories, page,size,sizing,warrenty,material,size])
 
       const handleLike = (id) => {
-        fetch(`https://evening-chamber-61046.herokuapp.com/adminlike/${id}`, {
+        fetch(`http://localhost:5000/adminlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -101,18 +105,18 @@ const AdminAllProductShow = () => {
           console.log(res)
           if (res.status === 200) {
             fetchData()
-            alert("Liked");
+            // alert("Liked");
           } else if (res.status === 400) {
-            alert("Already Liked");
+            // alert("Already Liked");
           } else {
-            alert("server error");
+            // alert("server error");
           }
         }).catch(err => console.log(err));
     
     
       }
       const handleUnLike = (id) => {
-        fetch(`https://evening-chamber-61046.herokuapp.com/adminunlike/${id}`, {
+        fetch(`http://localhost:5000/adminunlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -120,11 +124,11 @@ const AdminAllProductShow = () => {
     
           if (res.status === 200) {
             fetchData()
-            alert("Unlike");
+            // alert("Unlike");
           } else if (res.status === 400) {
-            alert("Already Unlike");
+            // alert("Already Unlike");
           } else {
-            alert("server error");
+            // alert("server error");
           }
         }).catch(err => console.log(err));
     
@@ -137,7 +141,7 @@ const AdminAllProductShow = () => {
 
 //     useEffect(() => {
 //       // console.log(department, year, semester)
-//       fetch(`https://evening-chamber-61046.herokuapp.com/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+//       fetch(`http://localhost:5000/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
 //           .then(res => res.json())
 //           .then(data => {
 //               setQuestions(data.allQuestions)
@@ -150,7 +154,7 @@ const AdminAllProductShow = () => {
 
 
     useEffect(()=>{
-        fetch('https://evening-chamber-61046.herokuapp.com/adminShowproduct')
+        fetch('http://localhost:5000/adminShowproduct')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
@@ -261,6 +265,41 @@ const AdminAllProductShow = () => {
                                     TaterSharee
                                 </label>
                             </div>
+                            <div className='brands'>
+                            {/* <h5 className='text-white texts-designs'>Main Material</h5> */}
+                           <div className="form-check align-items-center me-3">
+                                <input className="form-check-input mt-2" type="checkbox" value="silk" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-5 text-black sharee-design" for="flexCheckDefault">
+                                    Silk
+                                </label>
+                            </div>
+                            <div className="form-check align-items-center me-3">
+                                <input className="form-check-input mt-2" type="checkbox" value="Half Silk" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-4 text-black sharee-design" for="flexCheckDefault">
+                                    Half Silk
+                                </label>
+                            </div>
+                            <div className="form-check align-items-center me-5">
+                                <input className="form-check-input mt-2" type="checkbox" value="Cotton" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-3 text-black sharee-design" for="flexCheckDefault">
+                                    Cotton
+                                </label>
+                            </div>
+                            <div className="form-check align-items-center me-5">
+                                <input className="form-check-input mt-2" type="checkbox" value="Katan" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-3 text-black sharee-design" for="flexCheckDefault">
+                                    Katan
+                                </label>
+                            </div>
+                            <div className="form-check align-items-center me-5">
+                                <input className="form-check-input mt-2" type="checkbox" value="Tissure" id="flexCheckDefault" />
+                                <label className="form-check-label fw-bold all me-5 text-black sharee-design" for="flexCheckDefault">
+                                    Tissure
+                                </label>
+                            </div>
+                            
+
+                           </div>
 
                            </div>
 
@@ -316,7 +355,7 @@ const AdminAllProductShow = () => {
 <div className='brands'>
                             <h5 className='text-white texts-designs'>Warrenty Period</h5>
                            <div className="form-check align-items-center me-3">
-                                <input className="form-check-input mt-2" type="checkbox" value="7 Days" id="flexCheckDefault" />
+                                <input className="form-check-input mt-2" type="checkbox" value="7 days" id="flexCheckDefault" />
                                 <label className="form-check-label fw-bold all me-5 text-black sharee-design" for="flexCheckDefault">
                                     7 Days
                                 </label>
@@ -356,41 +395,7 @@ const AdminAllProductShow = () => {
                             <form
                             onChange={(e) => setmaterial(e.target.value)}>
 
-<div className='brands'>
-                            <h5 className='text-white texts-designs'>Main Material</h5>
-                           <div className="form-check align-items-center me-3">
-                                <input className="form-check-input mt-2" type="checkbox" value="silk" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-5 text-black sharee-design" for="flexCheckDefault">
-                                    Silk
-                                </label>
-                            </div>
-                            <div className="form-check align-items-center me-3">
-                                <input className="form-check-input mt-2" type="checkbox" value="Half Silk" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-4 text-black sharee-design" for="flexCheckDefault">
-                                    Half Silk
-                                </label>
-                            </div>
-                            <div className="form-check align-items-center me-5">
-                                <input className="form-check-input mt-2" type="checkbox" value="Cotton" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-3 text-black sharee-design" for="flexCheckDefault">
-                                    Cotton
-                                </label>
-                            </div>
-                            <div className="form-check align-items-center me-5">
-                                <input className="form-check-input mt-2" type="checkbox" value="Katan" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-3 text-black sharee-design" for="flexCheckDefault">
-                                    Katan
-                                </label>
-                            </div>
-                            <div className="form-check align-items-center me-5">
-                                <input className="form-check-input mt-2" type="checkbox" value="Tissure" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold all me-5 text-black sharee-design" for="flexCheckDefault">
-                                    Tissure
-                                </label>
-                            </div>
-                            
 
-                           </div>
 
                             </form>
                            
@@ -473,7 +478,7 @@ const AdminAllProductShow = () => {
                 </Grid>
                 <Box sx={{ display: 'flex', justifyContent: '' }}>
                   <NavLink
-                    to={`/adminbookDetails/${single._id}`}
+                    to='/payment'
                     style={{ textDecoration: "none",textAlign:"left" }}
                   >
                     <Button

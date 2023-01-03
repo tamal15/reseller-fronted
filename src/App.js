@@ -78,10 +78,12 @@ import AdminPotterUpload from './Pages/Dashboard/AdminDashboard/AdminPotterUploa
 import Feedback from './Pages/Home/Feedback/Feedback';
 import AdminSeeFeedback from './Pages/Home/Feedback/AdminSeeFeedback';
 import PotterDetails from './Pages/Home/PotterDetails/PotterDetails';
-import ProductCustomize from './Pages/Home/Editing/ProductCustomize';
-import ProductCustomize2 from './Pages/Home/Editing/ProductCustomize2';
-import ProductCustomize3 from './Pages/Home/Editing/ProductCustomize3';
-import ProductCustomize4 from './Pages/Home/Editing/ProductCustomize4';
+import Scheduleupdate from './Pages/Dashboard/UserProfile/Scheduleupdate';
+import UpdatePurchase from './Pages/Dashboard/UserProfile/UpdatePurchase';
+import UserDesignOrder from './Pages/Dashboard/BuyerDashboard/userDesignOrder/UserDesignOrder';
+import AdminSeeDesign from './Pages/Dashboard/BuyerDashboard/userDesignOrder/AdminseeDesign';
+import RequireAuth from './Pages/Home/RequireAuth/RequireAuth';
+
 // import { darkTheme, LightTheme,GlobalStyle } from '';
 
 
@@ -112,17 +114,14 @@ function App() {
           {/* <button onClick={()=>themeToggler()}>Change Theme</button> */}
           <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/OrderReview" element={<OrderReviewPage />} />
+              <Route path="/OrderReview" element={<RequireAuth><OrderReviewPage /></RequireAuth>} />
               <Route path="/payment" element={<Payment />} />
               {/* <Route path="/buyer" element={<BuyerDashboard />} /> */}
               <Route path="/login" element={<Login />} />
               <Route path="/theme" element={<DarkAndWhiteTheme />} />
               <Route path="/register" element={<Register />} />
               <Route path="/store" element={<StoreProduct />} />
-              <Route path="/productcustomize" element={<ProductCustomize />} />
-              <Route path="/productcustomize2" element={<ProductCustomize2 />} />
-              <Route path="/productcustomize3" element={<ProductCustomize3 />} />
-              <Route path="/productcustomize4" element={<ProductCustomize4 />} />
+            
               {/* <Route path="/success" element={<SuccessOrder />} /> */}
               
               <Route path="/tat" element={<TaterSharee />} />
@@ -147,12 +146,13 @@ function App() {
               <Route path="/dhatobshilpo" element={<DhatobShilpo />} />
               <Route path="/users/update/:id" element={<UpdateProducts />} />
               <Route path="/jamdani" element={<Jamdani />} />
-              <Route path="/contact" element={<Contact />} />
+              <Route path="/contact" element={<Contact></Contact>
+             } />
               <Route path="/fashion" element={<FashionProductUpload />} />
               <Route path="/features" element={<FeaturesProductUpload />} />
               <Route path="/abouts" element={<Abouts />} />
               <Route path="/buyerAllproduct" element={<BuyerAllProduct />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/about" element={<About></About>} />
               <Route path="/powerShop" element={<Power />} />
               <Route path="/topShop" element={<Topup />} />
               <Route path="/expertShop" element={<Expert />} />
@@ -187,6 +187,7 @@ function App() {
               <Route path="/dashboard/makeadmin" element={<MakeAdmin/>} />
               <Route path="/dashboard/adminCheck" element={<ManageOrder/>} />
               <Route path="/dashboard/userfeedback" element={<AdminSeeFeedback/>} />
+              <Route path="/dashboard/userdesignsee" element={<AdminSeeDesign/>} />
               <Route path="/dashboard/feedback" element={<Feedback/>} />
               <Route path="/dashboard/buyerOrder" element={<BuyerOrder/>} />
               <Route path="/dashboard/uploadProduct" element={<ProductBuyer />} />
@@ -194,6 +195,7 @@ function App() {
               <Route path="/dashboard/adminPotters" element={<AdminPotterUpload />} />
               <Route path="/dashboard/buyer" element={<BuyerDashboard />} />
               <Route path="/dashboard/myorder" element={<MyOrder/>} />
+              <Route path="/dashboard/userdesign" element={<UserDesignOrder/>} />
               <Route path="/dashboard/adminUpdateOrder" element={<UpdateOrder/>} />
               {/* <Route path="/dashboard/featuresProductUpload" element={<FeaturesProductUpload/>} /> */}
               <Route path="/dashboard/updateProduct" element={<BuyerProductUpdate />} />
@@ -202,6 +204,8 @@ function App() {
               <Route path="/dashboard/potterDataUpload" element={<PotterDataUpload />} />
               <Route path="/dashboard/users/update/:id" element={<UpdateProducts />} />
               <Route path="/dashboard/userspotter/updatepotter/:id" element={<EditPotterData />} />
+              <Route path="/dashboard/userSchedule/updatepotter/:id" element={<Scheduleupdate />} />
+              <Route path="/dashboard/userPurchase/updatepotter/:id" element={<UpdatePurchase />} />
               <Route path="/dashboard/adminsproducts" element={<AdminProducts />} />
               <Route path="/dashboard/adminAllProduct" element={<AdminAllProductUpload />} />
 

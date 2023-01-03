@@ -15,7 +15,7 @@ const CustomerAddress = ({ order, handleDelete }) => {
     const [status, setStatus] = useState('')
 
     const handleUpdate = (id) => {
-        fetch(`https://evening-chamber-61046.herokuapp.com/updateStatus/${id}`, {
+        fetch(`http://localhost:5000/updateStatus/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status }),
@@ -42,6 +42,35 @@ const CustomerAddress = ({ order, handleDelete }) => {
                     </Grid>
                     <Grid item xs={8} sm={8} md={8} >
                         <Typography >{order?.cus_name}</Typography>
+                    </Grid>
+
+                </Grid>
+            </ListItem>
+            <ListItem button divider>
+                <Grid container spacing={{ xs: 3, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
+
+                    <Grid item xs={4} sm={4} md={4} >
+                        <Typography style={addressStyle}><span>Schedule</span><span>:</span></Typography>
+                    </Grid>
+                    <Grid item xs={8} sm={8} md={8} >
+                        <Typography >{order?.schedules}</Typography>
+
+                        
+                    </Grid>
+                   
+
+                </Grid>
+            </ListItem>
+            <ListItem button divider>
+                <Grid container spacing={{ xs: 3, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
+
+                    <Grid item xs={4} sm={4} md={4} >
+                        <Typography style={addressStyle}><span>Purchase</span><span>:</span></Typography>
+                    </Grid>
+                    <Grid item xs={8} sm={8} md={8} >
+                        <Typography >{order?.purchase}</Typography>
+
+                       
                     </Grid>
 
                 </Grid>

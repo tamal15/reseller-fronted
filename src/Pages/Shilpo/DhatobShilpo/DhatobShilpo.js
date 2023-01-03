@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from "react-router-dom";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-
+import Swal from 'sweetalert2';
 
 
 import {
@@ -27,7 +27,7 @@ import Footer from '../../../Shared/Footer/Footer';
 import '../../ShareeCategories/TaterSharee/TaterSharee.css'
 import useAuth from '../../../Hooks/useAuth';
 import { CircularProgress} from '@mui/material';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import SearchBar from '../../ShareeCategories/TaterSharee/SearchBar';
 // import SearchBar from '../../ShareeCategories/TaterSharee/SearchBar';
 
@@ -52,7 +52,10 @@ const DhatobShilpo = () => {
         }
         localStorage.setItem("productCart", JSON.stringify(newCart));
         setCart(() => newCart);
-        alert('Add to Cart Successfully');
+        Swal.fire(
+          'Success Product!',
+          
+      )
     };
 
     const [questions, setQuestions] = useState([]);
@@ -75,7 +78,7 @@ const DhatobShilpo = () => {
         setPage(data.selected);
     }
     const fetchData = () => {
-        fetch(`https://evening-chamber-61046.herokuapp.com/getPotter?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+        fetch(`http://localhost:5000/getPotter?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
         .then(res => res.json())
         .then(data => {
             setQuestions(data.allQuestions)
@@ -90,7 +93,7 @@ const DhatobShilpo = () => {
       }, [categories, page,size,sizing,warrenty,material,size])
 
       const handleLike = (id) => {
-        fetch(`https://evening-chamber-61046.herokuapp.com/potterlike/${id}`, {
+        fetch(`http://localhost:5000/potterlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -98,18 +101,18 @@ const DhatobShilpo = () => {
           console.log(res)
           if (res.status === 200) {
             fetchData()
-            alert("Liked");
+            // alert("Liked");
           } else if (res.status === 400) {
-            alert("Already Liked");
+            // alert("Already Liked");
           } else {
-            alert("server error");
+            // alert("server error");
           }
         }).catch(err => console.log(err));
     
     
       }
       const handleUnLike = (id) => {
-        fetch(`https://evening-chamber-61046.herokuapp.com/potterunlike/${id}`, {
+        fetch(`http://localhost:5000/potterunlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -117,11 +120,11 @@ const DhatobShilpo = () => {
     
           if (res.status === 200) {
             fetchData()
-            alert("Unlike");
+            // alert("Unlike");
           } else if (res.status === 400) {
-            alert("Already Unlike");
+            // alert("Already Unlike");
           } else {
-            alert("server error");
+            // alert("server error");
           }
         }).catch(err => console.log(err));
     
@@ -134,7 +137,7 @@ const DhatobShilpo = () => {
 
 //     useEffect(() => {
 //       // console.log(department, year, semester)
-//       fetch(`https://evening-chamber-61046.herokuapp.com/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+//       fetch(`http://localhost:5000/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
 //           .then(res => res.json())
 //           .then(data => {
 //               setQuestions(data.allQuestions)
@@ -147,7 +150,7 @@ const DhatobShilpo = () => {
 
 
     useEffect(()=>{
-        fetch('https://evening-chamber-61046.herokuapp.com/getPotter')
+        fetch('http://localhost:5000/getPotter')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])

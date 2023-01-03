@@ -28,8 +28,8 @@ const Cart = (props) => {
     return (
        <div>
 
-<from onClick={handleValues} className="">
-                            <input placeholder='cupon code' onBlur={handleSearchs} className="mb-2 input-design me-3" ></input>
+      <from onClick={handleValues} className="ms-2">
+                            <input placeholder='cupon code' onBlur={handleSearchs} className="mb-2 input-design me-3 mt-3" ></input>
                             <button className='apply-design'>Apply</button>
                         </from>
          <List sx={{ pt: 0 }}>

@@ -18,13 +18,14 @@ const BestSellers = () => {
 //  const {user}=useAuth()
 //   const [review,setReview]=useState([])
 //   useEffect(()=>{
-//     fetch('https://evening-chamber-61046.herokuapp.com/features')
+//     fetch('http://localhost:5000/features')
 //     .then(res=>res.json())
 //     .then(data=>setReview(data))
 //   },[])
   return (
     <div className="container">
-        <h2 className="features">Best Sellers</h2>
+        <h2 style={{fontSize:"3em", fontWeight:"700", textAlign:"center", marginTop:"100px",marginBottom:"10px",   color: "#7E2231"}} className="">Best Sellers</h2>
+        <hr className='' style={{  width: '10%', height: '5px', backgroundColor: 'blsck', display:"inline-block", border:0}} />
      <div data-aos="fade-up" className="row">
       <div className="">
       <Swiper
@@ -104,7 +105,7 @@ const BestSellers = () => {
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
                <img className="mt-4" height="80" width="110" style={{borderRadius:""}}
-                src=' https://storage.googleapis.com/monarchmart-storage/uploads/all/r6J2Qu0H2Nq2JY53XEI8jqwxGsBnJKo9B5lKvuQO.jpg '
+                src=' https://png.pngtree.com/png-vector/20211129/ourmid/pngtree-editable-text-effect-top-up-dengan-pattern-diamond-png-image_222837.png '
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -172,7 +173,7 @@ const BestSellers = () => {
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
                <img className="mt-4" height="80" width="110" style={{borderRadius:""}}
-                src=' https://storage.googleapis.com/monarchmart-storage/uploads/all/avQE6lrGU0wOGm626aTkgg4uHRCub6Za0Dhk0VYx.jpg '
+                src='https://img.freepik.com/premium-vector/letter-p-logo-power_42564-11.jpg?w=2000'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -239,7 +240,7 @@ const BestSellers = () => {
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
                <img className="mt-4" height="80" width="110" style={{borderRadius:""}}
-                src='https://storage.googleapis.com/monarchmart-storage/uploads/all/HtA2xOlGhh139GXynxa6RuvH8EAZXS6NL94rJNKf.jpg '
+                src='https://img.freepik.com/premium-vector/abstract-expert-logo-icon_7790-20.jpg?w=2000 '
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -307,7 +308,7 @@ const BestSellers = () => {
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
                <img height="140" width="110" style={{borderRadius:""}}
-                src='https://storage.googleapis.com/monarchmart-storage/uploads/all/L08qfQvzkmjys8mLnw76ZTyvqhrGM0nJWKE9VNd0.jpg'
+                src='https://store.focallurebd.com/storage/files/1/design-2-modern-minimalist-logo-design.jpg'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -375,7 +376,7 @@ const BestSellers = () => {
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
                <img className="mt-3" height="90" width="110" style={{borderRadius:""}}
-                src='https://monarchmart.com/uploads/all/Ol5SclwbgX1ziihhK3rnxLSJdPzr0BrnCXpqaDhP.jpg'
+                src='https://t3.ftcdn.net/jpg/03/43/74/48/360_F_343744812_oE3ieaIhNS8Y7LNJlFUbszhyciCh16Jf.jpg'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -441,7 +442,7 @@ const BestSellers = () => {
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
                <img className="mt-3" height="80" width="110" style={{borderRadius:""}}
-                src='https://monarchmart.com/uploads/all/AzmG4jmLq0Egc1e1yL1MurJt8P5Cx7PK59AOcYje.jpg'
+                src='https://png.pngtree.com/element_pic/00/16/09/2057e0eecf792fb.jpg'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -572,7 +573,7 @@ const BestSellers = () => {
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
                <img className="mt-3" height="120" width="110" style={{borderRadius:""}}
-                src='https://monarchmart.com/uploads/all/Mz8HGE1s4NSeVAZcIaykqekDXY3LI0IaYeG3S7Ie.png'
+                src='https://png.pngtree.com/element_pic/16/11/02/bd886d7ccc6f8dd8db17e841233c9656.jpg'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -640,7 +641,7 @@ const BestSellers = () => {
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
                <img className="mt-3" height="120" width="110" style={{borderRadius:""}}
-                src='https://monarchmart.com/uploads/all/BYSnRdnTYnmlaQFOWy4DznrR4KHZlkHlYLnmykyv.png'
+                src='https://png.pngtree.com/png-clipart/20190604/original/pngtree-creative-company-logo-png-image_1197025.jpg'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -707,7 +708,7 @@ const BestSellers = () => {
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
                <img className="mt-3" height="120" width="110" style={{borderRadius:""}}
-                src='https://monarchmart.com/uploads/all/L5kLubP078w7iJieDKKMdnIuvZSoQDAZrTaVl8Nw.png'
+                src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Android_O_Preview_Logo.png/768px-Android_O_Preview_Logo.png'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -775,7 +776,7 @@ const BestSellers = () => {
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
                <img className="mt-4" height="80" width="110" style={{borderRadius:""}}
-                src='https://monarchmart.com/uploads/all/QjkFqDMZTmXhIcpAgQKv7LvVugSvIMvUNJggLEAu.jpg'
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZgtsO6eKHzUZ1m-frl3ZvuTrkWjoSE1S5DasKwDSGp7IDdrmOUvMnIUW0kpebb6BRwiY&usqp=CAU'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -843,7 +844,7 @@ const BestSellers = () => {
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
                <img className="mt-4" height="90" width="110" style={{borderRadius:""}}
-                src='https://monarchmart.com/uploads/all/c9WIvBseK1cjauOYofu04NPZhnsCJxzKCRdBLKc6.jpg'
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPWOjkXZsZiicQJi8aCU9QDQOIUbSFmYNELNAzfAvQVPBJjdiksOPJY17Bvptx1_Gii8Q&usqp=CAU'
                  sx={{
                    width: 0,
                    borderRadius:"100%",
@@ -909,7 +910,7 @@ const BestSellers = () => {
              
              <Box sx={{ display: "flex", justifyContent: "center" }}>
                <img className="" height="150" width="110" style={{borderRadius:""}}
-                src='https://monarchmart.com/uploads/all/TqO70AeAHPErgfXb6oxTRxaGO3xjyH2n0JT9LbYQ.jpg'
+                src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZTn_DPvhzdsYinfMx4nRz3JS__5w6lYwBLLqkEh1aoUsVEcpL3XxuX_pcyqFAEICHkPg&usqp=CAU'
                  sx={{
                    width: 0,
                    borderRadius:"100%",

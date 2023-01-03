@@ -20,13 +20,14 @@ const Categories = () => {
 //  const {user}=useAuth()
 //   const [review,setReview]=useState([])
 //   useEffect(()=>{
-//     fetch('https://evening-chamber-61046.herokuapp.com/review')
+//     fetch('http://localhost:5000/review')
 //     .then(res=>res.json())
 //     .then(data=>setReview(data))
 //   },[])
   return (
-    <div className="container">
-         <h1 style={{textAlign:"left"}} className="mt-5">Categories</h1>
+    <div className="container style-cate">
+         <h1 style={{fontSize:"3em" , color: "#7E2231", fontWeight:"700"}} className="categories-style">Categories</h1>
+         <hr className='' style={{  width: '10%', height: '5px', backgroundColor: 'blsck', display:"inline-block", border:0}} />
      <div className="row">
       <div className="">
       <Swiper
@@ -112,7 +113,7 @@ const Categories = () => {
                <Link style={{textDecoration:"none"}} to="/jamdani">
 
                <img height='90' style={{borderRadius:"50%"}}
-                  src='https://storage.googleapis.com/monarchmart-storage/uploads/all/so09ZxWECbxkv7YJ4Gz8mVKlzZIX2Palu5wNUXGC.png'
+                  src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw-YjN7nCfsCZ3i2Wi3eWQnE6eLfLTp7h2ZA&usqp=CAU'
                    sx={{
                     //  width: 30,
                      borderRadius:"100%",
@@ -157,7 +158,7 @@ const Categories = () => {
                <Link style={{textDecoration:"none"}} to="/jamdani">
 
                <img height='90' style={{borderRadius:"50%"}}
-                  src='https://storage.googleapis.com/monarchmart-storage/assets/img/all_cat_rainbow.png'
+                  src='https://utpadok.com/public/uploads/all/UZXIabriIwiL2LhSdIJEb9T5quizuCS28L0HSYeR.jpg'
                    sx={{
                     //  width: 30,
                      borderRadius:"100%",
@@ -202,7 +203,7 @@ const Categories = () => {
                <Link style={{textDecoration:"none"}} to="/jamdani">
 
                <img height='90' style={{borderRadius:"50%"}}
-                  src='http://rmcabasak.com/img/product/28213500_1.jpg'
+                  src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdnJVD3rUsXjpEKBM_K4KTs7Eu8YhHNUeC0w&usqp=CAU'
                    sx={{
                     //  width: 30,
                      borderRadius:"100%",

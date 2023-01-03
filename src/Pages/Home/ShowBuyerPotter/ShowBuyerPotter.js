@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 // import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import Swal from 'sweetalert2';
 
 // import BuyerProductShow from './BuyerProductShow';
 import {
@@ -46,7 +47,10 @@ const ShowBuyerPotter = () => {
         }
         localStorage.setItem("productCart", JSON.stringify(newCart));
         setCart(() => newCart);
-        alert('Add to Cart Successfully');
+        Swal.fire(
+          'Success Product!',
+          
+      )
     };
 
     //     useEffect(()=>{
@@ -54,7 +58,7 @@ const ShowBuyerPotter = () => {
     //   },[])
 
     const fetchData = () => {
-        fetch(`https://evening-chamber-61046.herokuapp.com/getPotter`)
+        fetch(`http://localhost:5000/getPotter`)
         .then(res => res.json())
         .then(data => {
             const sliceData = data.allQuestions.slice(0, 8);
@@ -70,7 +74,7 @@ const ShowBuyerPotter = () => {
       }, [])
 
       const handleLike = (id) => {
-        fetch(`https://evening-chamber-61046.herokuapp.com/potterlike/${id}`, {
+        fetch(`http://localhost:5000/potterlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -89,7 +93,7 @@ const ShowBuyerPotter = () => {
     
       }
       const handleUnLike = (id) => {
-        fetch(`https://evening-chamber-61046.herokuapp.com/potterunlike/${id}`, {
+        fetch(`http://localhost:5000/potterunlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)

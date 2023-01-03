@@ -16,14 +16,14 @@ const CarouselOffer = () => {
   <Carousel.Item className="carousel-design values">
   <img
       className="d-block w-100  slide"
-      src="https://storage.googleapis.com/monarchmart-storage/uploads/all/Q3Bkoc7GUP4sxm4DxxziSiXARk32BVBrKcl2tbn2.png"
+      src="https://i.ibb.co/XbfCpjv/6.png"
       alt="First slide"
     />
   
   
     <Carousel.Caption className="styles">
       
-    <Link to='/piece'>
+    <Link to='/tat'>
     <button className="banner  text-white">More Products</button>
     </Link>
      
@@ -36,13 +36,13 @@ const CarouselOffer = () => {
   <Carousel.Item className="carousel-design values">
     <img
       className="d-block w-100  slide"
-      src="https://storage.googleapis.com/monarchmart-storage/uploads/all/nsEAS0QkcfIPtnZtHJ9CeEWROcUZ9uMtwmkaqQI3.png"
+      src="https://i.ibb.co/WD6Hvvs/9.png"
       alt="Second slide"
     />
 
     <Carousel.Caption>
  
-    <Link to='/more'>
+    <Link to='/jamdani'>
     <button className="banner  text-white">More Products</button>
     </Link>
      
@@ -51,13 +51,13 @@ const CarouselOffer = () => {
   <Carousel.Item className="carousel-design values">
     <img
       className="d-block w-100  slide"
-      src="https://storage.googleapis.com/monarchmart-storage/uploads/all/QedHD7eq48aIcnBtB5GkkmbxL89Je4jfUHS5Aynj.png"
+      src="https://i.ibb.co/RbJDrQJ/8.png"
       alt="Third slide"
     />
 
     <Carousel.Caption>
   
-    <Link to='/more'>
+    <Link to='/tat'>
     <button className="banner  text-white">More Products</button>
     </Link>
     

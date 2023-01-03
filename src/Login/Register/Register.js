@@ -10,6 +10,8 @@ import './Register.css'
 import useAuth from '../../Hooks/useAuth';
 import { Box } from "@mui/system";
 import Backdrop from '@mui/material/Backdrop';
+import Header from '../../Shared/Header/Header';
+import Footer from '../../Shared/Footer/Footer';
 
 const Register = () => {
 
@@ -55,7 +57,9 @@ const handleCloses = () => setOpens(false);
         registerUser(data.email, data.password, data.name,data.client, data.address, data.choose,data.profession,data.contact, data.status="pending", location, navigate)
     }
     return (
-     <div className='signin-background'>
+<div>
+    <Header></Header>
+<div className='signin-background'>
            <div className='py-5'>
         <Container>
             <Row>
@@ -229,6 +233,8 @@ className="p-2 m-2"
         </Container>
     </div>
      </div>
+     <Footer></Footer>
+</div>
     );
 };
 

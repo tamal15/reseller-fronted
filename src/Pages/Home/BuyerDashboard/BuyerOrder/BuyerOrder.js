@@ -4,7 +4,7 @@ import { Box, Chip, Container, Divider, Fab, Grid, TableFooter, TablePagination,
 // import CustomerAddress from './Address'
 import axios from 'axios';
 
-
+import { useForm } from "react-hook-form";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Swal from 'sweetalert2';
 // import useAuth from '../../../../Hooks/useAuth';
@@ -15,21 +15,23 @@ import CartOrder from './BuyerBooking';
 import CustomerAddress from './BuyerAddress';
 // import useAuth from '../../../../Hooks/useAuth';
 
+
 const BuyerOrder = () => {
     const [ordering, setOrder] = useState([]);
     // const { user } = useAuth();
     const { user } = useAuth();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(4);
-
+    const [status, setStatus] = useState('')
     useEffect(()=>{
-        fetch(`https://evening-chamber-61046.herokuapp.com/myOrder/${user?.email}`)
+        fetch(`http://localhost:5000/myOrder/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setOrder(data)
         })
     },[user?.email])
 
+  
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -42,7 +44,7 @@ const BuyerOrder = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://evening-chamber-61046.herokuapp.com/manageAllOrderDelete/${id}`)
+                axios.delete(`http://localhost:5000/manageAllOrderDelete/${id}`)
                     .then((response) => {
                         response.status === 204 &&
                             Swal.fire(
@@ -61,6 +63,48 @@ const BuyerOrder = () => {
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
+
+    // start 
+    const handleUpdate = (id) => {
+        fetch(`http://localhost:5000/updateStatus/${id}`, {
+            method: "PUT",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ status }),
+        })
+            .then((res) => res.json())
+            .then((result) => console.log(result));
+        alert('update')
+    }
+
+
+    const handleDeletes = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/manageAllOrderDelete/${id}`)
+                    .then((response) => {
+                        response.status === 204 &&
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        const deleted = ordering.filter((d) => d._id !== id);
+                        setOrder(deleted)
+                    }).catch((err) => {
+                        console.log(err);
+                    })
+            }
+        })
+    }
+    
 
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(+event.target.value);
@@ -98,6 +142,8 @@ const BuyerOrder = () => {
                                 <CustomerAddress
                                     order={order}
                                     handleDelete={handleDelete}
+                                    handleDeletes={handleDeletes}
+                                    handleUpdate={handleUpdate}
                                 />
 
                             </Grid>

@@ -5,7 +5,8 @@ import { Fab, ListItem, Tooltip, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlined';
 
-
+import { Link } from 'react-router-dom';
+import { FaEdit } from 'react-icons/fa';
 
 const CustomerAddress = ({ order, handleDelete }) => {
 
@@ -23,6 +24,36 @@ const CustomerAddress = ({ order, handleDelete }) => {
                     </Grid>
                     <Grid item xs={8} sm={8} md={8} >
                         <Typography >{order?.cus_name}</Typography>
+                    </Grid>
+
+                </Grid>
+            </ListItem>
+            
+            <ListItem button divider>
+                <Grid container spacing={{ xs: 3, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
+
+                    <Grid item xs={4} sm={4} md={4} >
+                        <Typography style={addressStyle}><span>Schedule</span><span>:</span></Typography>
+                    </Grid>
+                    <Grid item xs={8} sm={8} md={8} >
+                        <Typography >{order?.schedules}</Typography>
+
+                        <Link style={{textDecoration:"none"}} to={`/dashboard/userSchedule/updatepotter/${order._id}`}><span> <FaEdit className='edit-icon' /> Edit </span></Link>
+                    </Grid>
+                   
+
+                </Grid>
+            </ListItem>
+            <ListItem button divider>
+                <Grid container spacing={{ xs: 3, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
+
+                    <Grid item xs={4} sm={4} md={4} >
+                        <Typography style={addressStyle}><span>Purchase</span><span>:</span></Typography>
+                    </Grid>
+                    <Grid item xs={8} sm={8} md={8} >
+                        <Typography >{order?.purchase}</Typography>
+
+                        <Link style={{textDecoration:"none"}} to={`/dashboard/userPurchase/updatepotter/${order._id}`}><span> <FaEdit className='edit-icon' /> Edit </span></Link>
                     </Grid>
 
                 </Grid>

@@ -59,7 +59,7 @@ const About = () => {
           // data-aos-easing="ease-in-sine"
           // data-aos-duration="3000"
           item xs={12} sm={12} md={6}>
-          <img height="370px" width="450px" src="https://i.pinimg.com/736x/09/e5/ab/09e5ab9daa16436b0f5ff55b034d744c.jpg" alt="" />
+          <img height="370px" width="450px" src="https://wedbook.in/wp-content/uploads/2020/10/5.-Hot-Pink-Bridal-Lehenga--819x1024.jpg" alt="" />
         </Grid>
       </Grid>
     </Container>

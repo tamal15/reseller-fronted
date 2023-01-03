@@ -59,14 +59,14 @@ const Expert = () => {
     // checkbox er value true or false return kore
 
     // useEffect(() => {
-    //     fetch('https://evening-chamber-61046.herokuapp.com/TaterSharees')
+    //     fetch('http://localhost:5000/TaterSharees')
     //         .then(res => res.json())
     //         .then(data => setQuestions(data.TaterSharee))
     // }, [])
 
     useEffect(() => {
         console.log(type)
-        fetch('https://evening-chamber-61046.herokuapp.com/sharee')
+        fetch('http://localhost:5000/sharee')
             .then(res => res.json())
             .then(data => {
                 setQuestions(data.allQuestions)
@@ -82,7 +82,7 @@ const Expert = () => {
 
 
     useEffect(()=>{
-        fetch('https://evening-chamber-61046.herokuapp.com/sharee')
+        fetch('http://localhost:5000/sharee')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
@@ -129,7 +129,7 @@ const Expert = () => {
           
             <div className="row ">
                
-            <img className='mt-5' height="300" width="" style={{borderRadius:"15px"}} src='https://storage.googleapis.com/monarchmart-storage/uploads/all/5I2NQ0cKI8VfWOg2WMlam7PgbLRLTeStEK9WI78v.jpg'></img>
+            <img className='mt-5' height="300" width="" style={{borderRadius:"15px"}} src='https://i.ibb.co/WD6Hvvs/9.png'></img>
 
 
             

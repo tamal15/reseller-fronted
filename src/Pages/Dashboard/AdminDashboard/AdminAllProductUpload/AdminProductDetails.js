@@ -57,12 +57,28 @@ import { CartContext } from "../../../../Context/CartContext";
     const { id } = useParams();
     const [number, setNumber] = useState(1);
     const [isFetched, setIsFetched] = useState(0);
-  
+    const [review, setReview] = useState([]);
     useEffect(() => {
-      fetch(`https://evening-chamber-61046.herokuapp.com/details/${id}`)
+      fetch(`http://localhost:5000/details/${id}`)
         .then((res) => res.json())
         .then((data) => setBook(data));
     }, [id]);
+
+    useEffect(()=>{
+
+      fetch("http://localhost:5000/review")
+      .then(res=>res.json())
+      .then(data=>{
+        // const managePost = data?.data.data
+        //   .filter((review) => review.review_type === "name")
+        //   .filter((review) => review.name === id);
+        // const managePost = data?.filter(models => models?.review_type === 'name' || models.review.name===id);
+        // const reviewsChunk = managePost.slice(0, number * 2);
+        // setIsFetched(Math.ceil(managePost.length / 2) === number);
+        setReview(data)
+        // console.log(data)
+      })
+    },[])
 
     const {
         register,
@@ -75,7 +91,7 @@ import { CartContext } from "../../../../Context/CartContext";
     const onSubmit = (data) => {
         console.log(data);
 
-        fetch("https://evening-chamber-61046.herokuapp.com/review", {
+        fetch("http://localhost:5000/review", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -299,9 +315,62 @@ import { CartContext } from "../../../../Context/CartContext";
               </Box>
             </Grid>
   
-            <Grid item xs={4} sm={8} md={4}>
-             
+{/* review part show  */}
+
+<Grid style={{textAlign:"left"}} item xs={4} sm={8} md={4}>
+             {/* {
+              review.map((reviews)=>(
+                <React.Fragment>
+                <h4>Name: {reviews.name}</h4>
+                <h4>Description: {reviews.comment}</h4>
+                <h4>
+                  Rating:
+                  <Rating
+                    name="half-rating-read"
+                    value={reviews.rating}
+                    precision={0.5}
+                    readOnly
+                  />
+                </h4>
+                <hr />
+              </React.Fragment>
+              ))
+             } */}
+
+
+
+
+{review?.length > 0 ? (
+                  review?.reverse()?.map((reviews) => (
+                    <React.Fragment>
+                      <h4>Name: {reviews.name}</h4>
+                      <h4>Description: {reviews.comment}</h4>
+                      <h4>
+                        Rating:
+                        <Rating
+                          name="half-rating-read"
+                          value={reviews.rating}
+                          precision={0.5}
+                          readOnly
+                        />
+                      </h4>
+                      <hr />
+                    </React.Fragment>
+                  ))
+                ) : (
+                  <p>No reviews yet. Be the first one to review this tutor.</p>
+                )}
+                <Button
+                  type="submit"
+                  variant="outlined"
+                  disabled={isFetched || reviews.length === 0}
+                  onClick={() => setNumber(number + 1)}
+                >
+                  {isFetched ? "No More Reviews To Show" : "Load More Reviews"}
+                </Button>
             </Grid>
+
+
           </Grid>
         </Container>
   

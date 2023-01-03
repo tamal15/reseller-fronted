@@ -15,6 +15,8 @@ import Fade from '@mui/material/Fade';
 import Header from "../../Shared/Header/Header"
 import Footer from "../../Shared/Footer/Footer"
 import './OrderReviewPage.css'
+import Visit from '../Home/Visit/Visit';
+// import Visit from '../Home/Visit';
 const OrderReviewPage = () => {
     // console.log(props)
     const { register, handleSubmit,reset } = useForm();
@@ -34,7 +36,7 @@ const OrderReviewPage = () => {
     const handleUpdate = (id) => {
        
 
-        // fetch(`https://evening-chamber-61046.herokuapp.com/BlogStatusUpdate/${id}`, {
+        // fetch(`http://localhost:5000/BlogStatusUpdate/${id}`, {
         //     method: "PUT",
         //     headers: { "content-type": "application/json" },
         //     body: JSON.stringify({ date }),
@@ -80,12 +82,43 @@ const OrderReviewPage = () => {
         return navigate('/payment');
     }
 
+    const handleIncrementQuantity = (id) => {
+
+        const exists = cart.find(pd => pd._id === id);
+        let newCart = [];
+        if (exists) {
+            const rest = cart.filter(pd => pd._id !== id);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, exists];
+        }
+        localStorage.setItem("productCart", JSON.stringify(newCart));
+        setCart(() => newCart);
+    }
+    const handleDecrementQuantity = (id) => {
+
+        const exists = cart.find(pd => pd._id === id);
+        let newCart = [];
+        if (exists) {
+            const rest = cart.filter(pd => pd._id !== id);
+            if (exists.quantity >= 2) {
+                exists.quantity = exists.quantity - 1;
+            }
+            newCart = [...rest, exists];
+        }
+        localStorage.setItem("productCart", JSON.stringify(newCart));
+        setCart(() => newCart);
+    }
+
+
+
     
 
 
     return (
        <div>
         <Header></Header>
+
+        {/* <Visit></Visit> */}
          <Container>
         
         {/* <Box>
@@ -118,7 +151,7 @@ const OrderReviewPage = () => {
                                          <Grid item xs={2} sm={4} md={6}>
                                              <CardMedia
                                                  component="img"
-                                                 sx={{ objectFit: "cover", height: 200, width: "auto" }}
+                                                 sx={{ objectFit: "cover", height: 200, width:200}}
                                                  alt="complex"
                                                  src={cart?.img}
                                              />
@@ -130,7 +163,7 @@ const OrderReviewPage = () => {
                                                  >{cart?.bookName}</Typography>
  
  
-                                                 <br />
+                                                 {/* <br /> */}
  
                                                  <Typography variant="body" style={{ fontWeight: 700, fontSize:"20px" }}>
                                                      <span>  Product: </span>
@@ -154,10 +187,14 @@ const OrderReviewPage = () => {
                                              <Button
                                                  onClick={() => handleRemoveToCart(cart._id)}
                                                  color="error"
-                                                 className='remove-design mt-2'
+                                                 className='remove-design mt-1'
                                              >
                                                  Remove
                                              </Button>
+                                             <div>
+                                                    <Button onClick={() => handleIncrementQuantity(cart._id)} className='remove-design mt-2'>+</Button>
+                                                    <Button onClick={() => handleDecrementQuantity(cart._id)} className='remove-design mt-2 ms-2'>-</Button>
+                                                </div>
                                          </Grid>
                                      </Grid>
                                  </Paper>

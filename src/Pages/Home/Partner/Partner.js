@@ -14,14 +14,21 @@ const Partner = () => {
         sx={{
           lineHeight: "30px",
           py: 5,
-          textAlign: "left",
-          fontWeight: "500",
-          color: "#3B4757",
-          marginBottom:"20px"
+          fontSize:"3em",
+          // textAlign: "left",
+          fontWeight: "700",
+          // color: "#3B4757",
+          color: "#7E2231",
+          marginTop:"100px",
+          marginBottom:"10px"
         }}
       >
         Our Partners
+    <br></br>
+    {/* <br></br> */}
+        <hr className='' style={{  width: '10%', height: '5px', backgroundColor: 'blsck', display:"inline-block", border:0}} />
       </Typography>
+      
      </Container>
 
       {/* <Marquee style={{ display: 'flex', alignItems: '', justifyContent: 'space-between' }}> */}

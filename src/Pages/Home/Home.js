@@ -17,7 +17,10 @@ import Categories from './Categories/Categories';
 import Fashion from './Fashion/Fashion';
 import FeaturesProduct from './FeaturesProduct/FeaturesProduct';
 import Partner from './Partner/Partner';
+import ScrollBar from './Scrollbar';
+import ServiceProvide from './ServiceProvide';
 import ShowBuyerPotter from './ShowBuyerPotter/ShowBuyerPotter';
+import UpCommingSharee from './UpcommingSharee/UpCommingSharee';
 import Visit from './Visit/Visit';
 
 
@@ -27,7 +30,7 @@ const Home = () => {
    
     // const [model, setModel] = useState([]);
     // useEffect(()=>{
-    //     fetch('https://evening-chamber-61046.herokuapp.com/users')
+    //     fetch('http://localhost:5000/users')
     //     .then(res=>res.json())
     //     .then(data=>setModel(data))
     // },[])
@@ -43,17 +46,23 @@ const Home = () => {
                 <Header></Header>
                             {/* <Banner></Banner> */}
                             <Banners></Banners>
+                            
                             {/* <Visit></Visit> */}
                             <Bonus></Bonus>
                             <BuyerProduct></BuyerProduct>
                             <ShowBuyerPotter></ShowBuyerPotter>
                             <Categories></Categories>
+                            <ServiceProvide></ServiceProvide>
+                            <Visit></Visit>
                             <CarouselOffer></CarouselOffer>
+                            <UpCommingSharee></UpCommingSharee>
                             <FeaturesProduct></FeaturesProduct>
                             <BestSellers></BestSellers>
                             <Fashion></Fashion>
                             <Partner></Partner>
+                            {/* <Visit></Visit> */}
                             <Footer></Footer>
+                            <ScrollBar></ScrollBar>
                              
              
                 

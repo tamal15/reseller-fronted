@@ -47,7 +47,10 @@ const Jamdani = () => {
         }
         localStorage.setItem("productCart", JSON.stringify(newCart));
         setCart(() => newCart);
-        alert('Add to Cart Successfully');
+        Swal.fire(
+          'Success Product!',
+          
+      )
     };
 
     const [questions, setQuestions] = useState([]);
@@ -75,14 +78,14 @@ const Jamdani = () => {
     // checkbox er value true or false return kore
 
     // useEffect(() => {
-    //     fetch('https://evening-chamber-61046.herokuapp.com/TaterSharees')
+    //     fetch('http://localhost:5000/TaterSharees')
     //         .then(res => res.json())
     //         .then(data => setQuestions(data.TaterSharee))
     // }, [])
 
     // useEffect(() => {
     //     console.log(type, year, code)
-    //     fetch('https://evening-chamber-61046.herokuapp.com/sharee')
+    //     fetch('http://localhost:5000/sharee')
     //         .then(res => res.json())
     //         .then(data => {
     //             setQuestions(data.allQuestions)
@@ -97,7 +100,7 @@ const Jamdani = () => {
     // }, [type, year, code, page]);
 
     const fetchData = () => {
-      fetch('https://evening-chamber-61046.herokuapp.com/sharee')
+      fetch('http://localhost:5000/sharee')
       .then(res => res.json())
       .then(data => {
           setQuestions(data.allQuestions)
@@ -115,7 +118,7 @@ const Jamdani = () => {
     }, [type, year, code, page])
 
     const handleLike = (id) => {
-      fetch(`https://evening-chamber-61046.herokuapp.com/like/${id}`, {
+      fetch(`http://localhost:5000/like/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -123,18 +126,18 @@ const Jamdani = () => {
         console.log(res)
         if (res.status === 200) {
           fetchData()
-          alert("Liked");
+          // alert("Liked");
         } else if (res.status === 400) {
-          alert("Already Liked");
+          // alert("Already Liked");
         } else {
-          alert("server error");
+          // alert("server error");
         }
       }).catch(err => console.log(err));
   
   
     }
     const handleUnLike = (id) => {
-      fetch(`https://evening-chamber-61046.herokuapp.com/unlike/${id}`, {
+      fetch(`http://localhost:5000/unlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -142,11 +145,11 @@ const Jamdani = () => {
   
         if (res.status === 200) {
           fetchData()
-          alert("Unlike");
+          // alert("Unlike");
         } else if (res.status === 400) {
-          alert("Already Unlike");
+          // alert("Already Unlike");
         } else {
-          alert("server error");
+          // alert("server error");
         }
       }).catch(err => console.log(err));
   
@@ -156,7 +159,7 @@ const Jamdani = () => {
 
 
     useEffect(()=>{
-        fetch('https://evening-chamber-61046.herokuapp.com/sharee')
+        fetch('http://localhost:5000/sharee')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])

@@ -49,7 +49,10 @@ const ShitalPati = () => {
         }
         localStorage.setItem("productCart", JSON.stringify(newCart));
         setCart(() => newCart);
-        alert('Add to Cart Successfully');
+        Swal.fire(
+          'Success Product!',
+          
+      )
     };
 
     const [questions, setQuestions] = useState([]);
@@ -78,7 +81,7 @@ const ShitalPati = () => {
 
     const fetchData = () => {
       // console.log(type, year, code,page)
-      fetch('https://evening-chamber-61046.herokuapp.com/getPotter')
+      fetch('http://localhost:5000/getPotter')
           .then(res => res.json())
           .then(data => {
             setQuestions(data.allQuestions)
@@ -94,13 +97,13 @@ const ShitalPati = () => {
 
 
     useEffect(()=>{
-        fetch('https://evening-chamber-61046.herokuapp.com/getPotter')
+        fetch('http://localhost:5000/getPotter')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
 
     const handleLike = (id) => {
-      fetch(`https://evening-chamber-61046.herokuapp.com/potterlike/${id}`, {
+      fetch(`http://localhost:5000/potterlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -108,18 +111,18 @@ const ShitalPati = () => {
         console.log(res)
         if (res.status === 200) {
           fetchData()
-          alert("Liked");
+          // alert("Liked");
         } else if (res.status === 400) {
-          alert("Already Liked");
+          // alert("Already Liked");
         } else {
-          alert("server error");
+          // alert("server error");
         }
       }).catch(err => console.log(err));
   
   
     }
     const handleUnLike = (id) => {
-      fetch(`https://evening-chamber-61046.herokuapp.com/potterunlike/${id}`, {
+      fetch(`http://localhost:5000/potterunlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -127,11 +130,11 @@ const ShitalPati = () => {
   
         if (res.status === 200) {
           fetchData()
-          alert("Unlike");
+          // alert("Unlike");
         } else if (res.status === 400) {
-          alert("Already Unlike");
+          // alert("Already Unlike");
         } else {
-          alert("server error");
+          // alert("server error");
         }
       }).catch(err => console.log(err));
   

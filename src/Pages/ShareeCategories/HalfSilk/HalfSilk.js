@@ -47,7 +47,11 @@ const HalfSilk = () => {
         }
         localStorage.setItem("productCart", JSON.stringify(newCart));
         setCart(() => newCart);
-        alert('Add to Cart Successfully');
+        // alert('Add to Cart Successfully');
+        Swal.fire(
+          'Success Product!',
+          
+      )
     };
 
     const [questions, setQuestions] = useState([]);
@@ -62,7 +66,7 @@ const HalfSilk = () => {
     const [page, setPage] = useState(0)
     const [pageCount, setPageCount] = useState(0)
     const size = 10;
-
+    const [sizing,setsizing]=useState("");
     // console.log(questions)
 
     const handlePageChange = (data) => {
@@ -75,14 +79,14 @@ const HalfSilk = () => {
     // checkbox er value true or false return kore
 
     // useEffect(() => {
-    //     fetch('https://evening-chamber-61046.herokuapp.com/TaterSharees')
+    //     fetch('http://localhost:5000/TaterSharees')
     //         .then(res => res.json())
     //         .then(data => setQuestions(data.TaterSharee))
     // }, [])
 
     // useEffect(() => {
     //     console.log(type, year, code)
-    //     fetch('https://evening-chamber-61046.herokuapp.com/sharee')
+    //     fetch('http://localhost:5000/sharee')
     //         .then(res => res.json())
     //         .then(data => {
     //             setQuestions(data.allQuestions)
@@ -97,7 +101,7 @@ const HalfSilk = () => {
     // }, [type, year, code, page]);
 
     const fetchData = () => {
-      fetch('https://evening-chamber-61046.herokuapp.com/sharee')
+      fetch(`http://localhost:5000/sharee?page=${page}&&sizing=${sizing}&&size=${size}`)
       .then(res => res.json())
       .then(data => {
           setQuestions(data.allQuestions)
@@ -115,7 +119,7 @@ const HalfSilk = () => {
     }, [type, year, code, page])
 
     const handleLike = (id) => {
-      fetch(`https://evening-chamber-61046.herokuapp.com/like/${id}`, {
+      fetch(`http://localhost:5000/like/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -123,18 +127,18 @@ const HalfSilk = () => {
         console.log(res)
         if (res.status === 200) {
           fetchData()
-          alert("Liked");
+          // alert("Liked");
         } else if (res.status === 400) {
-          alert("Already Liked");
+          // alert("Already Liked");
         } else {
-          alert("server error");
+          // alert("server error");
         }
       }).catch(err => console.log(err));
   
   
     }
     const handleUnLike = (id) => {
-      fetch(`https://evening-chamber-61046.herokuapp.com/unlike/${id}`, {
+      fetch(`http://localhost:5000/unlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -142,11 +146,11 @@ const HalfSilk = () => {
   
         if (res.status === 200) {
           fetchData()
-          alert("Unlike");
+          // alert("Unlike");
         } else if (res.status === 400) {
-          alert("Already Unlike");
+          // alert("Already Unlike");
         } else {
-          alert("server error");
+          // alert("server error");
         }
       }).catch(err => console.log(err));
   
@@ -156,7 +160,7 @@ const HalfSilk = () => {
 
 
     useEffect(()=>{
-        fetch('https://evening-chamber-61046.herokuapp.com/sharee')
+        fetch('http://localhost:5000/sharee')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
@@ -402,7 +406,7 @@ const placeholder = 'Search by Sharee Product Name';
                 <div className="d-flex mt-5">
                     <div className='mx-auto'>
 
-                        <ReactPaginate
+                    <ReactPaginate
                             previousLabel={'previous'}
                             nextLabel={'next'}
                             breakLabel={'...'}

@@ -1,0 +1,30 @@
+.swiper {
+    width: 100%;
+    /* padding-top: 50px; */
+    /* padding-bottom: 50px; */
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    /* width: 300px; */
+    /* height: 300px; */
+}
+
+.swiper-slide img {
+    display: block;
+    width: 90%;
+}
+
+
+
+
+.user-reviews {
+    /* position: relative; */
+    font-size: 3em;
+    color: #7E2231;
+    font-weight: 700;
+    /* color: #46AADC; */
+    /* margin-bottom: 30px; */
+    /* text-transform: uppercase; */
+}

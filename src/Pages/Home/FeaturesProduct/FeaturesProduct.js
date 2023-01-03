@@ -18,13 +18,14 @@ const FeaturesProduct = () => {
 //  const {user}=useAuth()
   const [review,setReview]=useState([])
   useEffect(()=>{
-    fetch('https://evening-chamber-61046.herokuapp.com/features')
+    fetch('http://localhost:5000/features')
     .then(res=>res.json())
     .then(data=>setReview(data))
   },[])
   return (
     <div data-aos="fade-up" className="container">
-        <h2 className="features">Features Product</h2>
+        <h2 style={{fontSize:"3em", color: "#7E2231", fontWeight:"700", textAlign:"center", marginTop:"100px"}} className="features">Features Product</h2>
+        <hr className='' style={{  width: '15%', height: '5px', backgroundColor: 'blsck', display:"inline-block", border:0}} />
      <div className="row">
       <div className="">
       <Swiper

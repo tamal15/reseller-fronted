@@ -25,9 +25,18 @@
     /* width: 100%; */
     /* padding-top: 50px; */
     /* padding-bottom: 50px; */
+    /* background-color: rgb(228, 233, 228); */
    
   }
+
+  .style-cate{
+    margin-bottom: 100px;
+  }
    
+  .categories-style{
+    margin-top: 170px !important;
+    /* margin-bottom: 100px; */
+  }
   
    .swiper-slide {
     text-align: center;

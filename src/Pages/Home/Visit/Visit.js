@@ -9,7 +9,7 @@ const Visit = () => {
             <Marquee direction='right'>
                 <AddShoppingCartIcon sx={{ color: 'white' }} />
                 <Typography> <a style={{ textDecoration: "none", color: 'white', fontWeight: 'bold' }} href="https://docs.google.com/forms/d/e/1FAIpQLSfvFQyfZbgWwUW8GE8tM1vCa3-44nj1GlDtVRmoM1aaWlediA/viewform"
-                >  Thank You Visit Our Website  </a></Typography>
+                >  Thank You Visit Our Website.. Total shopping 500 Taka then cupon code 'sakib'  </a></Typography>
                 <AddShoppingCartIcon sx={{ color: 'white' }} />
             </Marquee>
 

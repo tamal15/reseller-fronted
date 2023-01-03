@@ -69,7 +69,7 @@ const handleClose = () => setOpen(false);
       status: "Pending",
     };
     axios
-      .post('https://evening-chamber-61046.herokuapp.com/init', paymentData)
+      .post('http://localhost:5000/init', paymentData)
       .then((res) => {
         window.location.replace(res?.data);
         localStorage.removeItem('productCart');
@@ -88,7 +88,7 @@ const handleClose = () => setOpen(false);
   }, []);
 
   const fetchData = () => {
-    fetch('https://evening-chamber-61046.herokuapp.com/postBuyer')
+    fetch('http://localhost:5000/postBuyer')
       .then(res => res.json())
       // .then(data => setWork(data))
       .then(data => {
@@ -100,7 +100,15 @@ const handleClose = () => setOpen(false);
   }
   useEffect(() => {
     fetchData()
-  }, [])
+  }, []);
+
+  const handleOnchange=(e)=>{
+    if(e.target.value='weekly'){
+      this.setState({
+        disabled:true
+      });
+    }
+  }
 
 
   return (
@@ -351,11 +359,20 @@ const handleClose = () => setOpen(false);
       {/* /> */}
 
 
-      <Box style={{marginTop:"10px"}}>
-<h4 style={{textAlign:"left", fontWeight:"700"}}>Schedule Purchase</h4>
-<p style={{textAlign:"left", fontSize:"13px",fontWeight:"600"}}>If you want to buy the product as a schedule, then do schedule purchase.  And if you don't want to buy the product as a schedule, ignore it.</p>
+     
+        
+
+      {/* {errors.cus_postcode && <span>This field is required</span>} */}
+    </Grid>
+  <Toolbar />
+
+  <Box className='schedule-background'>
+  <Box style={{marginTop:"10px"}}>
+<h4 style={{textAlign:"", fontWeight:"700"}}>Schedule Purchase</h4>
+<p style={{textAlign:"", fontSize:"13px",fontWeight:"600"}}>If you want to buy the product as a schedule, then do schedule purchase.  And if you don't want to buy the product as a schedule, ignore it.</p>
 {/* <div> */}
-<Button className="week-design" style={{background:"", padding:"", fontSize:""}} onClick={handleOpen}>Weekly</Button>
+{/* disabled={'true' ||'false'} */}
+<Button  className="week-design" style={{background:"", padding:"", fontSize:""}} onClick={handleOpen}>Weekly</Button>
 <Modal
 aria-labelledby="transition-modal-title"
 aria-describedby="transition-modal-description"
@@ -396,8 +413,8 @@ className="p-2 m-2"
 {/* 2nd modal monthly purchase products  */}
 
 <Box>
-OR
-<Button className="week-design"  style={{background:"", padding:"",marginTop:"10px"}} onClick={handleOpen}>Monthly</Button>
+
+<Button  className="week-design mb-3"  style={{background:"", padding:"",marginTop:"10px"}} onClick={handleOpen}>Monthly</Button>
 <Modal
 aria-labelledby="transition-modal-title"
 aria-describedby="transition-modal-description"
@@ -433,13 +450,9 @@ className="p-2 m-2"
 </Modal>
 </Box>
 </Box> 
-        
+  </Box>
 
-      {/* {errors.cus_postcode && <span>This field is required</span>} */}
-    </Grid>
-  <Toolbar />
-
-  <Button className="sub-design" style={{background:"",color:"", marginBottom:"100px"}} type="submit" sx={{ width: "50%" }}>
+  <Button className="sub-design mt-5" style={{background:"",color:"", marginBottom:"100px"}} type="submit" sx={{ width: "50%" }}>
     Submit
   </Button>
 

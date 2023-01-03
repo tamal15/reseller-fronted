@@ -9,6 +9,7 @@ export const LightTheme={
 
  export const darkTheme={
     body:"honeydew",
+    // body:"rgb(228, 233, 228)",
     // body:"black",
     fontColor:"white !important",
     // textColor:"black",

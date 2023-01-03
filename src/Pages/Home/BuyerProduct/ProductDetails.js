@@ -55,18 +55,19 @@ import useAuth from "../../../Hooks/useAuth";
     const { id } = useParams();
     const [number, setNumber] = useState(1);
     const [review, setReview] = useState([]);
+    
     // const [number, setNumber] = useState(1);
     const [isFetched, setIsFetched] = useState(0);
      const {user}=useAuth;
     useEffect(() => {
-      fetch(`https://evening-chamber-61046.herokuapp.com/product/${id}`)
+      fetch(`http://localhost:5000/product/${id}`)
         .then((res) => res.json())
         .then((data) => setBook(data));
     }, [id]);
 
     useEffect(()=>{
 
-      fetch("https://evening-chamber-61046.herokuapp.com/review")
+      fetch("http://localhost:5000/review")
       .then(res=>res.json())
       .then(data=>{
         // const managePost = data?.data.data
@@ -95,7 +96,7 @@ import useAuth from "../../../Hooks/useAuth";
     const onSubmit = (data) => {
         console.log(data);
 
-        fetch("https://evening-chamber-61046.herokuapp.com/review", {
+        fetch("http://localhost:5000/review", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

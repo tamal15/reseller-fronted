@@ -20,7 +20,7 @@ const SuccessOrder = () => {
 
 
     useEffect(() => {
-        fetch(`https://evening-chamber-61046.herokuapp.com/orders/${id}`)
+        fetch(`http://localhost:5000/orders/${id}`)
             .then(res => res.json())
             .then(data => {
                 setBook(data);
@@ -48,7 +48,7 @@ const SuccessOrder = () => {
                         container
                         sx={{ mt: 2 }}
                         columns={{ xs: 4, sm: 8, md: 12 }}
-                        style={{textAlign:"center"}}
+                        style={{ textAlign: "center" }}
                     >
                         <Grid item xs={4} sm={4} md={6} >
 
@@ -111,20 +111,20 @@ const SuccessOrder = () => {
                                                 <Grid item xs={7} sm={2} md={6}>
                                                     <CardMedia
                                                         component="img"
-                                                        sx={{ objectFit: "cover", height: 200, width: "auto" }}
+                                                        sx={{ objectFit: "cover", height: 200, width: 200 }}
                                                         alt="complex"
                                                         src={single?.img}
-                                                        // style={{marginLeft:"5px"}}
+                                                    // style={{marginLeft:"5px"}}
                                                     />
                                                 </Grid>
-                                                <Grid item xs={5} sm={6} md={6} pl={2} my={3} 
-                                                style={{textAlign:"left",marginRight:""}}>
+                                                <Grid item xs={5} sm={6} md={6} pl={2} my={3}
+                                                    style={{ textAlign: "left", marginRight: "" }}>
                                                     <Box>
                                                         <Typography variant="h2"
                                                             sx={{ fontSize: '18px', fontWeight: 700 }}
                                                         >{single?.productName}</Typography>
 
-                                                       
+
                                                         <Typography variant="body">
                                                             <span style={{ fontWeight: 700 }}> Price :</span>
                                                             {single?.ProductPrice} Taka
