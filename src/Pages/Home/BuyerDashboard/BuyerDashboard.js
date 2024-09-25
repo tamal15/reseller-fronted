@@ -54,6 +54,9 @@ const BuyerDashboard = () => {
 
                                 <input
                                 type="number"
+                                min="1"
+                                onkeyup="if(this.value<0)this.value=1"
+                                step="1"
                                 style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("ProductPrice", { required: true })} placeholder='Product Price' /> <br />
                                  
@@ -67,9 +70,26 @@ const BuyerDashboard = () => {
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("gender", { required: true })} placeholder='Gender' /> <br />
-                                <input
-                                style={{fontWeight:"600",color:" #0E1621"}}
-                                className='w-75 mb-3'  {...register("categories", { required: true })} placeholder='Jamdani/taterSharee/silk/half-silk/cotton/katan/tissure' /> <br />
+                                <Form.Group as={Col} controlId="formGridRating"        style={{marginLeft:"104px",marginRight:"104px", borderRadius:"15px",color:"black"}}>
+                                        
+                                        <select
+                                        style={{borderRadius:"30px"}}
+                                            required
+                                            className="form-control shadow-none"
+                                            placeholder='select'
+                                            {...register("categories")}
+                                        >
+                                            <option>Select categories</option>
+                                            <option value="jamdani">jamdani</option>
+                                            <option value="taterSharee">taterSharee</option>
+                                            <option value="silk">silk</option>
+                                            <option value="half-silk">half-silk</option>
+                                            <option value="cotton">cotton</option>
+                                            <option value="katan">katan</option>
+                                            <option value="tissure">tissure</option>
+                                          
+                                        </select>
+                                    </Form.Group><br />
                                 <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("shop", { required: true })} placeholder='Shop Name' /> <br />
@@ -77,9 +97,25 @@ const BuyerDashboard = () => {
                                 style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("description", { required: true })} placeholder='Description' /> 
 
-                                <input
-                                style={{fontWeight:"600",color:" #0E1621"}}
-                                className='w-75 mb-3'  {...register("warrenty", { required: true })} placeholder='warrenty example : 1 month/6 month/9 month' />
+<Form.Group as={Col} controlId="formGridRating"        style={{marginLeft:"104px",marginRight:"104px", borderRadius:"15px",color:"black"}}>
+                                        
+                                        <select
+                                        style={{borderRadius:"30px"}}
+                                            required
+                                            className="form-control shadow-none"
+                                            placeholder='select'
+                                            {...register("warrenty")}
+                                        >
+                                            <option>Select Warrenty</option>
+                                            <option value="1 month">1 month</option>
+                                            <option value="6 month">6 month</option>
+                                            <option value="9 month">9 month</option>
+                                            <option value="1 Year">1 Year</option>
+                                            <option value="7 Days">7 Days</option>
+                                           
+                                          
+                                        </select>
+                                    </Form.Group>
                                 {/* <input
                                 style={{fontWeight:"600",color:" #0E1621"}}
                                 className='w-75 mb-3'  {...register("material", { required: true })} placeholder='Main Material example : silk/Cotton/Half Silk/Katan/Tissure' /> */}
@@ -88,7 +124,8 @@ const BuyerDashboard = () => {
                                 className='w-75 mb-3'  {...register("likes")} placeholder='likes' /> */}
 
                                 {/* <input> */}
-                                <Form.Group as={Col} controlId="formGridRating"        style={{marginLeft:"84px",marginRight:"84px", borderRadius:"15px",color:"white"}}>
+                                <br></br>
+                                <Form.Group as={Col} controlId="formGridRating"        style={{marginLeft:"104px",marginRight:"104px", borderRadius:"15px",color:"white"}}>
                                         <Form.Label>
                                             Give Us A Rating (1 is the wrost , 5 is the best)
                                         </Form.Label>

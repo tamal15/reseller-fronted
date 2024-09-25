@@ -135,8 +135,8 @@ reset();
                 </Box>
                 <Box>
                   <Typography sx={{ ml: 5 }} variant='h5'>Mail Us</Typography>
-                  <Typography variant='body'>sakib@gmail.com</Typography><br />
-                  <Typography variant='body'>hasan@gmail.com</Typography>
+                  <Typography variant='body'>ttttt@gmail.com</Typography><br />
+                  <Typography variant='body'>sssss@gmail.com</Typography>
 
                 </Box>
 
@@ -150,8 +150,8 @@ reset();
                 </Box>
                 <Box>
                   <Typography sx={{ ml: 4 }} variant='h5'>Call Us</Typography>
-                  <Typography variant='body'>+8801796702013</Typography><br />
-                  <Typography variant='body'>+8801796702013</Typography>
+                  <Typography variant='body'>+8801746445559</Typography><br />
+                  <Typography variant='body'>+8801746445559</Typography>
                 </Box>
 
 

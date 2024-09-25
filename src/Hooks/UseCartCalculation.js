@@ -1,78 +1,53 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../Context/CartContext';
 
 const CartCalculation = () => {
-    const cartProducts = useContext(CartContext)[0];
-   
+    const [cartProducts] = useContext(CartContext);
+    const [shippingCost, setShippingCost] = useState(0);
+
     let totalQuantity = 0;
     let total = 0;
+    let totalIncome = 0;
+
+    useEffect(() => {
+        // Retrieve shipping cost from local storage
+        const shippingData = JSON.parse(localStorage.getItem("shippingOption"));
+        if (shippingData) {
+            setShippingCost(shippingData.cost || 0);
+        }
+    }, []);
+
     for (const product of cartProducts) {
         if (!product.quantity) {
             product.quantity = 1;
         }
-        total = total + product.ProductPrice * product.quantity;
-        totalQuantity = totalQuantity + product.quantity;
+        const productPrice = Number(product.ProductPrices) || 0;
+        total += productPrice * product.quantity;
+        totalQuantity += product.quantity;
+        totalIncome += Number(product.totalIncome) || 0;
     }
 
-
-    const shipping = total > 0.10 ? 15 : 0;
-    const tax = (total + shipping) * 0.10;
+    // Reset shipping cost and tax if the cart is empty
+    const shipping = total > 0 ? shippingCost : 0;
+    const tax = 0;
     const grandtotal = total + shipping + tax;
-    
 
-    const [searchValues,setSearchValues]= useState('');
-    const [model,setModel]= useState('');
-    // const [UpdateTotal,setUpdateTotal]= useState('');
-    const  handleSearchs=(e)=>{
-        e.preventDefault()
-        const values = e.target.value;
-        console.log(typeof(values))
-        // values='';
-        setSearchValues(values)
-    }
+    // Handle coupon or discount logic here if needed
+    const model = 0; // Placeholder for discount logic
 
-    const handleValues=()=>{
-
-        // if(searchValues!=stri){
-        //     alert("Not a cupon")
-        // }
-    //    searchValues='';
-    // && grandtotal<=500 
-        if(searchValues === 'sakib'){
-        
-            const totalValues=parseFloat((grandtotal * 20)/100);
-            const updateDiscount= parseFloat(grandtotal - totalValues);
-            // document.getElementById('promo-code').innerText=updateDiscount;
-            setModel(updateDiscount);
-            console.log(typeof(updateDiscount))
-            
-            
-        }
-       
-        else{
-            const grandtotal = total + shipping + tax;
-            setSearchValues(grandtotal)
-        }
-        // console.log("data ahjjdkdk")
-
-        
-          
-    }
-
-
-    
     return {
-        cartProducts,
-        totalQuantity,
         shipping,
         tax,
+        cartProducts,
+        totalQuantity,
         total,
         grandtotal,
-        searchValues,
+        totalIncome,
         model,
-        handleSearchs,
-        handleValues,
-        
-    }
-}
+        handleSearchs: () => {}, // Add your handler functions
+        handleValues: () => {},
+        searchValues: '',
+    };
+};
+
 export default CartCalculation;

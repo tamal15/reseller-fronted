@@ -1,13 +1,13 @@
 .order-design{
     /* background-image: linear-gradient(to right, rgb(50, 188, 211), rgb(134, 255, 78)); */
     /* background-image: linear-gradient(to right, #7E2231,  rgb(50, 188, 211) ); */
-    background-image: linear-gradient(to right, #7E2231,  #D0425C );
+    background-image: linear-gradient(to right, #113350,  #427bb1 );
     color:white;
 }
 
 .orders-design{
     /* background-image: linear-gradient(to right,  #D0425C , rgb(0, 85, 147)); */
-    background-image: linear-gradient(to right,  #D0425C , #550412);
+    background-image: linear-gradient(to right,  #427bb1 , #113350);
     color:white !important;
 }
 

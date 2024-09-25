@@ -1,0 +1,14 @@
+.photo {
+    width: 100%; /* Ensure the photo container takes full width of its parent */
+  }
+  
+  .photoShops {
+    width: 100%; /* Ensure the image container takes full width of its parent */
+  }
+  
+  .photoShops img {
+    width: 100%; /* Make the image scale to fit the container */
+    height: 200px; /* Maintain aspect ratio */
+    border-radius: 15px; /* Apply border radius */
+  }
+  

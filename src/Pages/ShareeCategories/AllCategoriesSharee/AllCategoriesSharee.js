@@ -76,7 +76,7 @@ const AllCategoriesSharee = () => {
         setPage(data.selected);
     }
     const fetchData = () => {
-        fetch(`http://localhost:5000/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+        fetch(`http://localhost:5000/sharee?categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
         .then(res => res.json())
         .then(data => {
             setQuestions(data.allQuestions)
@@ -442,7 +442,7 @@ const AllCategoriesSharee = () => {
                      
 
                     <Typography variant="body">
-                        <h5 style={{ fontWeight: 700 }}> price : ${single?.ProductPrice}</h5>
+                        <h5 style={{ fontWeight: 700 }}> price : TK.{single?.ProductPrice}</h5>
                         
                       </Typography>
                     

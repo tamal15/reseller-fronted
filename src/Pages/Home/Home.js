@@ -16,12 +16,15 @@ import CarouselOffer from './CarouselOffer/CarouselOffer';
 import Categories from './Categories/Categories';
 import Fashion from './Fashion/Fashion';
 import FeaturesProduct from './FeaturesProduct/FeaturesProduct';
+import LastBanner from './LastBanner/LastBanner';
 import Partner from './Partner/Partner';
 import ScrollBar from './Scrollbar';
 import ServiceProvide from './ServiceProvide';
 import ShowBuyerPotter from './ShowBuyerPotter/ShowBuyerPotter';
 import UpCommingSharee from './UpcommingSharee/UpCommingSharee';
 import Visit from './Visit/Visit';
+import HomeDataShow from './HomeDataShow/HomeDataShow';
+import Partners from './Partner/Partners';
 
 
 
@@ -46,20 +49,24 @@ const Home = () => {
                 <Header></Header>
                             {/* <Banner></Banner> */}
                             <Banners></Banners>
-                            
-                            {/* <Visit></Visit> */}
-                            <Bonus></Bonus>
-                            <BuyerProduct></BuyerProduct>
-                            <ShowBuyerPotter></ShowBuyerPotter>
-                            <Categories></Categories>
-                            <ServiceProvide></ServiceProvide>
                             <Visit></Visit>
-                            <CarouselOffer></CarouselOffer>
+
+                            {/* <Visit></Visit> */}
+                            {/* <Bonus></Bonus> */}
+                            {/* <BuyerProduct></BuyerProduct> */}
+                            <HomeDataShow/>
+                            {/* <ShowBuyerPotter></ShowBuyerPotter> */}
+                            {/* <Categories></Categories> */}
+                            {/* <ServiceProvide></ServiceProvide> */}
+                            {/* <Visit></Visit> */}
+                            {/* <CarouselOffer></CarouselOffer> */}
                             <UpCommingSharee></UpCommingSharee>
-                            <FeaturesProduct></FeaturesProduct>
-                            <BestSellers></BestSellers>
-                            <Fashion></Fashion>
+                            {/* <FeaturesProduct></FeaturesProduct> */}
+                            {/* <LastBanner></LastBanner> */}
+                            {/* <BestSellers></BestSellers>  */}
+                            {/* <Fashion></Fashion> */}
                             <Partner></Partner>
+
                             {/* <Visit></Visit> */}
                             <Footer></Footer>
                             <ScrollBar></ScrollBar>

@@ -386,7 +386,7 @@ const DaruShilpo = () => {
                      
 
                     <Typography variant="body">
-                        <h5 style={{ fontWeight: 700 }}> price : ${single?.ProductPrice}</h5>
+                        <h5 style={{ fontWeight: 700 }}> price : TK.{single?.ProductPrice}</h5>
                         
                       </Typography>
                     

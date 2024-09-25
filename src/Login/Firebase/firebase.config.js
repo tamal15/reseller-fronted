@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBpIM0OVrg5Aalh1P0MPW576joEAZanGj0",
-    authDomain: "sarong-42db5.firebaseapp.com",
-    projectId: "sarong-42db5",
-    storageBucket: "sarong-42db5.appspot.com",
-    messagingSenderId: "68431305019",
-    appId: "1:68431305019:web:3fc3852f2ceb0f0a49bf1e"
+  apiKey: "AIzaSyDvwzmNhmWg670bknSddEp4JHeOIMuFOqo",
+  authDomain: "car-mechines.firebaseapp.com",
+  projectId: "car-mechines",
+  storageBucket: "car-mechines.appspot.com",
+  messagingSenderId: "909195077912",
+  appId: "1:909195077912:web:95ed263b28c832070f966d"
   };
 
   export default firebaseConfig;

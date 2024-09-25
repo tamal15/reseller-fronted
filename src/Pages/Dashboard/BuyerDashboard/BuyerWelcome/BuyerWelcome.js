@@ -13,7 +13,7 @@ const BuyerWelcome = () => {
             </Col>
             <Col md={6}>
                 <div className="dashboard-image">
-                    <img src={user.displayName ? user.photoURL : 'https://i.ibb.co/Xsnkx3L/user.png'} alt="user" />
+                    <img src= 'https://i.ibb.co/Xsnkx3L/user.png' alt="user" />
                 </div>
             </Col>
         </Row>

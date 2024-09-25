@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Chip, Container, Divider, Fab, Grid, TableFooter, TablePagination, Toolbar } from '@mui/material';
-// import CartOrder from './MyBooking';
-// import CustomerAddress from './Address'
+
 import axios from 'axios';
 
 
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Swal from 'sweetalert2';
-// import useAuth from '../../../../Hooks/useAuth';
-// import CustomerAddress from './Address';
-// import CartOrder from './MyBooking';
-// import useAuth from '../../../../Hooks/useAuth';
-// import CustomerAddress from './BuyerAddress';
-// import CartOrder from './CustomerBooking';
+
 import useAuth from '../../../../Hooks/useAuth';
 import CustomerAddress from './UserAddress';
 import CartOrder from './UserBooking';
@@ -26,7 +20,7 @@ const UpdateOrder = () => {
     const [status, setStatus] = useState('')
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/userMy/${user?.email}`)
+        fetch(`http://localhost:5000/userMy`)
         .then(res=>res.json())
         .then(data=>{
             setOrder(data)
@@ -59,20 +53,36 @@ const UpdateOrder = () => {
             if (result.isConfirmed) {
                 axios.delete(`http://localhost:5000/manageAllOrderDelete/${id}`)
                     .then((response) => {
-                        response.status === 204 &&
+                        if (response.status === 200 || response.status === 204) {
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
                                 'success'
-                            )
-                        const deleted = ordering.filter((d) => d._id !== id);
-                        setOrder(deleted)
-                    }).catch((err) => {
-                        console.log(err);
+                            );
+    
+                            // Update the state to immediately reflect the deletion
+                            const updatedOrders = ordering.filter((d) => d._id !== id);
+                            setOrder(updatedOrders);
+                        } else {
+                            Swal.fire(
+                                'Failed!',
+                                'Failed to delete the order. Please try again.',
+                                'error'
+                            );
+                        }
                     })
+                    .catch((err) => {
+                        console.log(err);
+                        Swal.fire(
+                            'Error!',
+                            'An error occurred while deleting the order.',
+                            'error'
+                        );
+                    });
             }
-        })
-    }
+        });
+    };
+    
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };

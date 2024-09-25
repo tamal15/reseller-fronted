@@ -8,7 +8,7 @@
 }
 .des{
     text-decoration: none;
-    font-size: 20px;
+    font-size: 17px;
     text-align: left;
 
 }
@@ -28,11 +28,43 @@
     text-align: left;
     font-size: 20px;
 }
-.dashboard-menu {
-    height: 100vh;
-   
-  
+.content-scroll {
+    /* max-height: 100vh;  */
+    /* overflow-y: auto;  */
+    padding-right: 1rem; /* Optional: add some padding for visual spacing */
+    background-color: #f8f9fa; /* Optional: background color for the scroll area */
 }
+
+/* Optional: Add styles for a custom scrollbar */
+.content-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content-scroll::-webkit-scrollbar-thumb {
+    background-color: #cccccc;
+    border-radius: 4px;
+}
+
+
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dashboard-menu {
+    position: sticky; /* Keeps the sidebar fixed while scrolling */
+    top: 0;
+    /* height: 100vh; */
+    overflow-y: auto; /* Adds scrollbar if the content exceeds the height */
+  }
+  
+  .scrollable-content {
+    height: 100vh;
+    overflow-y: auto; /* Makes the right-side content scrollable */
+    padding-right: 1rem; /* Adds padding for scrollbar space */
+  }
+  
 
 .dashboard-menu ul {
     list-style: none;

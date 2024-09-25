@@ -5,11 +5,11 @@ import Marquee from "react-fast-marquee";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const Visit = () => {
     return (
-        <Box sx={{ bgcolor: '#7E2231' }}>
+        <Box sx={{ bgcolor: '#113350' }}>
             <Marquee direction='right'>
                 <AddShoppingCartIcon sx={{ color: 'white' }} />
                 <Typography> <a style={{ textDecoration: "none", color: 'white', fontWeight: 'bold' }} href="https://docs.google.com/forms/d/e/1FAIpQLSfvFQyfZbgWwUW8GE8tM1vCa3-44nj1GlDtVRmoM1aaWlediA/viewform"
-                >  Thank You Visit Our Website.. Total shopping 500 Taka then cupon code 'sakib'  </a></Typography>
+                >  ★ শুধুমাত্র ডেলিভারি চার্জ এডভান্স করতে হবে ( Dhaka city তে 60Tk এবং ঢাকা Dhaka city এর বাহিরে 120Tk ) ।এই নাম্বারে 01511-514172 ডেলিভারি চার্জ সেন্ড মানি করুন(বিকাশ, নগদ, রকেট)।★   </a></Typography>
                 <AddShoppingCartIcon sx={{ color: 'white' }} />
             </Marquee>
 

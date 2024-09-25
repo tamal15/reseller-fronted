@@ -92,7 +92,8 @@ import Footer from "../../../Shared/Footer/Footer";
     } = useForm();
 
 
-    const onSubmit = (data) => {
+    const onSubmit = (data,e) => {
+      e.preventDefault()
         console.log(data);
 
         fetch("http://localhost:5000/review", {
@@ -144,6 +145,12 @@ import Footer from "../../../Shared/Footer/Footer";
     useEffect(() => {
       fetchReviews();
     }, [number]);
+
+
+    const managePost = review?.filter(models => models?.productID
+      === book?._id);
+  // console.log(model)
+  console.log(managePost)
   
    
     return (
@@ -152,7 +159,7 @@ import Footer from "../../../Shared/Footer/Footer";
         <Container>
           <Box sx={{ textAlign: "center", my: 5 }}>
             <Typography variant="h4" style={{fontWeight:"600"}}>Product Name : {book?.productName}</Typography>
-            <Typography variant="h5" style={{fontWeight:"600"}}> Product Price : {book?.ProductPrice}</Typography>
+            <Typography variant="h5" style={{fontWeight:"600"}}> Product Price : TK.{book?.ProductPrice}</Typography>
           </Box>
   
           <Grid
@@ -255,58 +262,34 @@ import Footer from "../../../Shared/Footer/Footer";
               <hr />
   
               <Box sx={{ my: 5 }}>
-              <Form
-                                onSubmit={handleSubmit(onSubmit)}
-                                className="shadow-lg px-2 px-md-5 py-3 text-cyan"
-                            >
-                                <h2 className=" text-center mb-2 abril-font">
+              <form onSubmit={handleSubmit(onSubmit)}  className="shadow-lg px-2 px-md-5 py-3 text-cyan">
+              <h2 className=" text-center mb-2 abril-font text-black mt-5">
                                     Give Us An Honest Review, Please !
                                 </h2>
-                                <p className="text-cyan text-center mb-5">
+                                <h3 className="text-cyan text-center mb-5 text-black" style={{fontSize:"px"}}>
                                     Your review helps us to improve our operating system and
                                     provide you better services.
-                                </p>
+                                </h3>
+                
+                                <input
+                                style={{fontWeight:"600",color:"black",borderRadius:"10px",height:"50px",border:"2px solid black"}}
+                                value={book?._id}
+                                className='w-75 mb-3'  {...register("productID", { required: true })} placeholder='Product_id' /> <br />
+         
+         <input
+                                style={{fontWeight:"600",color:"white",borderRadius:"10px",height:"50px"}}
+                                className='w-75 mb-3'  {...register("userName", { required: true })} placeholder='User Name' /> <br />
 
+<input
+                                style={{fontWeight:"600",color:" #0E1621",borderRadius:"10px",border:"2px solid black",height:"50px"}}
+                                className='w-75 mb-3 '  {...register("userComment", { required: true })} placeholder='User Comment' /> 
 
-                             
-
-
-                                    <Form.Group
-                                        className="mb-3 "
-                                        controlId="exampleForm.ControlTextarea1"
-                                    >
-                                        <Form.Label>Your Name</Form.Label>
-                                        <Form.Control
-                                            className="shadow-none"
-                                            // as="textarea"
-                                            value={user?.displayName}
-                                            rows={3}
-                                            placeholder="your Name..."
-                                            {...register("name", { required: true })}
-                                        />
-                                    </Form.Group>
-                                
-                                {/* <Row className="mb-3"> */}
-                                    <Form.Group
-                                        className="mb-3 "
-                                        controlId="exampleForm.ControlTextarea1"
-                                    >
-                                        <Form.Label>Comment</Form.Label>
-                                        <Form.Control
-                                            className="shadow-none"
-                                            as="textarea"
-                                            rows={3}
-                                            placeholder="Write something here..."
-                                            {...register("comment", { required: true })}
-                                        />
-                                    </Form.Group>
-                                {/* </Row> */}
-                                {/* <Row className="mb-3"> */}
-                                    <Form.Group as={Col} controlId="formGridRating">
-                                        <Form.Label>
+<Form.Group as={Col} controlId="formGridRating"        style={{marginLeft:"104px",marginRight:"104px", borderRadius:"15px",color:"black", marginTop:""}}>
+                                        <h4>
                                             Give Us A Rating (1 is the wrost , 5 is the best)
-                                        </Form.Label>
+                                        </h4>
                                         <select
+                                        style={{borderRadius:"10px",border:"2px solid black"}}
                                             required
                                             className="form-control shadow-none"
                                             {...register("rating")}
@@ -323,18 +306,19 @@ import Footer from "../../../Shared/Footer/Footer";
                                             <option value="5">5</option>
                                         </select>
                                     </Form.Group>
-                                {/* </Row> */}
 
-                                <div className="text-center">
+                                   <br></br>
+
+                                   <div className="text-center">
                                     <Button
                                         type="submit"
-                                        className="px-4 py-2 fw-bold btn-light-green shadow-none"
+                                        className="px-4 py-2 fw-bold review-button shadow-none"
                                     >
-                                        <i className="fas fa-clipboard-check text-warning me-2"></i>
+                                        <i className="fas fa-clipboard-check text-white me-2"></i>
                                         Review Us
                                     </Button>
                                 </div>
-                            </Form>
+            </form>
               </Box>
             </Grid>
   
@@ -360,12 +344,13 @@ import Footer from "../../../Shared/Footer/Footer";
 
 
 
-
+<h1 className="mb-5 text-center mt-5 text-black">Total Review : <span style={{ color: "#1289A7" }}>{managePost.length}</span>  </h1>
 {review?.length > 0 ? (
-                  review?.reverse()?.map((reviews) => (
+                  managePost?.reverse()?.map((reviews) => (
                     <React.Fragment>
-                      <h4>Name: {reviews.name}</h4>
-                      <h4>Description: {reviews.comment}</h4>
+                     
+                      <h4>Name: {reviews.userName}</h4>
+                      <h4>Description: {reviews.userComment}</h4>
                       <h4>
                         Rating:
                         <Rating

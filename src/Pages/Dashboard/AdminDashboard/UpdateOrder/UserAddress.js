@@ -13,6 +13,7 @@ const CustomerAddress = ({ order, handleDelete }) => {
     const addressStyle = { display: 'flex', justifyContent: 'space-between' };
 
     const [status, setStatus] = useState('')
+    const [courierId, setCourierId] = useState(order?.courier_id || '');
 
     const handleUpdate = (id) => {
         fetch(`http://localhost:5000/updateStatus/${id}`, {
@@ -25,10 +26,25 @@ const CustomerAddress = ({ order, handleDelete }) => {
         alert('update')
     }
 
+    const handleUpdates = (id) => {
+        fetch(`http://localhost:5000/updateCourier/${id}`, {
+            method: "PUT",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ courier_id: courierId }),
+        })
+            .then((res) => res.json())
+            .then((result) => console.log(result));
+        alert('Courier ID updated');
+    };
+
     const handleSelectValue = (e) => {
         const statusData = (e.target.value).toLowerCase()
         setStatus(statusData)
     }
+
+    const handleCourierChange = (e) => {
+        setCourierId(e.target.value);
+    };
 
     return (
         <Box>
@@ -50,38 +66,62 @@ const CustomerAddress = ({ order, handleDelete }) => {
                 <Grid container spacing={{ xs: 3, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
 
                     <Grid item xs={4} sm={4} md={4} >
-                        <Typography style={addressStyle}><span>Country</span><span>:</span></Typography>
+                        <Typography style={addressStyle}><span>Address</span><span>:</span></Typography>
                     </Grid>
                     <Grid item xs={8} sm={8} md={8} >
-                        <Typography >{order?.cus_country}</Typography>
+                        <Typography >{order?.address}</Typography>
                     </Grid>
 
                 </Grid>
             </ListItem>
-            <ListItem button divider>
+            {/* <ListItem button divider>
                 <Grid container spacing={{ xs: 3, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
 
                     <Grid item xs={4} sm={4} md={4} >
-                        <Typography style={addressStyle}><span>City</span><span>:</span></Typography>
+                        <Typography style={addressStyle}><span>Thana</span><span>:</span></Typography>
                     </Grid>
                     <Grid item xs={8} sm={8} md={8} >
-                        <Typography >{order?.cus_city}</Typography>
+                        <Typography >{order?.Thana}</Typography>
                     </Grid>
 
                 </Grid>
-            </ListItem>
-            <ListItem button divider>
+            </ListItem> */}
+            {/* <ListItem button divider>
                 <Grid container spacing={{ xs: 3, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
 
                     <Grid item xs={4} sm={4} md={4} >
-                        <Typography style={addressStyle}><span>State</span><span>:</span></Typography>
+                        <Typography style={addressStyle}><span>select_courier</span><span>:</span></Typography>
                     </Grid>
                     <Grid item xs={8} sm={8} md={8} >
-                        <Typography >{order?.cus_state}</Typography>
+                        <Typography >{order?.select_courier}</Typography>
                     </Grid>
 
                 </Grid>
-            </ListItem>
+            </ListItem> */}
+            {/* <ListItem button divider>
+                <Grid container spacing={{ xs: 3, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
+
+                    <Grid item xs={4} sm={4} md={4} >
+                        <Typography style={addressStyle}><span>Area_Bazar</span><span>:</span></Typography>
+                    </Grid>
+                    <Grid item xs={8} sm={8} md={8} >
+                        <Typography >{order?.Area_Bazar}</Typography>
+                    </Grid>
+
+                </Grid>
+            </ListItem> */}
+            {/* <ListItem button divider>
+                <Grid container spacing={{ xs: 3, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
+
+                    <Grid item xs={4} sm={4} md={4} >
+                        <Typography style={addressStyle}><span>District</span><span>:</span></Typography>
+                    </Grid>
+                    <Grid item xs={8} sm={8} md={8} >
+                        <Typography >{order?.District}</Typography>
+                    </Grid>
+
+                </Grid>
+            </ListItem> */}
             <ListItem button divider>
                 <Grid container spacing={{ xs: 3, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
 
@@ -99,10 +139,10 @@ const CustomerAddress = ({ order, handleDelete }) => {
                 <Grid container spacing={{ xs: 3, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
 
                     <Grid item xs={4} sm={4} md={4} >
-                        <Typography style={addressStyle}><span>Phone</span><span>:</span></Typography>
+                        <Typography style={addressStyle}><span>Payment Number</span><span>:</span></Typography>
                     </Grid>
                     <Grid item xs={8} sm={8} md={8} >
-                        <Typography >{order?.cus_phone}</Typography>
+                        <Typography >{order?.payment_number}</Typography>
                     </Grid>
 
                 </Grid>
@@ -126,7 +166,7 @@ const CustomerAddress = ({ order, handleDelete }) => {
                         <Typography style={addressStyle}><span>Total Amount</span><span>:</span></Typography>
                     </Grid>
                     <Grid item xs={8} sm={8} md={8} >
-                        <Typography >${order?.total_amount} {order?.currency}</Typography>
+                        <Typography >BDT  {order?.total_amount}  Taka</Typography>
                     </Grid>
 
                 </Grid>
@@ -162,15 +202,19 @@ const CustomerAddress = ({ order, handleDelete }) => {
             <ListItem sx={{ display: "flex", justifyContent: "space-between" }}>
             <select onChange={handleSelectValue} className="pending p-2 ">
                                         <option defaultValue={order.status}>{order.status}</option>
-                                        <option defaultValue="approved">Approved</option>
-                                        <option defaultValue="pending">Pending</option>
-                                        <option defaultValue="cancelled">Cancelled</option>
+                                        <option defaultValue="Approved">Approved</option>
+                                        <option defaultValue="Pending">Pending</option>
+                                        <option defaultValue="Cancelled">Cancelled</option>
+                                        <option defaultValue="Completed">Completed</option>
                                     </select>
 
 
                                     <button className="btn-style" onClick={() => handleUpdate(order._id)}>update</button>
+                                    <br/>
+                                    
 
         <Tooltip title={order?.status} arrow placement="top">
+
           <Fab
             onClick={() => handleDelete(order._id)}
             variant="extended"
@@ -183,6 +227,17 @@ const CustomerAddress = ({ order, handleDelete }) => {
           </Fab>
         </Tooltip>
       </ListItem>
+      <div style={{textAlign:"left"}}>
+                    {/* Controlled input for courier_id */}
+                   
+                    <input 
+                        type="text" 
+                        style={{textAlign:"left"}}
+                        value={courierId} 
+                        onChange={handleCourierChange} 
+                    />
+                    <button className="btn-style ms-3" onClick={() => handleUpdates(order._id)}> Courier ID</button>
+                </div>
         </Box>
     );
 };

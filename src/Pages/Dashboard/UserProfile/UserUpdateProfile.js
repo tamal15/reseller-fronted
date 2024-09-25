@@ -31,7 +31,7 @@ const UserUpdateProfile = () => {
             <Container>
                 <Row>
                     <Col md={{ span: 8, offset: 2 }}>
-                        <div className="login-form text-center shadow" style={{background:"#7E2231",borderRadius:"20px"}}>
+                        <div className="login-form text-center shadow" style={{background:"black",borderRadius:"20px"}}>
                             <h2 className='mb-5 text-white'>Update Profile Information</h2>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <input

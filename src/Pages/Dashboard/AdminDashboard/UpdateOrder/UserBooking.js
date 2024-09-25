@@ -24,7 +24,7 @@ const CartOrder = ({ cart }) => {
                             <Grid item xs={2} sm={4} md={4}>
                                 <CardMedia
                                     component="img"
-                                    sx={{ objectFit: "cover", height: 200, width: "auto" }}
+                                    sx={{ objectFit: "cover", height: 200, width:160 }}
                                     alt="complex"
                                     src={single?.img}
                                 />
@@ -32,37 +32,30 @@ const CartOrder = ({ cart }) => {
                             <Grid item xs={2} sm={4} md={8} pl={2} my={3}>
                                 <Box>
                                     <Typography variant="h6"
-                                        sx={{ fontSize: '12px', fontWeight: 900 }}
-                                    >{single?.productName}</Typography>
+                                        sx={{  fontWeight: 700 }}
+                                    >Types: {single?.types}</Typography>
 
                                    
 
-                                    <Typography variant="body">
-                                        <span style={{ fontWeight: 700 }}> Price : </span>
+                                    <Typography style={{ fontWeight: 700 }} variant="body">
+                                        <span > Price : </span>
                                         {single?.ProductPrice}
                                     </Typography>
                                     <br />
-                                    <Typography variant="body">
+                                    <Typography style={{ fontWeight: 700 }} variant="body">
                                         <span style={{ fontWeight: 700 }}> Quantity:</span>
                                         {single?.quantity}
                                     </Typography>
                                     <br />
-                                    <Rating
-                                        name="half-rating-read"
-                                        defaultValue={single?.rating}
-                                        precision={0.5}
-                                        readOnly
-                                    />
+                                    <Typography style={{ fontWeight: 700 }} variant="body">
+                                        <span style={{ fontWeight: 700 }}> Fabric:</span>
+                                        {single?.Fabric}
+                                    </Typography>
+                                    <br />
+                                   
                                 </Box>
 
-                                <NavLink
-                                    to={`/bookDetails/${single._id}`}
-                                    style={{ textDecoration: "none", marginRight: "5px" }}
-                                >
-                                    <Button size="small" >
-                                        Details
-                                    </Button>
-                                </NavLink>
+                               
 
                             </Grid>
                         </Grid>

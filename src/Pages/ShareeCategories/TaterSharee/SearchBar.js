@@ -18,7 +18,7 @@ const SearchBar = ({ handleOnChange, placeholder }) => {
           sm: "80%",
           md: "50%",
         },
-        border: "4px solid #7E2231",
+        border: "4px solid #113350",
         borderRadius: "50px",
         // boxShadow: "0px 14px 22px rgb(42 135 158 / 7%)",
       }}
@@ -45,7 +45,7 @@ const SearchBar = ({ handleOnChange, placeholder }) => {
         sx={{
 
    
-          color: "#7E2231",
+          color: "#113350",
           fontWeight: "bold",
         }}
         aria-label="search"

@@ -76,29 +76,9 @@ const HalfSilk = () => {
     const {user}=useAuth()
     const userData = { email: user.email, name: user.displayName };
    
-    // checkbox er value true or false return kore
+    
 
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/TaterSharees')
-    //         .then(res => res.json())
-    //         .then(data => setQuestions(data.TaterSharee))
-    // }, [])
-
-    // useEffect(() => {
-    //     console.log(type, year, code)
-    //     fetch('http://localhost:5000/sharee')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setQuestions(data.allQuestions)
-    //             setModel(data.allQuestions)
-    //             // setSearchValue(data.TaterSharees)
-    //             // console.log(data)
-
-    //             const count = data.count;
-    //             const pageNumber = Math.ceil(count / size)
-    //             setPageCount(pageNumber)
-    //         })
-    // }, [type, year, code, page]);
+   
 
     const fetchData = () => {
       fetch(`http://localhost:5000/sharee?page=${page}&&sizing=${sizing}&&size=${size}`)
@@ -168,14 +148,10 @@ const HalfSilk = () => {
     const handleValue = (e) => {
       
         e.preventDefault()
-        // const values = e.target.value;
-        // console.log(values)
-        // console.log(questions)
+      
         const newValue = model?.filter(ques => ques?.productName?.toLocaleLowerCase()?.includes(searchValue))
         
-        // console.log(newValue)
-        // newValue.length === 0 && alert("warning", "Warning...", "Not Found Your Result")
-        // console.log(newValue)
+       
         setModel(newValue)
         // console.log(newValue)
        
@@ -239,57 +215,12 @@ const placeholder = 'Search by Sharee Product Name';
                         >
 
                              
-                            {/* <div className="form-check align-items-center">
-                                <input className="form-check-input" type="checkbox" value="mid" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold" for="flexCheckDefault">
-                                    Mid
-                                </label>
-                            </div>
-                            <div className="form-check align-items-center">
-                                <input className="form-check-input" type="checkbox" value="final" id="flexCheckDefault" />
-                                <label className="form-check-label fw-bold" for="flexCheckDefault">
-                                    Final
-                                </label>
-                            </div> */}
+                          
                            
                         </form>
 
-                        {/* <div className='mt-3'>
-                            <h5>Filter Year</h5>
-                            <select onChange={(e) => setYear(e.target.value)} name="year" id="year">
-                                <option value="">Select Year</option>
-                                <option value="2021">2021</option>
-                                <option value="2020">2020</option>
-                                <option value="2019">2019</option>
-                                <option value="2018">2018</option>
-                                <option value="2017">2017</option>
-                                <option value="2016">2016</option>
-                                <option value="2015">2015</option>
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                                <option value="2011">2011</option>
-                                <option value="2010">2010</option>
-                            </select>
-                        </div> */}
-                        {/* <div className='mt-3'>
-                            <h5>Semester</h5>
-                            <select onChange={(e) => setCode(e.target.value)} name="code" id="code">
-                                <option value="cse">Select Year</option>
-                                <option value="cse123">cse123</option>
-                                <option value="bba102">bba102</option>
-                                <option value="3">3rd</option>
-                                <option value="4">4th</option>
-                                <option value="5">5th</option>
-                                <option value="6">2016</option>
-                                <option value="7">2015</option>
-                                <option value="2014">2014</option>
-                                <option value="2013">2013</option>
-                                <option value="2012">2012</option>
-                                <option value="2011">2011</option>
-                                <option value="2010">2010</option>
-                            </select>
-                        </div> */}
+                       
+                     
 
                     </div>
                 </div>

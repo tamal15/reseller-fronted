@@ -21,48 +21,53 @@ const CartOrder = ({ cart }) => {
                         }}
                     >
                         <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
-                            <Grid item xs={2} sm={4} md={4}>
+                            <Grid item xs={2} sm={4} md={7}>
                                 <CardMedia
                                     component="img"
-                                    sx={{ objectFit: "cover", height: 200, width: "auto" }}
+                                    sx={{ objectFit: "cover",  height: 200, width: 200 }}
                                     alt="complex"
                                     src={single?.img}
                                 />
                             </Grid>
-                            <Grid item xs={2} sm={4} md={8} pl={2} my={3}>
-                                <Box>
-                                    <Typography variant="h6"
-                                        sx={{ fontSize: '12px', fontWeight: 900 }}
-                                    >{single?.productName}</Typography>
+                            <Grid  style={{ textAlign: "left" }} item xs={2} sm={4} md={5} pl={2} my={3}>
+                                <Box >
+                                    <Typography variant="body"
+                                        sx={{  fontWeight: 700 }}
+                                    >Types: {single?.types}</Typography>
 
-                                   
+                                   <br/>
 
-                                    <Typography variant="body">
-                                        <span style={{ fontWeight: 700 }}> Price : </span>
+                                    <Typography style={{ fontWeight: 700 }} variant="body">
+                                        <span > Price : </span>
                                         {single?.ProductPrice}
                                     </Typography>
                                     <br />
-                                    <Typography variant="body">
-                                        <span style={{ fontWeight: 700 }}> Quantity:</span>
+                                    <Typography style={{ fontWeight: 700 }} variant="body">
+                                        <span > Quantity:</span>
                                         {single?.quantity}
                                     </Typography>
                                     <br />
-                                    <Rating
-                                        name="half-rating-read"
-                                        defaultValue={single?.rating}
-                                        precision={0.5}
-                                        readOnly
-                                    />
+                                    <Typography style={{ fontWeight: 700 }} variant="body">
+                                        <span > Size:</span>
+                                        {single?.size}
+                                    </Typography>
+                                    <br />
+                                    <Typography style={{ fontWeight: 700 }} variant="body">
+                                        <span > Fabric:</span>
+                                        {single?.Fabric}
+                                    </Typography>
+                                    <br />
+                                    
                                 </Box>
 
-                                <NavLink
+                                {/* <NavLink
                                     to={`/bookDetails/${single._id}`}
                                     style={{ textDecoration: "none", marginRight: "5px" }}
                                 >
                                     <Button size="small" >
                                         Details
                                     </Button>
-                                </NavLink>
+                                </NavLink> */}
 
                             </Grid>
                         </Grid>

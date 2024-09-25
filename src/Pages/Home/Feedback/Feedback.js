@@ -41,7 +41,7 @@ const Feedback = () => {
             <Container>
                 <Row>
                     <Col md={{ span: 8, offset: 2 }}>
-                        <div className="login-form text-center shadow" style={{background:"#7E2231",borderRadius:"20px"}}>
+                        <div className="login-form text-center shadow" style={{background:"#113350",borderRadius:"20px"}}>
                             <h2 className='mb-5 text-white'>Add Your Feedback</h2>
                             <form onSubmit={handleSubmit(onSubmit)}>
 

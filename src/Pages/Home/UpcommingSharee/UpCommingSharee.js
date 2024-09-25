@@ -44,7 +44,7 @@ const UpCommingSharee = () => {
                     className="mySwiper"
                 >
                     <SwiperSlide>
-                        <img src="https://media.istockphoto.com/id/1061984662/photo/beautiful-charming-traditional-indian-bride.jpg?b=1&s=170667a&w=0&k=20&c=5SZaaFCavtEN_QaSryWCA3zq-0jtiSIsWD_MAYFtpOY=" alt="..." width="250" height="300" />
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSej-e650YffDXSEI2ZEyg46orgwsWJw3MX1Q&usqp=CAU" alt="..." width="250" height="300" />
                     </SwiperSlide>
                     <SwiperSlide>
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjF22YG73WolrKtp5Hc26u3pu4HVMiOMvdelyB7B5W1Zi5Pp7du6iwgtZsNeBf45GtW5c&usqp=CAU" alt="..." width="250" height="300" />

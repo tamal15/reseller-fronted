@@ -7,6 +7,8 @@ import useAuth from '../../Hooks/useAuth';
 import { TextField, Toolbar, Typography,Alert } from "@mui/material";
 import Header from '../../Shared/Header/Header';
 import Footer from '../../Shared/Footer/Footer';
+import { useState } from 'react';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 
@@ -31,6 +33,12 @@ const Login = () => {
         // console.log(data.email)
         loginWithOwnEmailAndPass(data.email, data.password, location, navigate)
     }
+    const [showPassword, setShowPassword] = useState(false);
+
+    // Function to handle the visibility toggle
+    const togglePasswordVisibility = () => {
+      setShowPassword((prevState) => !prevState);
+    };
     return (
 <div>
 <Header></Header>
@@ -47,22 +55,39 @@ const Login = () => {
                     </div>
                     <div className='col-lg-8'>
                     <Col md={{ span: 8, offset: 2 }}>
-                        <div className="login-form text-center" style={{background:"#7E2239",borderRadius:"20px"}}>
+                        <div className="login-form text-center" style={{background:"#113350",borderRadius:"20px"}}>
                             <h2 className=' text-white'>Login to SARONG</h2>
                             {/* onSubmit={handleSubmit(onSubmit)} */}
                             <form onSubmit={handleSubmit(onSubmit)}>
-                                <input
+                               <div>
+                               <input
                                 style={{fontWeight:"500"}}
                                     className='w-75 mb-3'
                                     {...register("email", { required: true })}
                                     placeholder='Enter Email' />
                                 <br />
+                               </div>
 
-                                <input
-                                style={{fontWeight:"500"}}
-                                    className='w-75 mb-3'
-                                    {...register("password", { required: true })} placeholder='Enter Password' />
-                                <br />
+                                <div className="position-relative w-75 mb-3" style={{marginLeft:"60px"}}>
+      <input
+        style={{ fontWeight: "500", }}
+        type={showPassword ? "text" : "password"}
+        className="form-control"
+        {...register("password", { required: true })}
+        placeholder="Enter Password"
+      />
+      <span
+        className="position-absolute top-50 end-0 translate-middle-y pe-3"
+        style={{ cursor: "pointer" }}
+        onClick={togglePasswordVisibility}
+      >
+        {showPassword ? (
+          <FaEyeSlash /> // Eye-slash icon for hiding password
+        ) : (
+          <FaEye /> // Eye icon for showing password
+        )}
+      </span>
+    </div>
 
                                 <button className='submit-all' type='submit'>Login</button>
                             </form>
