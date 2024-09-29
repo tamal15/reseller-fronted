@@ -12,7 +12,7 @@ const DesignPotter = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         data.complete = true
-        fetch(`http://localhost:5000/service`, {
+        fetch(`https://sellerportal.vercel.app/service`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

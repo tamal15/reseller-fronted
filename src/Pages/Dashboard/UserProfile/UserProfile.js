@@ -12,7 +12,7 @@ const UserProfile = () => {
   const [editMode, setEditMode] = useState(false); // State to control form visibility
 
   useEffect(() => {
-    fetch(`http://localhost:5000/updateUser/${user.email}`)
+    fetch(`https://sellerportal.vercel.app/updateUser/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setUserInfo(data);

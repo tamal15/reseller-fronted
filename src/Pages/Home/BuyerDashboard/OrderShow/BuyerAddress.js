@@ -15,7 +15,7 @@ const CustomerAddress = ({ order, handleDelete }) => {
     const [status, setStatus] = useState('')
 
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/updateStatus/${id}`, {
+        fetch(`https://sellerportal.vercel.app/updateStatus/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status }),

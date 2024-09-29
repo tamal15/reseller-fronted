@@ -27,7 +27,7 @@ const NewRegister = () => {
     const fetchUserData = async () => {
       if (user?.email) {
         try {
-          const response = await fetch(`http://localhost:5000/users/${user.email}`);
+          const response = await fetch(`https://sellerportal.vercel.app/users/${user.email}`);
           
           // Check if the response status is OK (status code 200-299)
           if (!response.ok) {

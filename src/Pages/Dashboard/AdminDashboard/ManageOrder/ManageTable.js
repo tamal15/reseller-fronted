@@ -17,7 +17,7 @@ const ManageTable = (props) => {
 
 
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/buyerStatusUpdate/${id}`, {
+        fetch(`https://sellerportal.vercel.app/buyerStatusUpdate/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ statu}),

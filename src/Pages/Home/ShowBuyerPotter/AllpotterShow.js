@@ -74,7 +74,7 @@ const AllpotterShow = () => {
         setPage(data.selected);
     }
     const fetchData = () => {
-        fetch(`http://localhost:5000/getPotter?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+        fetch(`https://sellerportal.vercel.app/getPotter?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
         .then(res => res.json())
         .then(data => {
             setQuestions(data.allQuestions)
@@ -89,7 +89,7 @@ const AllpotterShow = () => {
       }, [categories, page,size,sizing,warrenty,material,size])
 
       const handleLike = (id) => {
-        fetch(`http://localhost:5000/potterlike/${id}`, {
+        fetch(`https://sellerportal.vercel.app/potterlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -108,7 +108,7 @@ const AllpotterShow = () => {
     
       }
       const handleUnLike = (id) => {
-        fetch(`http://localhost:5000/potterunlike/${id}`, {
+        fetch(`https://sellerportal.vercel.app/potterunlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -133,7 +133,7 @@ const AllpotterShow = () => {
 
 //     useEffect(() => {
 //       // console.log(department, year, semester)
-//       fetch(`http://localhost:5000/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+//       fetch(`https://sellerportal.vercel.app/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
 //           .then(res => res.json())
 //           .then(data => {
 //               setQuestions(data.allQuestions)
@@ -146,7 +146,7 @@ const AllpotterShow = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/getPotter')
+        fetch('https://sellerportal.vercel.app/getPotter')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])

@@ -23,7 +23,7 @@ const AdminAllProductShow = () => {
     const navigate = useNavigate();
 
     const fetchData = () => {
-        fetch(`http://localhost:5000/adminShowproduct?page=${page}&size=${size}`)
+        fetch(`https://sellerportal.vercel.app/adminShowproduct?page=${page}&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setModel(data.allQuestions);
@@ -68,7 +68,7 @@ const AdminAllProductShow = () => {
     };
 
     const handleLike = (id) => {
-        fetch(`http://localhost:5000/adminlike/${id}`, {
+        fetch(`https://sellerportal.vercel.app/adminlike/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(userData)
@@ -80,7 +80,7 @@ const AdminAllProductShow = () => {
     };
 
     const handleUnLike = (id) => {
-        fetch(`http://localhost:5000/adminunlike/${id}`, {
+        fetch(`https://sellerportal.vercel.app/adminunlike/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(userData)
@@ -128,22 +128,25 @@ const AdminAllProductShow = () => {
                     <SearchBar handleOnChange={handleOnChange} placeholder={placeholder} />
                 </div>
                 <div className="row g-4">
-                    <div style={{textAlign:"left",boxShadow: "0px 14px 22px rgb(42 135 158 / 50%)",padding:"25px 25px"}} className="col-12 col-md-2">
-                        <div  className="question-sidebar">
+                    <div style={{textAlign:"left",boxShadow: "0px 14px 22px rgb(42 135 158 / 50%)",padding:"25px 25px",marginTop:"88px"}} className="col-12 col-md-3 ">
+                        <div  className="question-sidebar ms-2">
                             <h2>Types</h2>
                             {model?.map((single, index) => (
                                 <div key={index}>
                                     <p
-                                        style={{ cursor: 'pointer',fontSize:"30px",fontWeight:"700", color: selectedType === single.types ? 'blue' : 'black' }}
+                                        style={{ cursor: 'pointer',fontSize:"30px",fontWeight:"700", color: selectedType === single.types ? 'blue' : 'black',marginTop:"25px" }}
                                         onClick={() => handleTypeClicks(single.types)}
                                     >
-                                        {single?.types}
+                                        {single?.types.slice(
+                                0,
+                                12
+                              )}
                                     </p>
                                 </div>
                             ))}
                         </div>
                     </div>
-                    <div className="col-12 col-md-10">
+                    <div className="col-12 col-md-9">
                         <Grid container spacing={2} sx={{ mt: 6 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                             {filteredModel.map((single) => {
                                 const categoryCount = getCategoryCount(single.services);

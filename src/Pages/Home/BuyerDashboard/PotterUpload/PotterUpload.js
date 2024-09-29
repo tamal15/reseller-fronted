@@ -22,7 +22,7 @@ const PotterUpload = () => {
         // data.status = 'Pending'
      
 
-        fetch("http://localhost:5000/postPotter", {
+        fetch("https://sellerportal.vercel.app/postPotter", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

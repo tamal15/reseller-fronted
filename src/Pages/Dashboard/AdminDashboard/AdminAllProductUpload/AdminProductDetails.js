@@ -59,14 +59,14 @@ import { CartContext } from "../../../../Context/CartContext";
     const [isFetched, setIsFetched] = useState(0);
     const [review, setReview] = useState([]);
     useEffect(() => {
-      fetch(`http://localhost:5000/details/${id}`)
+      fetch(`https://sellerportal.vercel.app/details/${id}`)
         .then((res) => res.json())
         .then((data) => setBook(data));
     }, [id]);
 
     useEffect(()=>{
 
-      fetch("http://localhost:5000/review")
+      fetch("https://sellerportal.vercel.app/review")
       .then(res=>res.json())
       .then(data=>{
         // const managePost = data?.data.data
@@ -91,7 +91,7 @@ import { CartContext } from "../../../../Context/CartContext";
     const onSubmit = (data) => {
         console.log(data);
 
-        fetch("http://localhost:5000/review", {
+        fetch("https://sellerportal.vercel.app/review", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

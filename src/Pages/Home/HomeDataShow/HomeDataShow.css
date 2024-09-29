@@ -1,14 +1,50 @@
 .photo {
-    width: 100%; /* Ensure the photo container takes full width of its parent */
-  }
-  
-  .photoShops {
-    width: 100%; /* Ensure the image container takes full width of its parent */
-  }
-  
+  width: 100%; /* Ensure the photo container takes full width of its parent */
+}
+
+.photoShops {
+  width: 100%; /* Ensure the image container takes full width of its parent */
+}
+
+.photoShops img {
+  width: 100%; /* Ensure the image scales to fit the container */
+  height: 200px; /* Set a base height for images */
+  border-radius: 15px; /* Apply a base border radius */
+  object-fit: cover; /* Ensure the image fills its container while maintaining aspect ratio */
+  max-width: 100%; /* Ensure image never exceeds the container width */
+}
+
+/* Media query for large screens (1024px and above) */
+@media (min-width: 1024px) {
   .photoShops img {
-    width: 100%; /* Make the image scale to fit the container */
-    height: 200px; /* Maintain aspect ratio */
-    border-radius: 15px; /* Apply border radius */
+    border-radius: 15px; /* Keep larger border-radius for desktops */
   }
-  
+}
+
+/* Media query for medium screens (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .photoShops img {
+    height: 220px; /* Adjust height for medium screens */
+    border-radius: 12px; /* Slightly reduce border-radius for medium screens */
+    width: 100% !important; /* Ensure image fills the container */
+  }
+}
+
+/* Media query for extra medium screens (481px to 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .photoShops img {
+    height: auto; /* Allow image height to adjust based on aspect ratio */
+    width: 100% !important; /* Ensure the image fills the width of the container */
+    border-radius: 10px; /* Adjust border-radius for extra medium screens */
+  }
+}
+
+/* Media query for small screens (below 480px) */
+@media (max-width: 480px) {
+  .photoShops img {
+    height: auto; /* Let height adjust based on image ratio */
+    width: 100% !important; /* Ensure the image fits within the container width */
+    border-radius: 8px; /* Slightly smaller border-radius for small screens */
+    max-width: 100%; /* Ensure it never exceeds the container width */
+  }
+}

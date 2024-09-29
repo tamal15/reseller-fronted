@@ -82,7 +82,7 @@ const OrderReviewPage = (props) => {
                                         <Grid item xs={2} sm={4} md={8}>
                                             <CardMedia
                                                 component="img"
-                                                sx={{ objectFit: "cover", height: 200, width: 260 }}
+                                                sx={{ objectFit: "cover", height: { xs: 150, sm: 180, md: 200 }, width: { xs: 150, sm: 120,md:260 }, }}
                                                 alt="complex"
                                                 src={cartItem?.img}
                                             />

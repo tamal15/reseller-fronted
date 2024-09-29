@@ -22,7 +22,7 @@ import { BorderVertical } from '@mui/icons-material';
 // import useAuth from '../../../Hook/useAuth';
 import { useForm } from "react-hook-form";
 import useAuth from '../../../Hooks/useAuth';
-const UserAddress = () => {
+const SaveUserAddress = () => {
     const [work, setWork] = useState([])
 
     // const [cart, setCart] = useContext(CartContext);
@@ -36,20 +36,21 @@ const UserAddress = () => {
     //         Aos.init({duration:2000});
     //   },[])
 
-    const fetchData = () => {
-      fetch('https://sellerportal.vercel.app/newaddress')
-        .then(res => res.json())
-        // .then(data => setWork(data))
-        .then(data => {
-        //   const sliceData = data.slice(0, 8);
-  
-          setWork(data)
-  
-        })
-    }
+    
+
     useEffect(() => {
-      fetchData()
-    }, [])
+        const fetchTickets = async () => {
+          try {
+            const response = await fetch(`https://sellerportal.vercel.app/newaddressdata/${user?.email}`); // Use correct URL format
+            const data = await response.json();
+            setWork(data);
+          } catch (error) {
+            console.error('Error fetching tickets:', error);
+          }
+        };
+      
+        fetchTickets();
+      }, [user?.email]); // Dependency on the email state or prop
 
     const [status, setStatus] = useState('')
     const handleSelectValue = (e) => {
@@ -163,4 +164,4 @@ const UserAddress = () => {
     );
 };
 
-export default UserAddress;
+export default SaveUserAddress;

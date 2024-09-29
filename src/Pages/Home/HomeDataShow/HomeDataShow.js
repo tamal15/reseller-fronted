@@ -42,7 +42,7 @@ const HomeDataShow = () => {
   const navigate = useNavigate();
 
   const fetchData = () => {
-    fetch(`http://localhost:5000/adminShowproduct?page=${page}&size=${size}`)
+    fetch(`https://sellerportal.vercel.app/adminShowproduct?page=${page}&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
         setModel(data.allQuestions);
@@ -217,7 +217,7 @@ const HomeDataShow = () => {
     };
   
     // Send the product data to the backend using POST
-    fetch("http://localhost:5000/addLikedProductdata", {
+    fetch("https://sellerportal.vercel.app/addLikedProductdata", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -232,6 +232,16 @@ const HomeDataShow = () => {
         console.error("Error liking product:", error);
         Swal.fire("Error", "Failed to like product", "error");
       });
+  };
+
+
+  const [zoom, setZoom] = useState({ backgroundPositionX: '50%', backgroundPositionY: '50%' });
+
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = e.target.getBoundingClientRect();
+    const x = ((e.pageX - left) / width) * 100;
+    const y = ((e.pageY - top) / height) * 100;
+    setZoom({ backgroundPositionX: `${x}%`, backgroundPositionY: `${y}%` });
   };
   
 
@@ -531,7 +541,12 @@ const HomeDataShow = () => {
       left: "50%",
       transform: "translate(-50%, -50%)",
       width: "90vw", // 90% of the viewport width
-      height: "90vh", // 90% of the viewport height
+      height: {
+        xs: "65vh", // 70% of viewport height on extra small screens (mobile)
+        sm: "75vh", // 80% on small screens (tablets)
+        md: "80vh", // 85% on medium screens (desktops)
+        lg: "85vh", // 90% on larger screens
+      },
       bgcolor: "background.paper",
       border: "2px solid #000",
       boxShadow: 24,
@@ -581,18 +596,30 @@ const HomeDataShow = () => {
           Copy
         </Button>
 
-        <Typography
-          id="check-product-details-modal"
-          variant="h6"
-          component="h2"
-        >
+        <Box sx={{ display: 'flex', gap: { xs: 1, md: 2 }, flexDirection: { xs: 'column', md: 'row' },marginTop:"20px"}}>
+      <Box>
+        <Box
+          onMouseMove={handleMouseMove}
+          style={{
+            height: '230px',
+            width: '300px',
+            marginTop: '10px',
+            backgroundImage: `url(${selectedProduct.img})`,
+            backgroundSize: '300%',
+            backgroundPositionX: zoom.backgroundPositionX,
+            backgroundPositionY: zoom.backgroundPositionY,
+            transition: 'background-position 0.1s ease',
+          }}
+        ></Box>
+      </Box>
+
+      <Box>
+        <Typography id="check-product-details-modal" variant="h6" component="h2">
           Types: {selectedProduct.types}
         </Typography>
-        <Box style={{ fontWeight: "700" }}>
+        <Box style={{ fontWeight: '700' }}>
           {user && user.email ? (
-            <Typography variant="body">
-              Price: {selectedProduct.ProductPrice}
-            </Typography>
+            <Typography variant="body">Price: {selectedProduct.ProductPrice}</Typography>
           ) : null}
         </Box>
         <Typography variant="body1" sx={{ fontWeight: 700 }}>
@@ -607,13 +634,16 @@ const HomeDataShow = () => {
         <Typography variant="body1" sx={{ fontWeight: 700 }}>
           Description: {selectedProduct.description}
         </Typography>
-        
 
-         {/* Like Button */}
-         <FcLike
+        <Box sx={{display:"flex",gap:1}}>
+        <Button
+        variant="contained"
+        sx={{ mt: 2, background: "#113350" }}>
+        <FcLike
           onClick={() => handleLikeProducts(selectedProduct)} // Like handler
-          style={{ cursor: "pointer" }} // Make it look clickable
+          style={{ cursor: "pointer",fontSize:"20px" , color:"white"}} // Make it look clickable
         />
+        </Button>
         <br/>
 
 
@@ -625,6 +655,13 @@ const HomeDataShow = () => {
         >
           Close
         </Button>
+        </Box>
+      </Box>
+    </Box>
+        
+
+         {/* Like Button */}
+        
       </>
     )}
   </Box>

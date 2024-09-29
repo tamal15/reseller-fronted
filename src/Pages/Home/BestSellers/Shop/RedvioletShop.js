@@ -56,14 +56,14 @@ const RedvioletShop = () => {
     // checkbox er value true or false return kore
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/TaterSharees')
+    //     fetch('https://sellerportal.vercel.app/TaterSharees')
     //         .then(res => res.json())
     //         .then(data => setQuestions(data.TaterSharee))
     // }, [])
 
     useEffect(() => {
         console.log(type)
-        fetch('http://localhost:5000/sharee')
+        fetch('https://sellerportal.vercel.app/sharee')
             .then(res => res.json())
             .then(data => {
                 setQuestions(data.allQuestions)
@@ -79,7 +79,7 @@ const RedvioletShop = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/sharee')
+        fetch('https://sellerportal.vercel.app/sharee')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])

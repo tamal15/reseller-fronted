@@ -78,14 +78,14 @@ const Jamdani = () => {
     // checkbox er value true or false return kore
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/TaterSharees')
+    //     fetch('https://sellerportal.vercel.app/TaterSharees')
     //         .then(res => res.json())
     //         .then(data => setQuestions(data.TaterSharee))
     // }, [])
 
     // useEffect(() => {
     //     console.log(type, year, code)
-    //     fetch('http://localhost:5000/sharee')
+    //     fetch('https://sellerportal.vercel.app/sharee')
     //         .then(res => res.json())
     //         .then(data => {
     //             setQuestions(data.allQuestions)
@@ -100,7 +100,7 @@ const Jamdani = () => {
     // }, [type, year, code, page]);
 
     const fetchData = () => {
-      fetch('http://localhost:5000/sharee')
+      fetch('https://sellerportal.vercel.app/sharee')
       .then(res => res.json())
       .then(data => {
           setQuestions(data.allQuestions)
@@ -118,7 +118,7 @@ const Jamdani = () => {
     }, [type, year, code, page])
 
     const handleLike = (id) => {
-      fetch(`http://localhost:5000/like/${id}`, {
+      fetch(`https://sellerportal.vercel.app/like/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -137,7 +137,7 @@ const Jamdani = () => {
   
     }
     const handleUnLike = (id) => {
-      fetch(`http://localhost:5000/unlike/${id}`, {
+      fetch(`https://sellerportal.vercel.app/unlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -159,7 +159,7 @@ const Jamdani = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/sharee')
+        fetch('https://sellerportal.vercel.app/sharee')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])

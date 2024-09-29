@@ -16,7 +16,7 @@ const ManageOrder = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/adminConfarm`)
+        fetch(`https://sellerportal.vercel.app/adminConfarm`)
             .then((res) => res.json())
             .then((data) => setQuestions(data));
             // console.log(data)
@@ -30,7 +30,7 @@ const ManageOrder = () => {
     const handleDelete=(id)=>{
         const proceed=window.confirm('are you sure, you want to delete');
         if(proceed){
-            fetch(`http://localhost:5000/deleteUser/${id}`,{
+            fetch(`https://sellerportal.vercel.app/deleteUser/${id}`,{
                 method:'DELETE'
             })
             .then(res=>res.json())
@@ -50,7 +50,7 @@ const ManageOrder = () => {
 // let value=question.drivelink;
 
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/QuestionStatusUpdate/${id}`, {
+        fetch(`https://sellerportal.vercel.app/QuestionStatusUpdate/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status }),

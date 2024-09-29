@@ -64,7 +64,8 @@ const Header = () => {
         <Container>
           {/* onClick={handleClick} */}
           <NavLink to="/" className="logo">
-            <span>SARONG</span>
+          <img style={{height:"50px", width:"80px"}} src="https://i.ibb.co.com/ScvD62W/r444-removebg-preview.png"/>
+            {/* <span>RESELLER</span> */}
           </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

@@ -9,7 +9,7 @@ const MakeAdmin = () => {
     }
     const handleAdmin=e=>{
         const user={email}
-        fetch('http://localhost:5000/userLogin/admin',{
+        fetch('https://sellerportal.vercel.app/userLogin/admin',{
             method:'PUT',
             headers:{
                 'content-type':'application/json'
@@ -55,6 +55,8 @@ const MakeAdmin = () => {
                 swal("Admin Add Successful!", "You are new admin!", "success")
             } */}
             </form>
+
+            
            
         </div>
     );

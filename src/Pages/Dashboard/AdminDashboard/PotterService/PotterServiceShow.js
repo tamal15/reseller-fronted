@@ -35,7 +35,7 @@ const PotterServiceShow = () => {
 
    
         useEffect(()=>{
-            fetch('http://localhost:5000/potterservice')
+            fetch('https://sellerportal.vercel.app/potterservice')
             .then(res=>res.json())
             .then(data=>setModel(data))
         },[])

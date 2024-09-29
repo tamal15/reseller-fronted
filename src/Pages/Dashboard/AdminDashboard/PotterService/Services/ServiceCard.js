@@ -13,7 +13,7 @@ const ServiceCard = ({ProductName,img,_id,ProductPrice,item}) => {
   const [cart, setCart] = useContext(CartContext);
   const [details, setDetails] = useState([]);
   useEffect(()=>{
-    fetch('http://localhost:5000/potterservice')
+    fetch('https://sellerportal.vercel.app/potterservice')
     .then(res=>res.json())
     .then(data=>setDetails(data))
 },[])

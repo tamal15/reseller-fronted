@@ -33,7 +33,7 @@ const Home = () => {
    
     // const [model, setModel] = useState([]);
     // useEffect(()=>{
-    //     fetch('http://localhost:5000/users')
+    //     fetch('https://sellerportal.vercel.app/users')
     //     .then(res=>res.json())
     //     .then(data=>setModel(data))
     // },[])
@@ -42,7 +42,7 @@ const Home = () => {
     return (
 
         
-        <div>
+        <div style={{overflowX:"hidden"}}>
 
            
 

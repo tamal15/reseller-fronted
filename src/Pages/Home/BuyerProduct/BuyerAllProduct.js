@@ -57,7 +57,7 @@ const BuyerAllProduct = () => {
     //   },[])
 
     const fetchData = () => {
-      fetch('http://localhost:5000/postBuyer')
+      fetch('https://sellerportal.vercel.app/postBuyer')
         .then(res => res.json())
         // .then(data => setWork(data))
         .then(data => {
@@ -74,7 +74,7 @@ const BuyerAllProduct = () => {
 
 
     const handleLike = (id) => {
-      fetch(`http://localhost:5000/like/${id}`, {
+      fetch(`https://sellerportal.vercel.app/like/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -93,7 +93,7 @@ const BuyerAllProduct = () => {
   
     }
     const handleUnLike = (id) => {
-      fetch(`http://localhost:5000/unlike/${id}`, {
+      fetch(`https://sellerportal.vercel.app/unlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)

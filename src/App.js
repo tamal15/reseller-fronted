@@ -114,6 +114,8 @@ import NewRegister from './Login/Register/NewRegister';
 import CategorySearch from './Pages/Dashboard/AdminDashboard/AdminAllProductUpload/CategorySearch';
 import UserAddress from './Pages/Home/Feedback/UserAddress';
 import LoveProduct from './Pages/Home/HomeDataShow/LoveProduct';
+import AdminSeeSuport from './Pages/Dashboard/AdminSeeSupport';
+import SaveUserAddress from './Pages/Home/Feedback/SaveUserAddress';
 
 // import { darkTheme, LightTheme,GlobalStyle } from '';
 
@@ -244,6 +246,7 @@ function App() {
               <Route path="/dashboard/sellerOverview" element={<OverView/>} />
               <Route path="/dashboard/userfeedback" element={<AdminSeeFeedback/>} />
               <Route path="/dashboard/useraddress" element={<UserAddress/>} />
+              <Route path="/dashboard/saveuseraddress" element={<SaveUserAddress/>} />
               <Route path="/dashboard/userdesignsee" element={<AdminSeeDesign/>} />
               <Route path="/dashboard/feedback" element={<Feedback/>} />
               <Route path="/dashboard/buyerOrder" element={<BuyerOrder/>} />
@@ -261,6 +264,7 @@ function App() {
               <Route path="/dashboard/adminapproval" element={<AdminApprovalPage />} />
               <Route path="/dashboard/newuserdashboard" element={<NewUserDashboard />} />
               <Route path="/dashboard/rafferinfo" element={<RefferPage />} />
+              <Route path="/dashboard/adminsupport" element={<AdminSeeSuport />} />
 
 
 

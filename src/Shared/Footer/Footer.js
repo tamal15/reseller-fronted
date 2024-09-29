@@ -23,7 +23,7 @@ const Footer = () => {
                                 <h4>Get In Touch</h4>
                                 <div className="links mt-4">
                                     <ul>
-                                        <Link style={{textDecoration:"none"}} to={'/contact'}>
+                                        <Link style={{textDecoration:"none"}} to={'/firstProfile'}>
                                             <li> <FaArrowRight className='link-icon' />Contact</li>
                                         </Link>
                                         <Link style={{textDecoration:"none"}} to={'/'}>
@@ -42,10 +42,11 @@ const Footer = () => {
                                 <div className="links mt-4">
                                     <ul>
                                         <Link style={{textDecoration:"none"}} to={'/all-categories'}><li> <FaArrowRight className='link-icon' />All Categories</li></Link>
-                                        <Link style={{textDecoration:"none"}} to={'/jamdani'}><li> <FaArrowRight className='link-icon' />Jamdani</li></Link>
-                                        <Link style={{textDecoration:"none"}} to={'/tat'}><li> <FaArrowRight className='link-icon' />Tater Sharee</li></Link>
-                                        <Link style={{textDecoration:"none"}} to={'/cotton'}><li> <FaArrowRight className='link-icon' />Cotton</li></Link>
-                                        <Link style={{textDecoration:"none"}} to={'/silk'}><li> <FaArrowRight className='link-icon' />skills</li></Link>
+                                        
+                                        <Link style={{textDecoration:"none"}} to={'/dashboard/saveuseraddress'}><li> <FaArrowRight className='link-icon' />Client Address</li></Link>
+                                        <Link style={{textDecoration:"none"}} to={'/dashboard/feedback'}><li> <FaArrowRight className='link-icon' />Feedback</li></Link>
+                                        <Link style={{textDecoration:"none"}} to={'/'}><li> <FaArrowRight className='link-icon' />Shirt</li></Link>
+                                        <Link style={{textDecoration:"none"}} to={'/firstProfile'}><li> <FaArrowRight className='link-icon' />Profile</li></Link>
                                     </ul>
                                 </div>
                             </div>
@@ -55,8 +56,8 @@ const Footer = () => {
                                 <h4>Important Links</h4>
                                 <div className="links mt-4">
                                     <ul>
-                                        <Link style={{textDecoration:"none"}} to={'/NakshiKatha'}>
-                                            <li> <FaArrowRight className='link-icon' />Nakshi Katha</li>
+                                        <Link style={{textDecoration:"none"}} to={'/dashboard/newuserdashboard'}>
+                                            <li> <FaArrowRight className='link-icon' />My Wallet</li>
                                         </Link>
                                         <Link style={{textDecoration:"none"}} to='/dashboard/welcome'>
                                             <li> <FaArrowRight className='link-icon' />Dashboard</li>
@@ -64,11 +65,11 @@ const Footer = () => {
                                         <Link style={{textDecoration:"none"}} to='/dashboard/user-profile'>
                                             <li> <FaArrowRight className='link-icon' />User Profile</li>
                                         </Link>
-                                        <Link style={{textDecoration:"none"}} to='/NakshiPakha'>
-                                            <li> <FaArrowRight className='link-icon' />Nakshi Pakha</li>
+                                        <Link style={{textDecoration:"none"}} to='/dashboard/myorder'>
+                                            <li> <FaArrowRight className='link-icon' />My Order</li>
                                         </Link>
-                                        <Link style={{textDecoration:"none"}} to='/pottery'>
-                                            <li> <FaArrowRight className='link-icon' />Pottery</li>
+                                        <Link style={{textDecoration:"none"}} to='/dashboard/rafferinfo'>
+                                            <li> <FaArrowRight className='link-icon' />Reffer Info</li>
                                         </Link>
                                     </ul>
                                 </div>
@@ -104,7 +105,7 @@ const Footer = () => {
                     <Row>
                         <Col>
                             <p className="copyright-text text-center mt-2">
-                                All right reserved &copy; SARONG 2022
+                                All right reserved &copy; RESELLER 2024
                             </p>
                         </Col>
                     </Row>

@@ -18,7 +18,7 @@ const BestSellers = () => {
 //  const {user}=useAuth()
 //   const [review,setReview]=useState([])
 //   useEffect(()=>{
-//     fetch('http://localhost:5000/features')
+//     fetch('https://sellerportal.vercel.app/features')
 //     .then(res=>res.json())
 //     .then(data=>setReview(data))
 //   },[])

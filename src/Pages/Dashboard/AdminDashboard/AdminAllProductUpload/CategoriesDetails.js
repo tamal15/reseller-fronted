@@ -28,7 +28,7 @@ const CategoryDetails = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/category/${category}`);
+                const response = await fetch(`https://sellerportal.vercel.app/category/${category}`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }

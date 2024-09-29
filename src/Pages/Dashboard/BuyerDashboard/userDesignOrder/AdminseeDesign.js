@@ -38,7 +38,7 @@ const AdminSeeDesign = () => {
     //   },[])
 
     const fetchData = () => {
-      fetch('http://localhost:5000/userDesign')
+      fetch('https://sellerportal.vercel.app/userDesign')
         .then(res => res.json())
         // .then(data => setWork(data))
         .then(data => {
@@ -74,7 +74,7 @@ const AdminSeeDesign = () => {
 
 
     const handleLike = (id) => {
-      fetch(`http://localhost:5000/like/${id}`, {
+      fetch(`https://sellerportal.vercel.app/like/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -93,7 +93,7 @@ const AdminSeeDesign = () => {
   
     }
     const handleUnLike = (id) => {
-      fetch(`http://localhost:5000/unlike/${id}`, {
+      fetch(`https://sellerportal.vercel.app/unlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)

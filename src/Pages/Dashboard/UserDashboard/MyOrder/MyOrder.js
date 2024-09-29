@@ -47,7 +47,7 @@ const MyOrder = () => {
   const fetchOrders = async (status = '', date = '') => {
     try {
       const response = await fetch(
-        `http://localhost:5000/myOrder/${user?.email}?status=${status}&date=${date}`
+        `https://sellerportal.vercel.app/myOrder/${user?.email}?status=${status}&date=${date}`
       );
       if (!response.ok) {
         throw new Error('Network response was not ok.');
@@ -82,7 +82,7 @@ const MyOrder = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await axios.delete(`http://localhost:5000/manageAllOrderDelete/${id}`);
+          const response = await axios.delete(`https://sellerportal.vercel.app/manageAllOrderDelete/${id}`);
           if (response.status === 200) {
             // Update state after deletion
             setOrder((prevOrdering) => prevOrdering.filter((order) => order._id !== id));
@@ -230,7 +230,7 @@ const MyOrder = () => {
                   <Button variant="contained" onClick={() => handleDetailsClick(order._id)}>
                     {selectedOrder && selectedOrder._id === order._id ? 'Hide Details' : 'Details'}
                   </Button>
-                  <Button variant="contained" color="error" onClick={() => handleDelete(order._id)} sx={{ ml: 1 }}>
+                  <Button variant="contained" color="error" onClick={() => handleDelete(order._id)} sx={{ ml: 1, mt: { xs: 2, sm: 0 }}}>
                     Delete
                   </Button>
                 </TableCell>

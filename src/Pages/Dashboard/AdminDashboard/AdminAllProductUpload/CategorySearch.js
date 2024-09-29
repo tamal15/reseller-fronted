@@ -45,7 +45,7 @@ const CategorySearch = () => {
   const navigate = useNavigate();
 
   const fetchData = () => {
-    fetch(`http://localhost:5000/adminShowproduct?page=${page}&size=${size}`)
+    fetch(`https://sellerportal.vercel.app/adminShowproduct?page=${page}&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
         setModel(data.allQuestions);

@@ -9,7 +9,7 @@ const EditAdminProduct = () => {
   const [service, setService] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/editproduct/${parentId}`)
+    fetch(`https://sellerportal.vercel.app/editproduct/${parentId}`)
       .then(res => res.json())
       .then(data => {
         setProduct(data);
@@ -27,7 +27,7 @@ const EditAdminProduct = () => {
     updatedServices[index] = { ...service };
 
     try {
-      const response = await fetch(`http://localhost:5000/productupdate/${parentId}`, {
+      const response = await fetch(`https://sellerportal.vercel.app/productupdate/${parentId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ services: updatedServices }),
@@ -81,7 +81,7 @@ const EditAdminProduct = () => {
           Update Service {parseInt(index) + 1}
         </Typography>
         <form onSubmit={handleUpdate} noValidate>
-          <TextField
+          {/* <TextField
             margin="normal"
             required
             fullWidth
@@ -90,13 +90,13 @@ const EditAdminProduct = () => {
             value={currentService.types}
             onChange={handleChange}
             autoFocus
-          />
+          /> */}
           <TextField
             margin="normal"
             required
             fullWidth
             name="size"
-            label="Service Size"
+            label=" Size"
             value={currentService.size}
             onChange={handleChange}
           />

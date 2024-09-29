@@ -23,13 +23,13 @@ const AdminOverView = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/adminConfarm`)
+        fetch(`https://sellerportal.vercel.app/adminConfarm`)
             .then((res) => res.json())
             .then((data) => setQuestions(data));
             // console.log(data)
     }, []);
     useEffect(()=>{
-        fetch(`http://localhost:5000/userMy/${user?.email}`)
+        fetch(`https://sellerportal.vercel.app/userMy/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setOrder(data)
@@ -37,7 +37,7 @@ const AdminOverView = () => {
     },[user?.email])
 
     useEffect(()=>{
-        fetch('http://localhost:5000/adminShowproduct')
+        fetch('https://sellerportal.vercel.app/adminShowproduct')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
@@ -160,6 +160,7 @@ const AdminOverView = () => {
                 </AreaChart>
             </ResponsiveContainer>
         </Paper> */}
+        
         <GraphShow></GraphShow>
                     {/* <RecentMomentChart data={allData.recentMoment}></RecentMomentChart> */}
                 </Grid>

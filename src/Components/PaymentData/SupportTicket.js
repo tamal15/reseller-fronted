@@ -1,23 +1,47 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Button, TextField, Typography, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 import Swal from 'sweetalert2'; // Import SweetAlert2
+import useAuth from '../../Hooks/useAuth';
 
 const SupportTicketForm = () => {
+  const { user } = useAuth();  // Fetch user from authentication hook
   const [formData, setFormData] = useState({
     subject: '',
     type: '',
     message: '',
+    date: new Date().toLocaleDateString(),
+    email: ''  // Email field
   });
 
+  // Set email when user is loaded
+  useEffect(() => {
+    if (user?.email) {
+      setFormData(prevData => ({ ...prevData, email: user.email }));
+    }
+  }, [user]);
+
+  // Handle input changes
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData(prevData => ({ ...prevData, [name]: value }));
   };
 
+  // Submit form data to backend API
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
+    if (!formData.email) {
+      // Show error if email is missing
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'User email not found. Please log in.',
+      });
+      return;
+    }
+
     try {
-      const response = await fetch('http://localhost:5000/api/support-ticket', {
+      const response = await fetch('https://sellerportal.vercel.app/api/support-ticket', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,20 +50,26 @@ const SupportTicketForm = () => {
       });
 
       if (response.ok) {
-        // Show success message using SweetAlert2
+        // Show success message
         Swal.fire({
           icon: 'success',
           title: 'Success',
           text: 'Support ticket submitted successfully!',
         });
 
-        // Optionally, reset the form fields after successful submission
-        setFormData({ subject: '', type: '', message: '' });
+        // Reset the form fields after successful submission
+        setFormData({
+          subject: '',
+          type: '',
+          message: '',
+          date: new Date().toLocaleDateString(),
+          email: user?.email || ''  // Ensure email is retained
+        });
       } else {
         Swal.fire({
           icon: 'error',
           title: 'Error',
-          text: 'Failed to submit the support ticket.',
+          text: 'Failed to submit the support ticket. Please try again.',
         });
       }
     } catch (error) {
@@ -52,7 +82,7 @@ const SupportTicketForm = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 1200, mx: 'auto', mt: 4, textAlign: 'left' }}>
+    <Box sx={{ maxWidth: 1223, mx: 'auto', mt: 4, textAlign: 'left' ,marginRight:"7px"}}>
       <Typography variant="h5" mb={2}>Create New Support Ticket</Typography>
       <form onSubmit={handleSubmit}>
         <TextField

@@ -10,7 +10,7 @@ const AdminPage = () => {
     // Fetch users awaiting verification
     const fetchPendingUsers = async () => {
       try {
-        const response = await fetch('http://localhost:5000/usersdata/pending');
+        const response = await fetch('https://sellerportal.vercel.app/usersdata/pending');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -31,7 +31,7 @@ const AdminPage = () => {
 
   const handleVerify = async (email) => {
     try {
-      await fetch(`http://localhost:5000/verify-payment/${email}`, {
+      await fetch(`https://sellerportal.vercel.app/verify-payment/${email}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' }
       });

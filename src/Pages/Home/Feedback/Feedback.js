@@ -19,7 +19,7 @@ const Feedback = () => {
         // data.status = 'Pending'
      
 
-        fetch("http://localhost:5000/feedbacks", {
+        fetch("https://sellerportal.vercel.app/feedbacks", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

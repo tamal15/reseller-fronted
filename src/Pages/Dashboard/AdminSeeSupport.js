@@ -3,7 +3,7 @@ import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead
 import Swal from 'sweetalert2';
 import useAuth from '../../Hooks/useAuth';
 
-const SupportTicketsList = () => {
+const AdminSeeSuport = () => {
   const [tickets, setTickets] = useState([]);
   const { user } = useAuth();
 
@@ -24,7 +24,7 @@ const SupportTicketsList = () => {
   useEffect(() => {
     const fetchTickets = async () => {
       try {
-        const response = await fetch(`https://sellerportal.vercel.app/api/support-tickets/${user?.email}`); // Use correct URL format
+        const response = await fetch(`https://sellerportal.vercel.app/api/support-tickets`); // Use correct URL format
         const data = await response.json();
         setTickets(data);
       } catch (error) {
@@ -104,6 +104,7 @@ const SupportTicketsList = () => {
               <TableCell>Subject</TableCell>
               <TableCell>Date</TableCell>
               <TableCell>Type</TableCell>
+              <TableCell>Email</TableCell>
               <TableCell>Action</TableCell>
             </TableRow>
           </TableHead>
@@ -113,6 +114,7 @@ const SupportTicketsList = () => {
                 <TableCell>{ticket.subject}</TableCell>
                 <TableCell>{ticket.date}</TableCell>
                 <TableCell>{ticket.type}</TableCell>
+                <TableCell>{ticket.email}</TableCell>
                 <TableCell>
                   <Button 
                     variant="contained" 
@@ -131,4 +133,4 @@ const SupportTicketsList = () => {
   );
 };
 
-export default SupportTicketsList;
+export default AdminSeeSuport;

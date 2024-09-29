@@ -8,7 +8,7 @@ const RefferPage = () => {
     const fetchUsers = async () => {
       try {
         // Fetch all users from the backend
-        const response = await fetch('http://localhost:5000/api/users');
+        const response = await fetch('https://sellerportal.vercel.app/api/users');
         const data = await response.json();
 
         if (data && data.length > 0) {

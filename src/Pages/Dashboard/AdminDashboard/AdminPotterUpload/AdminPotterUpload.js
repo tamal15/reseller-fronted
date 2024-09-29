@@ -18,7 +18,7 @@ const AdminPotterUpload = () => {
         // data.status = 'Pending'
      
 
-        fetch("http://localhost:5000/adminsPotter", {
+        fetch("https://sellerportal.vercel.app/adminsPotter", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

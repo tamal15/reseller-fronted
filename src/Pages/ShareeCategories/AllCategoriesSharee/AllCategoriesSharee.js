@@ -76,7 +76,7 @@ const AllCategoriesSharee = () => {
         setPage(data.selected);
     }
     const fetchData = () => {
-        fetch(`http://localhost:5000/sharee?categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+        fetch(`https://sellerportal.vercel.app/sharee?categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
         .then(res => res.json())
         .then(data => {
             setQuestions(data.allQuestions)
@@ -91,7 +91,7 @@ const AllCategoriesSharee = () => {
       }, [categories, page,size,sizing,warrenty,material,size])
 
       const handleLike = (id) => {
-        fetch(`http://localhost:5000/like/${id}`, {
+        fetch(`https://sellerportal.vercel.app/like/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -110,7 +110,7 @@ const AllCategoriesSharee = () => {
     
       }
       const handleUnLike = (id) => {
-        fetch(`http://localhost:5000/unlike/${id}`, {
+        fetch(`https://sellerportal.vercel.app/unlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -135,7 +135,7 @@ const AllCategoriesSharee = () => {
 
 //     useEffect(() => {
 //       // console.log(department, year, semester)
-//       fetch(`http://localhost:5000/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+//       fetch(`https://sellerportal.vercel.app/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
 //           .then(res => res.json())
 //           .then(data => {
 //               setQuestions(data.allQuestions)
@@ -148,7 +148,7 @@ const AllCategoriesSharee = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/sharee')
+        fetch('https://sellerportal.vercel.app/sharee')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])

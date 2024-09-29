@@ -9,7 +9,7 @@ const UserUpdateProfile = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         data.complete = true
-        fetch(`http://localhost:5000/updateUser`, {
+        fetch(`https://sellerportal.vercel.app/updateUser`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -31,7 +31,7 @@ const UserUpdateProfile = () => {
             <Container>
                 <Row>
                     <Col md={{ span: 8, offset: 2 }}>
-                        <div className="login-form text-center shadow" style={{background:"black",borderRadius:"20px"}}>
+                        <div className="login-form text-center shadow" style={{background:"#113350",borderRadius:"20px"}}>
                             <h2 className='mb-5 text-white'>Update Profile Information</h2>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <input

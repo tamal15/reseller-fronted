@@ -35,7 +35,7 @@ const ShowAdminProduct = () => {
 
    
         useEffect(()=>{
-            fetch('http://localhost:5000/getpostadmin')
+            fetch('https://sellerportal.vercel.app/getpostadmin')
             .then(res=>res.json())
             .then(data=>setModel(data))
         },[])

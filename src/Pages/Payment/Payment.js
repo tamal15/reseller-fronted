@@ -54,7 +54,7 @@ const Payment = (props) => {
     };
 
     axios
-      .post('http://localhost:5000/init', paymentData)
+      .post('https://sellerportal.vercel.app/init', paymentData)
       .then((res) => {
         Swal.fire({
           title: 'Success!',

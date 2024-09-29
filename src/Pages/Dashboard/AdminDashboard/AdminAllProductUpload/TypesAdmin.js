@@ -44,7 +44,7 @@ const TypesAdmin = () => {
       data.courier_id="id";
 
       // Submit the data to your backend
-      const response = await fetch(`http://localhost:5000/service`, {
+      const response = await fetch(`https://sellerportal.vercel.app/service`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -65,7 +65,7 @@ const TypesAdmin = () => {
   };
 
   useEffect(()=>{
-    fetch('http://localhost:5000/getpostadmin')
+    fetch('https://sellerportal.vercel.app/getpostadmin')
     .then(res=>res.json())
     .then(data=>setModel(data))
 },[])
