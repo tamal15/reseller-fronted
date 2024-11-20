@@ -43,7 +43,7 @@ const PaymentFrom = () => {
       status: "Pending",
     };
     axios
-      .post('https://sellerportal.vercel.app/init', paymentData)
+      .post('http://localhost:5000/init', paymentData)
       .then((res) => {
         Swal.fire({
           title: 'Success!',

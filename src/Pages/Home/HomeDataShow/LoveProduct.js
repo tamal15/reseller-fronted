@@ -41,10 +41,12 @@ const LoveProduct = () => {
   const [shippingOption, setShippingOption] = useState(""); // State for shipping option
   const [shippingCost, setShippingCost] = useState(0);
   const [openCheckModal, setOpenCheckModal] = useState(false);
+  const [selectedSize, setSelectedSize] = useState('');
+
   const navigate = useNavigate();
 
   const fetchData = () => {
-    fetch(`https://sellerportal.vercel.app/getlovesproduct?page=${page}&size=${size}`)
+    fetch(`http://localhost:5000/getlovesproduct?page=${page}&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
         setModel(data.allQuestions);
@@ -110,7 +112,8 @@ const LoveProduct = () => {
       (pd) =>
         pd.types === product.types &&
         pd.ProductPrice === product.ProductPrice &&
-        pd.productimg === product.productimg
+        pd.productimg === product.productimg &&
+        pd.selectedSize === product.selectedSize
     );
 
     let updatedCart;
@@ -135,6 +138,7 @@ const LoveProduct = () => {
         totalIncome: incomePrice * quantity,
         shippingOption,
         shippingCost,
+        selectedSize
       };
       updatedCart = [...storedCart, newProduct];
     }
@@ -219,7 +223,7 @@ const LoveProduct = () => {
     };
   
     // Send the product data to the backend using POST
-    fetch("https://sellerportal.vercel.app/addLikedProductdata", {
+    fetch("http://localhost:5000/addLikedProductdata", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -257,7 +261,7 @@ const LoveProduct = () => {
                   container
                   spacing={2}
                   sx={{ mt: 2 }}
-                  columns={{ xs: 4, sm: 8, md: 12 }}
+                  columns={{ xs: 8, sm: 8, md: 12 }}
                 >
                    {filteredModel.map((product) => (
                 <Grid sx={{ py: 3 }} key={product._id} item xs={4} sm={4} md={3}>
@@ -290,10 +294,10 @@ const LoveProduct = () => {
                           </Typography>
                         </Box>
 
-                        <Grid container spacing={2} mt={2} columns={16}>
-                          <Grid item xs={8}>
+                        <Grid   mt={1}>
+                          <Grid xs={8} sm={4} md={12}>
                           <Button
-                                  sx={{ mt: 1, mb: 2 }}
+                                  sx={{ }}
                                   onClick={() => handleOpenModal(product)}
                                   variant="outlined"
                                 >
@@ -416,6 +420,31 @@ const LoveProduct = () => {
                   -
                 </Button>
               </div>
+
+              <Box>
+      {/* Display the currently selected size */}
+      <Typography variant="h6" sx={{ fontWeight: 700 }}>
+        Selected Size: {selectedSize || 'None'}
+      </Typography>
+
+      {/* Only render sizes if selectedProduct is available */}
+      {selectedProduct && (
+        <Box>
+          {/* Split sizes and trim spaces directly in JSX */}
+          {selectedProduct.size && 
+            selectedProduct.size.split(',').map(size => size.trim()).map((size, index) => (
+              <Button 
+                key={index}
+                variant="outlined" 
+                onClick={() => setSelectedSize(size)} // Set selected size
+                sx={{ margin: '0 5px' }}
+              >
+                {size.toUpperCase()} {/* Display size in uppercase */}
+              </Button>
+            ))}
+        </Box>
+      )}
+    </Box>
 
               <Box sx={{ mt: 2 }}>
                 <Typography variant="h6">Select Shipping Option</Typography>

@@ -18,7 +18,7 @@ const OverView = () => {
     const { user } = useAuth();
     const [questions, setQuestions] = useState([])
     useEffect(()=>{
-        fetch(`https://sellerportal.vercel.app/userMy/${user?.email}`)
+        fetch(`http://localhost:5000/userMy/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setOrder(data)
@@ -26,7 +26,7 @@ const OverView = () => {
     },[user?.email])
 
     useEffect(()=>{
-        fetch(`https://sellerportal.vercel.app/myOrder/${user?.email}`)
+        fetch(`http://localhost:5000/myOrder/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setMyorder(data)
@@ -34,14 +34,14 @@ const OverView = () => {
     },[user?.email])
 
     useEffect(()=>{
-        fetch(`https://sellerportal.vercel.app/my/${user?.email}`)
+        fetch(`http://localhost:5000/my/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setStores(data)
         })
     },[user?.email])
     useEffect(() => {
-        fetch(`https://sellerportal.vercel.app/adminConfarm`)
+        fetch(`http://localhost:5000/adminConfarm`)
             .then((res) => res.json())
             .then((data) => setQuestions(data));
             // console.log(data)

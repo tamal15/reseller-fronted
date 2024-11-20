@@ -116,6 +116,8 @@ import UserAddress from './Pages/Home/Feedback/UserAddress';
 import LoveProduct from './Pages/Home/HomeDataShow/LoveProduct';
 import AdminSeeSuport from './Pages/Dashboard/AdminSeeSupport';
 import SaveUserAddress from './Pages/Home/Feedback/SaveUserAddress';
+import SellerWelcome from './Pages/Dashboard/BuyerDashboard/BuyerWelcome/SellerWelcome';
+import UserAllWithdraw from './Components/PaymentData/UserAllWithdraw';
 
 // import { darkTheme, LightTheme,GlobalStyle } from '';
 
@@ -258,13 +260,16 @@ function App() {
               <Route path="/dashboard/myorder" element={<MyOrder/>} />
               <Route path="/dashboard/userdesign" element={<UserDesignOrder/>} />
               <Route path="/dashboard/adminUpdateOrder" element={<UpdateOrder/>} />
-              <Route path="/dashboard/showadminsproduct" element={<ShowAdminProduct />} />
+              {/* <Route path="/dashboard/showadminsproduct" element={<ShowAdminProduct />} /> */}
+              {/* <Route path="/dashboard/showadminsproduct" element={<ShowAdminProduct />} /> */}
               <Route path="/dashboard/typesadmin" element={<TypesAdmin />} />
               <Route path="/dashboard/adminpage" element={<AdminPage />} />
               <Route path="/dashboard/adminapproval" element={<AdminApprovalPage />} />
               <Route path="/dashboard/newuserdashboard" element={<NewUserDashboard />} />
               <Route path="/dashboard/rafferinfo" element={<RefferPage />} />
               <Route path="/dashboard/adminsupport" element={<AdminSeeSuport />} />
+              <Route path="/dashboard/userallwithdraw" element={<UserAllWithdraw />} />
+              {/* <Route path="/dashboard/sellerwelcome" element={<SellerWelcome />} /> */}
 
 
 

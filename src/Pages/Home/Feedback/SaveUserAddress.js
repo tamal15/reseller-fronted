@@ -41,7 +41,7 @@ const SaveUserAddress = () => {
     useEffect(() => {
         const fetchTickets = async () => {
           try {
-            const response = await fetch(`https://sellerportal.vercel.app/newaddressdata/${user?.email}`); // Use correct URL format
+            const response = await fetch(`http://localhost:5000/newaddressdata/${user?.email}`); // Use correct URL format
             const data = await response.json();
             setWork(data);
           } catch (error) {

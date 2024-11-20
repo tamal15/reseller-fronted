@@ -36,13 +36,13 @@ const ProductDetails = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`https://sellerportal.vercel.app/product/${id}`)
+    fetch(`http://localhost:5000/product/${id}`)
       .then((res) => res.json())
       .then((data) => setBook(data));
   }, [id]);
 
   useEffect(() => {
-    fetch("https://sellerportal.vercel.app/review")
+    fetch("http://localhost:5000/review")
       .then((res) => res.json())
       .then((data) => {
         setReview(data);
@@ -52,7 +52,7 @@ const ProductDetails = () => {
   const { register, reset, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    fetch("https://sellerportal.vercel.app/review", {
+    fetch("http://localhost:5000/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -20,6 +20,9 @@ const Payment = (props) => {
   const { cartProducts, grandtotal,shipping, tax, totalQuantity, total, totalIncome, handleSearchs, handleValues, searchValues, model } = CartCalculation();
   const [selectedOption, setSelectedOption] = useState(""); // Track selected option
   const { user } = useAuth();
+  const [balance, setBalance] = useState(null); 
+  const [walletAmount, setWalletAmount] = useState(''); 
+
   const handleOptionChange = (e) => {
     setSelectedOption(e.target.value);
   };
@@ -54,7 +57,7 @@ const Payment = (props) => {
     };
 
     axios
-      .post('https://sellerportal.vercel.app/init', paymentData)
+      .post('http://localhost:5000/init', paymentData)
       .then((res) => {
         Swal.fire({
           title: 'Success!',
@@ -78,6 +81,45 @@ const Payment = (props) => {
       });
   };
 
+
+  // Fetch user balance from the backend
+  useEffect(() => {
+    axios.get(`http://localhost:5000/userbalancedata/${user.email}`)
+      .then((response) => {
+        const data = response.data[0]; // Access the first item in the array
+  
+        console.log("API Response:", data); // Debug: Log the actual user data
+  
+        if (data && typeof data.balance === 'number') {
+          setBalance(data.balance); // Set balance from the response (800)
+        } else {
+          setBalance(0); // Default to 0 if balance is missing or undefined
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching balance:", error);
+        setBalance(0); // Set balance to 0 in case of error
+      });
+  }, [user.email]);
+
+  const handleWalletInputChange = (e) => {
+    const enteredAmount = Number(e.target.value);
+
+    if (enteredAmount > balance) {
+      // Show alert if the entered amount is greater than the balance
+      Swal.fire({
+        title: "Insufficient Balance",
+        text: "You don't have enough money in your account.",
+        icon: "error",
+        confirmButtonText: "OK"
+      });
+
+      // Clear the input field if the amount exceeds balance
+      setWalletAmount('');
+    } else {
+      setWalletAmount(enteredAmount);
+    }
+  };
  
 
   return (
@@ -186,8 +228,22 @@ const Payment = (props) => {
                       <MenuItem value="payment">Payment</MenuItem>
                     </TextField>
                   </Grid>
-
-                  {selectedOption === "wallet" && (
+                   
+                  {selectedOption === 'wallet' && (
+          <Grid item xs={12} md={6}>
+            <TextField
+              label="Wallet Amount"
+              variant="filled"
+              type="number"
+              fullWidth
+              value={walletAmount}
+              {...register("wallet_amount", { required: selectedOption === "wallet" })}
+              onChange={handleWalletInputChange}
+              helperText={balance !== null ? `Your current balance is ${balance} Taka` : 'Loading balance...'}  // Display balance or loading message
+            />
+          </Grid>
+        )}
+                  {/* {selectedOption === "wallet" && (
                     <Grid item xs={12} md={6}>
                       <TextField
                         label="Wallet Amount"
@@ -199,7 +255,7 @@ const Payment = (props) => {
                         helperText={errors.wallet_amount && "Wallet amount is required"}
                       />
                     </Grid>
-                  )}
+                  )} */}
 
                   {selectedOption === "payment" && (
                     <Grid item xs={12} md={6}>

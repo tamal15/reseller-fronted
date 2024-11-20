@@ -18,7 +18,7 @@ const FashionProductUpload = () => {
         // data.status = 'Pending'
      
 
-        fetch("https://sellerportal.vercel.app/fashion", {
+        fetch("http://localhost:5000/fashion", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

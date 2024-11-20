@@ -20,7 +20,7 @@ const SuccessOrder = () => {
 
 
     useEffect(() => {
-        fetch(`https://sellerportal.vercel.app/orders/${id}`)
+        fetch(`http://localhost:5000/orders/${id}`)
             .then(res => res.json())
             .then(data => {
                 setBook(data);

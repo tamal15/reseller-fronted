@@ -6,7 +6,7 @@ import RoundedServiceCart from './RounndedServiceCart';
 const RoundData = () => {
     const [model, setModel] = useState([]);
     useEffect(()=>{
-        fetch('https://sellerportal.vercel.app/adminShowproduct')
+        fetch('http://localhost:5000/adminShowproduct')
         .then(res=>res.json())
         .then(data => {
             const sliceData = data.allQuestions.slice(0, 1);

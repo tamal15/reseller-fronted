@@ -29,7 +29,7 @@ const FirstProfile = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await fetch(`https://sellerportal.vercel.app/api/user-details?email=${user.email}`);
+        const response = await fetch(`http://localhost:5000/api/user-details?email=${user.email}`);
         const data = await response.json();
         if (data) {
           setUserData({
@@ -131,7 +131,10 @@ const FirstProfile = () => {
         }}
       >
         <Typography variant="h6">
-         You Reffer: <strong>{userData.referralCode}</strong>
+         You Reffer: <strong>{userData.referralCode?.slice(
+                                0,
+                                8
+                              )}</strong>
         </Typography>
       </Box>
     </Grid>
@@ -152,7 +155,10 @@ const FirstProfile = () => {
         <Typography variant="h6">
           MY Referral:  
           
-            {userData.tran_id}
+            {userData.tran_id?.slice(
+                                0,
+                                8
+                              )}
           
         </Typography>
       </Box>
@@ -173,7 +179,10 @@ const FirstProfile = () => {
         to={`/newregister?tran_id=${userData.tran_id}`} 
         style={{ color: "white", textDecoration: "none" }}
       >
-        https://car-mechines.web.app/newregister?tran_id={userData.tran_id}
+        https://car-mechines.web.app/newregister?tran_id={userData.tran_id?.slice(
+                                0,
+                                8
+                              )}
       </Link>
       </Box>
 

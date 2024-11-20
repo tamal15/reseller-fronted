@@ -37,7 +37,7 @@ const AdminSeeFeedback = () => {
     //   },[])
 
     const fetchData = () => {
-      fetch('https://sellerportal.vercel.app/feedback')
+      fetch('http://localhost:5000/feedback')
         .then(res => res.json())
         // .then(data => setWork(data))
         .then(data => {
@@ -73,7 +73,7 @@ const AdminSeeFeedback = () => {
 
 
     const handleLike = (id) => {
-      fetch(`https://sellerportal.vercel.app/like/${id}`, {
+      fetch(`http://localhost:5000/like/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -92,7 +92,7 @@ const AdminSeeFeedback = () => {
   
     }
     const handleUnLike = (id) => {
-      fetch(`https://sellerportal.vercel.app/unlike/${id}`, {
+      fetch(`http://localhost:5000/unlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)

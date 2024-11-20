@@ -37,7 +37,7 @@ const UserAddress = () => {
     //   },[])
 
     const fetchData = () => {
-      fetch('https://sellerportal.vercel.app/newaddress')
+      fetch('http://localhost:5000/newaddress')
         .then(res => res.json())
         // .then(data => setWork(data))
         .then(data => {

@@ -21,15 +21,15 @@ const UpdateOrder = () => {
     const [courierIds, setCourierIds] = useState({}); // Store courier IDs for each order
 
     useEffect(() => {
-        fetch(`https://sellerportal.vercel.app/userMy`)
+        fetch(`http://localhost:5000/userMy`)
             .then(res => res.json())
             .then(data => {
                 setOrder(data);
             });
-    }, [user?.email]);
+    }, []);
 
     const handleUpdate = (id) => {
-        fetch(`https://sellerportal.vercel.app/updateStatus/${id}`, {
+        fetch(`http://localhost:5000/updateStatus/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status }),
@@ -50,7 +50,7 @@ const UpdateOrder = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`https://sellerportal.vercel.app/manageAllOrderDelete/${id}`)
+                axios.delete(`http://localhost:5000/manageAllOrderDelete/${id}`)
                     .then((response) => {
                         if (response.status === 200 || response.status === 204) {
                             Swal.fire(
@@ -109,7 +109,7 @@ const UpdateOrder = () => {
 
     const handleUpdates = (id) => {
         const courierId = courierIds[id];
-        fetch(`https://sellerportal.vercel.app/updateCourier/${id}`, {
+        fetch(`http://localhost:5000/updateCourier/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ courier_id: courierId }),
@@ -157,6 +157,7 @@ const UpdateOrder = () => {
             <option value="Pending">Pending</option>
             <option value="Cancelled">Cancelled</option>
             <option value="Completed">Completed</option>
+            <option value="Given-To-Delivery">Given-To-Delivery</option>
         </select>
         <IconButton onClick={() => handleUpdate(order._id)} color="primary">
             <InfoIcon  /> {/* You can replace InfoIcon with an appropriate update icon if necessary */}

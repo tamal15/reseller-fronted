@@ -6,7 +6,7 @@ const Scheduleupdate = () => {
    const [user,setUser]=useState({})
    const {id}=useParams()
    useEffect(()=>{
-    fetch(`https://sellerportal.vercel.app/showpay/${id}`)
+    fetch(`http://localhost:5000/showpay/${id}`)
     .then(res=>res.json())
     .then(data=>setUser(data))
    },[])
@@ -15,7 +15,7 @@ const Scheduleupdate = () => {
     const handleupdate=e=>{
         e.preventDefault()
 
-        fetch(`https://sellerportal.vercel.app/updatesSchedules/${id}`, {
+        fetch(`http://localhost:5000/updatesSchedules/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(user)

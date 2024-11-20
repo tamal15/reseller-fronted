@@ -16,7 +16,7 @@ const CustomerAddress = ({ order, handleDelete }) => {
     const [courierId, setCourierId] = useState(order?.courier_id || '');
 
     const handleUpdate = (id) => {
-        fetch(`https://sellerportal.vercel.app/updateStatus/${id}`, {
+        fetch(`http://localhost:5000/updateStatus/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status }),
@@ -27,7 +27,7 @@ const CustomerAddress = ({ order, handleDelete }) => {
     }
 
     const handleUpdates = (id) => {
-        fetch(`https://sellerportal.vercel.app/updateCourier/${id}`, {
+        fetch(`http://localhost:5000/updateCourier/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ courier_id: courierId }),

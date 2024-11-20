@@ -118,15 +118,15 @@ const Dashboard = () => {
                              
                               
                              
-                              <li>
+                              {/* <li>
                                   <NavLink className="des fw-bold " to={`adminAllProduct`} style={({ isActive }) => ({
                                       color: isActive ? "black" : "black",
                                   })}><FaBookmark className='me-1' /> Upload Product</NavLink>
-                              </li>
+                              </li> */}
                               <li>
-                                  <NavLink className="des fw-bold" to={`showadminsproduct`} style={({ isActive }) => ({
+                                  <NavLink className="des fw-bold" to={`typesadmin`} style={({ isActive }) => ({
                                       color: isActive ? "black" : "black",
-                                  })}><FaBookmark className='me-1' /> Show Product</NavLink>
+                                  })}><FaBookmark className='me-1' /> Upload Product</NavLink>
                               </li>
                              
                               <li>
@@ -154,6 +154,11 @@ const Dashboard = () => {
                                   <NavLink className="des fw-bold" to={`adminapproval`} style={({ isActive }) => ({
                                       color: isActive ? "black" : "black",
                                   })}><FaBookmark className='me-1' /> Withdraw Req</NavLink>
+                              </li>
+                              <li>
+                                  <NavLink className="des fw-bold" to={`userallwithdraw`} style={({ isActive }) => ({
+                                      color: isActive ? "black" : "black",
+                                  })}><FaBookmark className='me-1' /> Withdraw His</NavLink>
                               </li>
                               <li>
                                   <NavLink className="des fw-bold" to={`adminUpdateOrder`} style={({ isActive }) => ({

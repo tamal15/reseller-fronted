@@ -94,7 +94,7 @@ const OrderReviewPage = (props) => {
                                                 >Types: {cartItem?.types}</Typography>
                                                 <br/>
                                                 <Typography variant="body" style={{ fontWeight: 700, fontSize: "20px" }}>
-                                                    <span>Fabric: </span> {cartItem?.Fabric}
+                                                    <span>Size: </span> {cartItem?.selectedSize}
                                                 </Typography>
                                                 <br />
                                                 <Typography variant="body" style={{ fontWeight: 700 }}>

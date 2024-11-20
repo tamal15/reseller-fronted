@@ -76,7 +76,7 @@ const NakshiPakha = () => {
         setPage(data.selected);
     }
     const fetchData = () => {
-        fetch(`https://sellerportal.vercel.app/getPotter?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+        fetch(`http://localhost:5000/getPotter?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
         .then(res => res.json())
         .then(data => {
             setQuestions(data.allQuestions)
@@ -91,7 +91,7 @@ const NakshiPakha = () => {
       }, [categories, page,size,sizing,warrenty,material,size])
 
       const handleLike = (id) => {
-        fetch(`https://sellerportal.vercel.app/potterlike/${id}`, {
+        fetch(`http://localhost:5000/potterlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -110,7 +110,7 @@ const NakshiPakha = () => {
     
       }
       const handleUnLike = (id) => {
-        fetch(`https://sellerportal.vercel.app/potterunlike/${id}`, {
+        fetch(`http://localhost:5000/potterunlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -135,7 +135,7 @@ const NakshiPakha = () => {
 
 //     useEffect(() => {
 //       // console.log(department, year, semester)
-//       fetch(`https://sellerportal.vercel.app/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
+//       fetch(`http://localhost:5000/sharee?page=${page}&&categories=${categories}&&sizing=${sizing}&&warrenty=${warrenty}&&material=${material}&&size=${size}`)
 //           .then(res => res.json())
 //           .then(data => {
 //               setQuestions(data.allQuestions)
@@ -148,7 +148,7 @@ const NakshiPakha = () => {
 
 
     useEffect(()=>{
-        fetch('https://sellerportal.vercel.app/getPotter')
+        fetch('http://localhost:5000/getPotter')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])

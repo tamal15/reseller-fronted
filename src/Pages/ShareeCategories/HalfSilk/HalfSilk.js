@@ -81,7 +81,7 @@ const HalfSilk = () => {
    
 
     const fetchData = () => {
-      fetch(`https://sellerportal.vercel.app/sharee?page=${page}&&sizing=${sizing}&&size=${size}`)
+      fetch(`http://localhost:5000/sharee?page=${page}&&sizing=${sizing}&&size=${size}`)
       .then(res => res.json())
       .then(data => {
           setQuestions(data.allQuestions)
@@ -99,7 +99,7 @@ const HalfSilk = () => {
     }, [type, year, code, page])
 
     const handleLike = (id) => {
-      fetch(`https://sellerportal.vercel.app/like/${id}`, {
+      fetch(`http://localhost:5000/like/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -118,7 +118,7 @@ const HalfSilk = () => {
   
     }
     const handleUnLike = (id) => {
-      fetch(`https://sellerportal.vercel.app/unlike/${id}`, {
+      fetch(`http://localhost:5000/unlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -140,7 +140,7 @@ const HalfSilk = () => {
 
 
     useEffect(()=>{
-        fetch('https://sellerportal.vercel.app/sharee')
+        fetch('http://localhost:5000/sharee')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])

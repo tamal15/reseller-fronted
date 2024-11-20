@@ -35,7 +35,7 @@ const PotterDataUpload = () => {
    
 
     useEffect(()=>{
-      fetch(`https://sellerportal.vercel.app/potterproducts/${user?.email}`)
+      fetch(`http://localhost:5000/potterproducts/${user?.email}`)
       .then(res=>res.json())
       .then(data=>setService(data))
   },[user?.email])
@@ -43,7 +43,7 @@ const PotterDataUpload = () => {
 
     const handleDelete=(id)=>{
       const proceed=window.confirm('are you sure, you want to delete');
-      fetch(`https://sellerportal.vercel.app/deletePotter/${id}`,{
+      fetch(`http://localhost:5000/deletePotter/${id}`,{
           method:'DELETE'
       }).then(res=>res.json())
       .then(data=>{

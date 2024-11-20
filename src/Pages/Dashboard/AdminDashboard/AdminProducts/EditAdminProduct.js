@@ -9,7 +9,7 @@ const EditAdminProduct = () => {
   const [service, setService] = useState({});
 
   useEffect(() => {
-    fetch(`https://sellerportal.vercel.app/editproduct/${parentId}`)
+    fetch(`http://localhost:5000/editproduct/${parentId}`)
       .then(res => res.json())
       .then(data => {
         setProduct(data);
@@ -27,7 +27,7 @@ const EditAdminProduct = () => {
     updatedServices[index] = { ...service };
 
     try {
-      const response = await fetch(`https://sellerportal.vercel.app/productupdate/${parentId}`, {
+      const response = await fetch(`http://localhost:5000/productupdate/${parentId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ services: updatedServices }),

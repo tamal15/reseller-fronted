@@ -28,7 +28,7 @@ const TypeCategoryDetail = () => {
 
 
   useEffect(() => {
-    fetch(`https://sellerportal.vercel.app/categories/${type}`)
+    fetch(`http://localhost:5000/categories/${type}`)
       .then((response) => response.json())
       .then((data) => setCategoryData(data))
       .catch((error) => console.error('Error fetching category data:', error));

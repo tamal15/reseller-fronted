@@ -29,7 +29,7 @@ const Fashion = () => {
     //   },[])
 
     useEffect(() => {
-        fetch('https://sellerportal.vercel.app/fashion')
+        fetch('http://localhost:5000/fashion')
             .then(res => res.json())
             // .then(data => setWork(data))
             .then(data=>{

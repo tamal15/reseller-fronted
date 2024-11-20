@@ -11,7 +11,7 @@ const AdminApprovalPage = () => {
   useEffect(() => {
     const fetchRequests = async () => {
       try {
-        const response = await fetch('https://sellerportal.vercel.app/api/withdraw-requests');
+        const response = await fetch('http://localhost:5000/api/withdraw-requests');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         setRequests(data);
@@ -40,7 +40,7 @@ const AdminApprovalPage = () => {
       });
 
       if (result.isConfirmed) {
-        const response = await fetch(`https://sellerportal.vercel.app/api/approve-withdraw/${id}`, {
+        const response = await fetch(`http://localhost:5000/api/approve-withdraw/${id}`, {
           method: 'PATCH',
         });
 
@@ -97,7 +97,7 @@ const AdminApprovalPage = () => {
             <ListItem key={request._id} divider>
               <ListItemText
                 primary={`Amount: ${request.amount} Taka`}
-                secondary={`Payment Method: ${request.paymentMethod}, Mobile Number: ${request.mobileNumber}`}
+                secondary={`Payment Method: ${request.paymentMethod}, Payment Number: ${request.mobileNumber}, email:${request.email}`}
               />
               <Button
                 variant="contained"

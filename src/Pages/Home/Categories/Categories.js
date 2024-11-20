@@ -20,7 +20,7 @@ const Categories = () => {
 //  const {user}=useAuth()
 //   const [review,setReview]=useState([])
 //   useEffect(()=>{
-//     fetch('https://sellerportal.vercel.app/review')
+//     fetch('http://localhost:5000/review')
 //     .then(res=>res.json())
 //     .then(data=>setReview(data))
 //   },[])

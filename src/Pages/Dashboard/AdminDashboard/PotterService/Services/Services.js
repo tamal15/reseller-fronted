@@ -49,7 +49,7 @@ const Services = () => {
       console.log(book)
 
       useEffect(()=>{
-        fetch('https://sellerportal.vercel.app/potterservice')
+        fetch('http://localhost:5000/potterservice')
         .then(res=>res.json())
         .then(data=>setBook(data))
     },[])

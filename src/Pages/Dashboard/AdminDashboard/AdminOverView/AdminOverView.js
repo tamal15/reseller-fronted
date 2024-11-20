@@ -23,13 +23,13 @@ const AdminOverView = () => {
 
 
     useEffect(() => {
-        fetch(`https://sellerportal.vercel.app/adminConfarm`)
+        fetch(`http://localhost:5000/adminConfarm`)
             .then((res) => res.json())
             .then((data) => setQuestions(data));
             // console.log(data)
     }, []);
     useEffect(()=>{
-        fetch(`https://sellerportal.vercel.app/userMy/${user?.email}`)
+        fetch(`http://localhost:5000/userMy/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setOrder(data)
@@ -37,7 +37,7 @@ const AdminOverView = () => {
     },[user?.email])
 
     useEffect(()=>{
-        fetch('https://sellerportal.vercel.app/adminShowproduct')
+        fetch('http://localhost:5000/adminShowproduct')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])

@@ -11,7 +11,7 @@ const AdminProducts = () => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
   useEffect(() => {
-    fetch('https://sellerportal.vercel.app/adminShowproduct')
+    fetch('http://localhost:5000/adminShowproduct')
       .then((res) => res.json())
       .then((data) => setProducts(data.allQuestions))
       .catch(error => console.error('Error fetching products:', error));
@@ -19,7 +19,7 @@ const AdminProducts = () => {
 
   const handleDelete = async (parentId, index) => {
     try {
-      const response = await fetch(`https://sellerportal.vercel.app/productdelete/${parentId}/${index}`, {
+      const response = await fetch(`http://localhost:5000/productdelete/${parentId}/${index}`, {
         method: 'DELETE',
       });
 
