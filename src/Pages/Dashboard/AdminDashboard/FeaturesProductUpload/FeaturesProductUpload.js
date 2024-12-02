@@ -18,7 +18,7 @@ const FeaturesProductUpload = () => {
         // data.status = 'Pending'
      
 
-        fetch("http://localhost:5000/features", {
+        fetch("https://server.exportmark.com/features", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

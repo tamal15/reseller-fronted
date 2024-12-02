@@ -49,7 +49,7 @@ const Services = () => {
       console.log(book)
 
       useEffect(()=>{
-        fetch('http://localhost:5000/potterservice')
+        fetch('https://server.exportmark.com/potterservice')
         .then(res=>res.json())
         .then(data=>setBook(data))
     },[])

@@ -33,7 +33,7 @@ const Home = () => {
    
     // const [model, setModel] = useState([]);
     // useEffect(()=>{
-    //     fetch('http://localhost:5000/users')
+    //     fetch('https://server.exportmark.com/users')
     //     .then(res=>res.json())
     //     .then(data=>setModel(data))
     // },[])

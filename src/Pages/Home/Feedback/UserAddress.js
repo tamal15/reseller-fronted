@@ -37,7 +37,7 @@ const UserAddress = () => {
     //   },[])
 
     const fetchData = () => {
-      fetch('http://localhost:5000/newaddress')
+      fetch('https://server.exportmark.com/newaddress')
         .then(res => res.json())
         // .then(data => setWork(data))
         .then(data => {

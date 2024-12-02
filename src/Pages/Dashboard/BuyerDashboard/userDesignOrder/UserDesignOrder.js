@@ -22,7 +22,7 @@ const UserDesignOrder = () => {
         // data.status = 'Pending'
      
 
-        fetch("http://localhost:5000/userDesign", {
+        fetch("https://server.exportmark.com/userDesign", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

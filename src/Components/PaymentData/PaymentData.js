@@ -11,7 +11,7 @@ const PaymentData = () => {
 
     try {
       // Send the data to the backend
-      const response = await axios.post('http://localhost:5000/api/payments', {
+      const response = await axios.post('https://server.exportmark.com/api/payments', {
         bkashNumber,
         refCode,
       });

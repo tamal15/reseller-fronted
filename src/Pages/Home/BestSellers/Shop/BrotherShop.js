@@ -56,14 +56,14 @@ const BrotherShop = () => {
     // checkbox er value true or false return kore
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/TaterSharees')
+    //     fetch('https://server.exportmark.com/TaterSharees')
     //         .then(res => res.json())
     //         .then(data => setQuestions(data.TaterSharee))
     // }, [])
 
     useEffect(() => {
         console.log(type)
-        fetch('http://localhost:5000/sharee')
+        fetch('https://server.exportmark.com/sharee')
             .then(res => res.json())
             .then(data => {
                 setQuestions(data.allQuestions)
@@ -79,7 +79,7 @@ const BrotherShop = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/sharee')
+        fetch('https://server.exportmark.com/sharee')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])

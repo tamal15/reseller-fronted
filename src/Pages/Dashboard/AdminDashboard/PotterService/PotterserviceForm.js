@@ -39,7 +39,7 @@ const PotterserviceForm = () => {
    
 
      const handleLike = (id,data) => {
-        fetch(`http://localhost:5000/service/${id}`, {
+        fetch(`https://server.exportmark.com/service/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(design)
@@ -57,13 +57,13 @@ const PotterserviceForm = () => {
       
 
     useEffect(() => {
-        fetch(`http://localhost:5000/potterservicedetails/${id}`)
+        fetch(`https://server.exportmark.com/potterservicedetails/${id}`)
           .then((res) => res.json())
           .then((data) => setBook(data));
       }, [id]);
   
     const fetchData = () => {
-        fetch(`http://localhost:5000/potterservicedetails/${id}`)
+        fetch(`https://server.exportmark.com/potterservicedetails/${id}`)
           .then(res => res.json())
           // .then(data => setWork(data))
           .then(data => {

@@ -83,14 +83,14 @@ const PotteryProduct = () => {
     // checkbox er value true or false return kore
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/PotteryProducts')
+    //     fetch('https://server.exportmark.com/PotteryProducts')
     //         .then(res => res.json())
     //         .then(data => setQuestions(data.PotteryProduct))
     // }, [])
 
     // useEffect(() => {
     //     console.log(type, year, code)
-    //     fetch('http://localhost:5000/getPotter')
+    //     fetch('https://server.exportmark.com/getPotter')
     //         .then(res => res.json())
     //         .then(data => {
     //           setQuestions(data.allQuestions)
@@ -108,7 +108,7 @@ const PotteryProduct = () => {
 
     const fetchData = () => {
       // console.log(type, year, code,page)
-      fetch('http://localhost:5000/getPotter')
+      fetch('https://server.exportmark.com/getPotter')
           .then(res => res.json())
           .then(data => {
             setQuestions(data.allQuestions)
@@ -129,13 +129,13 @@ const PotteryProduct = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/getPotter')
+        fetch('https://server.exportmark.com/getPotter')
         .then(res=>res.json())
         .then(data=>setModel(data.allQuestions))
     },[])
 
     const handleLike = (id) => {
-      fetch(`http://localhost:5000/potterlike/${id}`, {
+      fetch(`https://server.exportmark.com/potterlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -154,7 +154,7 @@ const PotteryProduct = () => {
   
     }
     const handleUnLike = (id) => {
-      fetch(`http://localhost:5000/potterunlike/${id}`, {
+      fetch(`https://server.exportmark.com/potterunlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -175,7 +175,7 @@ const PotteryProduct = () => {
 
 
     // useEffect(()=>{
-    //     fetch('http://localhost:5000/likes')
+    //     fetch('https://server.exportmark.com/likes')
     //     .then(res=>res.json())
     //     .then(data=>{
     //       setValue(data)

@@ -6,7 +6,7 @@ const UpdateProducts = () => {
    const [user,setUser]=useState({})
    const {id}=useParams()
    useEffect(()=>{
-    fetch(`http://localhost:5000/update/${id}`)
+    fetch(`https://server.exportmark.com/update/${id}`)
     .then(res=>res.json())
     .then(data=>setUser(data))
    },[])
@@ -15,7 +15,7 @@ const UpdateProducts = () => {
     const handleupdate=e=>{
         e.preventDefault()
 
-        fetch(`http://localhost:5000/updateProduct/${id}`, {
+        fetch(`https://server.exportmark.com/updateProduct/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(user)

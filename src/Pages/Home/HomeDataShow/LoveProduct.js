@@ -46,7 +46,7 @@ const LoveProduct = () => {
   const navigate = useNavigate();
 
   const fetchData = () => {
-    fetch(`http://localhost:5000/getlovesproduct?page=${page}&size=${size}`)
+    fetch(`https://server.exportmark.com/getlovesproduct?page=${page}&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
         setModel(data.allQuestions);
@@ -223,7 +223,7 @@ const LoveProduct = () => {
     };
   
     // Send the product data to the backend using POST
-    fetch("http://localhost:5000/addLikedProductdata", {
+    fetch("https://server.exportmark.com/addLikedProductdata", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

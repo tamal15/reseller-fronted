@@ -42,7 +42,7 @@ const AdminAllProductUpload = () => {
       data.services = [];
 
       // Post the data to the backend
-      const response = await fetch("http://localhost:5000/postadminProduct", {
+      const response = await fetch("https://server.exportmark.com/postadminProduct", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

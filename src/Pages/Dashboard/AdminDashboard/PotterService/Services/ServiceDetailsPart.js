@@ -69,12 +69,12 @@ import Footer from "../../../../../Shared/Footer/Footer";
     const [isFetched, setIsFetched] = useState(0);
      const {user}=useAuth;
     useEffect(() => {
-      fetch(`http://localhost:5000/potterservice`)
+      fetch(`https://server.exportmark.com/potterservice`)
         .then((res) => res.json())
         .then((data) => setService(data));
     }, [id]);
     useEffect(() => {
-        fetch('http://localhost:5000/potterservice')
+        fetch('https://server.exportmark.com/potterservice')
             .then(res => res.json())
             .then((data) => {
                 // const foundSession = data.services.filter(detail => detail._id === id)
@@ -88,7 +88,7 @@ import Footer from "../../../../../Shared/Footer/Footer";
 
     useEffect(()=>{
 
-      fetch("http://localhost:5000/review")
+      fetch("https://server.exportmark.com/review")
       .then(res=>res.json())
       .then(data=>{
         // const managePost = data?.data.data
@@ -117,7 +117,7 @@ import Footer from "../../../../../Shared/Footer/Footer";
     const onSubmit = (data) => {
         console.log(data);
 
-        fetch("http://localhost:5000/review", {
+        fetch("https://server.exportmark.com/review", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

@@ -29,7 +29,7 @@ const FirstProfile = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/user-details?email=${user.email}`);
+        const response = await fetch(`https://server.exportmark.com/api/user-details?email=${user.email}`);
         const data = await response.json();
         if (data) {
           setUserData({

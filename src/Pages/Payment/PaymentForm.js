@@ -43,7 +43,7 @@ const PaymentFrom = () => {
       status: "Pending",
     };
     axios
-      .post('http://localhost:5000/init', paymentData)
+      .post('https://server.exportmark.com/init', paymentData)
       .then((res) => {
         Swal.fire({
           title: 'Success!',

@@ -18,7 +18,7 @@ const PotterService = () => {
         // data.status = 'Pending'
      
 
-        fetch("http://localhost:5000/potterservice", {
+        fetch("https://server.exportmark.com/potterservice", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

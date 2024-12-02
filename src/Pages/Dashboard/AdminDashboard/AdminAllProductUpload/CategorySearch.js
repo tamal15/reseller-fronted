@@ -51,7 +51,7 @@ const CategorySearch = () => {
   const navigate = useNavigate();
 
   const fetchData = () => {
-    fetch(`http://localhost:5000/adminShowproduct?page=${page}&size=${size}`)
+    fetch(`https://server.exportmark.com/adminShowproduct?page=${page}&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
         setModel(data.allQuestions);
@@ -232,7 +232,7 @@ const CategorySearch = () => {
     };
   
     // Send the product data to the backend using POST
-    fetch("http://localhost:5000/addLikedProductdata", {
+    fetch("https://server.exportmark.com/addLikedProductdata", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

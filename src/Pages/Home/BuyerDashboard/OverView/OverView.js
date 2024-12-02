@@ -18,7 +18,7 @@ const OverView = () => {
     const { user } = useAuth();
     const [questions, setQuestions] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/userMy/${user?.email}`)
+        fetch(`https://server.exportmark.com/userMy/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setOrder(data)
@@ -26,7 +26,7 @@ const OverView = () => {
     },[user?.email])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/myOrder/${user?.email}`)
+        fetch(`https://server.exportmark.com/myOrder/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setMyorder(data)
@@ -34,14 +34,14 @@ const OverView = () => {
     },[user?.email])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/my/${user?.email}`)
+        fetch(`https://server.exportmark.com/my/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setStores(data)
         })
     },[user?.email])
     useEffect(() => {
-        fetch(`http://localhost:5000/adminConfarm`)
+        fetch(`https://server.exportmark.com/adminConfarm`)
             .then((res) => res.json())
             .then((data) => setQuestions(data));
             // console.log(data)

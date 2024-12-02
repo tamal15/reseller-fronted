@@ -20,7 +20,7 @@ const AdminSuccessOrder = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/adminorders/${id}`)
+        fetch(`https://server.exportmark.com/adminorders/${id}`)
             .then(res => res.json())
             .then(data => {
                 setBook(data);

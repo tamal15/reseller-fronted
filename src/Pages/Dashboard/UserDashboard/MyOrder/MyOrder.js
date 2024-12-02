@@ -47,7 +47,7 @@ const MyOrder = () => {
   const fetchOrders = async (status = '', date = '') => {
     try {
       const response = await fetch(
-        `http://localhost:5000/myOrder/${user?.email}?status=${status}&date=${date}`
+        `https://server.exportmark.com/myOrder/${user?.email}?status=${status}&date=${date}`
       );
       if (!response.ok) {
         throw new Error('Network response was not ok.');
@@ -82,7 +82,7 @@ const MyOrder = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await axios.delete(`http://localhost:5000/manageAllOrderDelete/${id}`);
+          const response = await axios.delete(`https://server.exportmark.com/manageAllOrderDelete/${id}`);
           if (response.status === 200) {
             // Update state after deletion
             setOrder((prevOrdering) => prevOrdering.filter((order) => order._id !== id));

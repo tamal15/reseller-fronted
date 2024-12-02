@@ -19,7 +19,7 @@ const BuyerProductUpdate = () => {
     const handle = (id) => {
         // e.preventDefault()
         // data.complete = true
-        fetch(`http://localhost:5000/updateProduct/${id}`, {
+        fetch(`https://server.exportmark.com/updateProduct/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({user}),

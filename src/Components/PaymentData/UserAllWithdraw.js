@@ -11,7 +11,7 @@ const UserAllWithdraw = () => {
     useEffect(() => {
         const fetchWithdrawalHistory = async () => {
           try {
-            const response = await fetch(`http://localhost:5000/all/withdraw-history`);
+            const response = await fetch(`https://server.exportmark.com/all/withdraw-history`);
             const data = await response.json();
             if (data) {
               setWithdrawalHistory(data);

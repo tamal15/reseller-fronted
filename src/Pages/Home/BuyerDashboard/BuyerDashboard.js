@@ -22,7 +22,7 @@ const BuyerDashboard = () => {
         // data.status = 'Pending'
      
 
-        fetch("http://localhost:5000/PostBuyer", {
+        fetch("https://server.exportmark.com/PostBuyer", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

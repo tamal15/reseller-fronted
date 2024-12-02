@@ -24,7 +24,7 @@ const SellerWelcome = () => {
     const [selectedOrder, setSelectedOrder] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/userMy/${user?.email}`)
+        fetch(`https://server.exportmark.com/userMy/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setOrder(data);
@@ -36,7 +36,7 @@ const SellerWelcome = () => {
     };
 
     const handleUpdate = (id, newStatus) => {
-        fetch(`http://localhost:5000/updateStatus/${id}`, {
+        fetch(`https://server.exportmark.com/updateStatus/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status: newStatus }),
@@ -65,7 +65,7 @@ const SellerWelcome = () => {
             return;
         }
         
-        fetch(`http://localhost:5000/updateCourier/${id}`, {
+        fetch(`https://server.exportmark.com/updateCourier/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ courier_id: courierId }),
@@ -82,7 +82,7 @@ const SellerWelcome = () => {
 
     const handleUpdates = (id) => {
         const courierId = courierIds[id];
-        fetch(`http://localhost:5000/updateCourier/${id}`, {
+        fetch(`https://server.exportmark.com/updateCourier/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ courier_id: courierId }),
@@ -107,7 +107,7 @@ const SellerWelcome = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/manageAllOrderDelete/${id}`)
+                axios.delete(`https://server.exportmark.com/manageAllOrderDelete/${id}`)
                     .then((response) => {
                         if (response.status === 200 || response.status === 204) {
                             Swal.fire(

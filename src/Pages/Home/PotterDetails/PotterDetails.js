@@ -59,14 +59,14 @@ import Footer from "../../../Shared/Footer/Footer";
     const [isFetched, setIsFetched] = useState(0);
      const {user}=useAuth;
     useEffect(() => {
-      fetch(`http://localhost:5000/potterdetails/${id}`)
+      fetch(`https://server.exportmark.com/potterdetails/${id}`)
         .then((res) => res.json())
         .then((data) => setBook(data));
     }, [id]);
 
     useEffect(()=>{
 
-      fetch("http://localhost:5000/review")
+      fetch("https://server.exportmark.com/review")
       .then(res=>res.json())
       .then(data=>{
         // const managePost = data?.data.data
@@ -96,7 +96,7 @@ import Footer from "../../../Shared/Footer/Footer";
       e.preventDefault()
         console.log(data);
 
-        fetch("http://localhost:5000/review", {
+        fetch("https://server.exportmark.com/review", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

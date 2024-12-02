@@ -21,7 +21,7 @@ const UpdateOrder = () => {
     const [courierIds, setCourierIds] = useState({}); // Store courier IDs for each order
 
     useEffect(() => {
-        fetch(`http://localhost:5000/userMy`)
+        fetch(`https://server.exportmark.com/userMy`)
             .then(res => res.json())
             .then(data => {
                 setOrder(data);
@@ -29,7 +29,7 @@ const UpdateOrder = () => {
     }, []);
 
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/updateStatus/${id}`, {
+        fetch(`https://server.exportmark.com/updateStatus/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status }),
@@ -50,7 +50,7 @@ const UpdateOrder = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/manageAllOrderDelete/${id}`)
+                axios.delete(`https://server.exportmark.com/manageAllOrderDelete/${id}`)
                     .then((response) => {
                         if (response.status === 200 || response.status === 204) {
                             Swal.fire(
@@ -109,7 +109,7 @@ const UpdateOrder = () => {
 
     const handleUpdates = (id) => {
         const courierId = courierIds[id];
-        fetch(`http://localhost:5000/updateCourier/${id}`, {
+        fetch(`https://server.exportmark.com/updateCourier/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ courier_id: courierId }),

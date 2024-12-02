@@ -60,7 +60,7 @@ const TypesAdmin = () => {
       data.courier_id = "id";
 
       // Submit data to the backend
-      const response = await fetch(`http://localhost:5000/service`, {
+      const response = await fetch(`https://server.exportmark.com/service`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -81,7 +81,7 @@ const TypesAdmin = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/getpostadmin")
+    fetch("https://server.exportmark.com/getpostadmin")
       .then((res) => res.json())
       .then((data) => setModel(data));
   }, []);

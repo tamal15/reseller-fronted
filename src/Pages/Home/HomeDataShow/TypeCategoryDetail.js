@@ -28,7 +28,7 @@ const TypeCategoryDetail = () => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/categories/${type}`)
+    fetch(`https://server.exportmark.com/categories/${type}`)
       .then((response) => response.json())
       .then((data) => setCategoryData(data))
       .catch((error) => console.error('Error fetching category data:', error));

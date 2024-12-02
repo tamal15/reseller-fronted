@@ -11,7 +11,7 @@ const AdminProducts = () => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
   useEffect(() => {
-    fetch('http://localhost:5000/adminShowproduct')
+    fetch('https://server.exportmark.com/adminShowproduct')
       .then((res) => res.json())
       .then((data) => setProducts(data.allQuestions))
       .catch(error => console.error('Error fetching products:', error));
@@ -19,7 +19,7 @@ const AdminProducts = () => {
 
   const handleDelete = async (parentId, index) => {
     try {
-      const response = await fetch(`http://localhost:5000/productdelete/${parentId}/${index}`, {
+      const response = await fetch(`https://server.exportmark.com/productdelete/${parentId}/${index}`, {
         method: 'DELETE',
       });
 

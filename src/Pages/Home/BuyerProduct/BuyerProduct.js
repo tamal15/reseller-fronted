@@ -56,7 +56,7 @@ const BuyerProduct = () => {
     //   },[])
 
     const fetchData = () => {
-      fetch('http://localhost:5000/postBuyer')
+      fetch('https://server.exportmark.com/postBuyer')
         .then(res => res.json())
         // .then(data => setWork(data))
         .then(data => {
@@ -73,7 +73,7 @@ const BuyerProduct = () => {
 
 
     const handleLike = (id) => {
-      fetch(`http://localhost:5000/like/${id}`, {
+      fetch(`https://server.exportmark.com/like/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)
@@ -92,7 +92,7 @@ const BuyerProduct = () => {
   
     }
     const handleUnLike = (id) => {
-      fetch(`http://localhost:5000/unlike/${id}`, {
+      fetch(`https://server.exportmark.com/unlike/${id}`, {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(userData)

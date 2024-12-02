@@ -58,7 +58,7 @@ const ShowBuyerPotter = () => {
     //   },[])
 
     const fetchData = () => {
-        fetch(`http://localhost:5000/getPotter`)
+        fetch(`https://server.exportmark.com/getPotter`)
         .then(res => res.json())
         .then(data => {
             const sliceData = data.allQuestions.slice(0, 8);
@@ -74,7 +74,7 @@ const ShowBuyerPotter = () => {
       }, [])
 
       const handleLike = (id) => {
-        fetch(`http://localhost:5000/potterlike/${id}`, {
+        fetch(`https://server.exportmark.com/potterlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)
@@ -93,7 +93,7 @@ const ShowBuyerPotter = () => {
     
       }
       const handleUnLike = (id) => {
-        fetch(`http://localhost:5000/potterunlike/${id}`, {
+        fetch(`https://server.exportmark.com/potterunlike/${id}`, {
           method: "PUT",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userData)

@@ -10,7 +10,7 @@ const OrderDetails = () => {
 
     useEffect(() => {
         // Fetch orders by status
-        fetch(`http://localhost:5000/orders?status=${status}`)
+        fetch(`https://server.exportmark.com/orders?status=${status}`)
             .then(res => res.json())
             .then(data => setOrders(data));
     }, [status]);

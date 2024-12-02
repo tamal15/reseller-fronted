@@ -38,7 +38,7 @@ const CategoryDetails = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/category/${category}`);
+                const response = await fetch(`https://server.exportmark.com/category/${category}`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -194,7 +194,7 @@ const CategoryDetails = () => {
         };
       
         // Send the product data to the backend using POST
-        fetch("http://localhost:5000/addLikedProductdata", {
+        fetch("https://server.exportmark.com/addLikedProductdata", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

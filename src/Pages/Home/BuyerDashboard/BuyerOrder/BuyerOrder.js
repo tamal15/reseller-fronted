@@ -24,7 +24,7 @@ const BuyerOrder = () => {
     const [rowsPerPage, setRowsPerPage] = React.useState(4);
     const [status, setStatus] = useState('')
     useEffect(()=>{
-        fetch(`http://localhost:5000/myOrder/${user?.email}`)
+        fetch(`https://server.exportmark.com/myOrder/${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
             setOrder(data)
@@ -44,7 +44,7 @@ const BuyerOrder = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/manageAllOrderDelete/${id}`)
+                axios.delete(`https://server.exportmark.com/manageAllOrderDelete/${id}`)
                     .then((response) => {
                         response.status === 204 &&
                             Swal.fire(
@@ -66,7 +66,7 @@ const BuyerOrder = () => {
 
     // start 
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/updateStatus/${id}`, {
+        fetch(`https://server.exportmark.com/updateStatus/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status }),
@@ -88,7 +88,7 @@ const BuyerOrder = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/manageAllOrderDelete/${id}`)
+                axios.delete(`https://server.exportmark.com/manageAllOrderDelete/${id}`)
                     .then((response) => {
                         response.status === 204 &&
                             Swal.fire(

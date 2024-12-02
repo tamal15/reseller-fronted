@@ -19,7 +19,7 @@ const Feedback = () => {
         // data.status = 'Pending'
      
 
-        fetch("http://localhost:5000/feedbacks", {
+        fetch("https://server.exportmark.com/feedbacks", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

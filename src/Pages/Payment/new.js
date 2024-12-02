@@ -23,7 +23,7 @@ const Payment = () => {
 
   // Fetch user balance from the backend
   useEffect(() => {
-    axios.get(`http://localhost:5000/userbalancedata/${user.email}`)
+    axios.get(`https://server.exportmark.com/userbalancedata/${user.email}`)
       .then((response) => {
         const data = response.data[0]; // Access the first item in the array
   

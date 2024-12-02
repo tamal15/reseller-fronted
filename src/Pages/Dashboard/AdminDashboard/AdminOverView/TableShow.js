@@ -12,7 +12,7 @@ import TableOrderRow from './TableOrderRow';
 const TableShow = () => {
     const [model, setModel] = useState([]);
     const fetchData = () => {
-        fetch('http://localhost:5000/feedback')
+        fetch('https://server.exportmark.com/feedback')
           .then(res => res.json())
           // .then(data => setWork(data))
           .then(data => {

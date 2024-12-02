@@ -23,7 +23,7 @@ const AdminAllProductShow = () => {
     const navigate = useNavigate();
 
     const fetchData = () => {
-        fetch(`http://localhost:5000/adminShowproduct?page=${page}&size=${size}`)
+        fetch(`https://server.exportmark.com/adminShowproduct?page=${page}&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setModel(data.allQuestions);
@@ -68,7 +68,7 @@ const AdminAllProductShow = () => {
     };
 
     const handleLike = (id) => {
-        fetch(`http://localhost:5000/adminlike/${id}`, {
+        fetch(`https://server.exportmark.com/adminlike/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(userData)
@@ -80,7 +80,7 @@ const AdminAllProductShow = () => {
     };
 
     const handleUnLike = (id) => {
-        fetch(`http://localhost:5000/adminunlike/${id}`, {
+        fetch(`https://server.exportmark.com/adminunlike/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(userData)
