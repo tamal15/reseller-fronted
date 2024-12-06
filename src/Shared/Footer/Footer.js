@@ -105,7 +105,7 @@ const Footer = () => {
                     <Row>
                         <Col>
                             <p className="copyright-text text-center mt-2">
-                                All right reserved &copy; RESELLER 2024
+                                Design and developed By Component IT
                             </p>
                         </Col>
                     </Row>
