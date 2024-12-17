@@ -218,6 +218,7 @@ const HomeDataShow = () => {
       categories: product.categories,
       size: product.size,
       img: product.img,
+      multipleimg: product.multipleimg,
       description: product.description,
       ProductPrice: product.ProductPrice,
       userEmail: user.email // Assuming the user is logged in and the email is available
@@ -297,10 +298,10 @@ const HomeDataShow = () => {
   display: 'flex', 
   justifyContent: 'space-between', 
   alignItems: 'center', 
-  backgroundColor: 'rgb(42 135 158 / 10%)', // Set your desired background color
+  // backgroundColor: 'rgb(42 135 158 / 10%)', 
   padding: '3px', // Optional: Add padding for better spacing
   borderRadius: '5px', // Optional: Add border radius for rounded corners
-  boxShadow: "0px 10px 22px rgb(42 135 158 / 50%)" // Optional: Add shadow for a subtle effect
+  // boxShadow: "0px 10px 22px rgb(42 135 158 / 50%)" 
 }}>
   <h3 style={{ 
     marginTop: "20px", 
@@ -357,10 +358,10 @@ const HomeDataShow = () => {
 
                   <Grid item xs={4} sm={4} md={8} pl={2} my={3}>
                     <Box sx={{ textAlign: "left", marginTop: {xs:"-29px",md:"-25px"} }}>
-                      <h5 style={{ fontWeight: "700" }}>
-                        {service.categories}
+                      <h5 style={{ fontWeight: "600" }}>
+                        {service.categories.slice(0,22)}
                       </h5>
-                      <Box style={{ fontWeight: "700" }}>
+                      <Box style={{ fontWeight: "600" }}>
                         {user && user.email ? (
                           <Typography variant="body">
                             Price: {service.ProductPrice}

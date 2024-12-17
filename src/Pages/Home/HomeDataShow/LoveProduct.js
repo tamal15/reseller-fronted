@@ -17,9 +17,14 @@ import { CartContext } from "../../../Context/CartContext";
 import useAuth from "../../../Hooks/useAuth";
 import PaidIcon from "@mui/icons-material/Paid"; 
 import './HomeDataShow.css'
+import { MdDelete } from "react-icons/md";
+import Slider from 'react-slick';
+import { CgDetailsMore } from "react-icons/cg";
 import { FcLike } from "react-icons/fc";
 import Footer from "../../../Shared/Footer/Footer";
 import Header from "../../../Shared/Header/Header";
+import { FaCartPlus } from "react-icons/fa";
+import axios from "axios";
 const LoveProduct = () => {
   const [cart, setCart] = useContext(CartContext);
   const { user } = useAuth();
@@ -240,6 +245,59 @@ const LoveProduct = () => {
       });
   };
   
+  const [zoom, setZoom] = useState({
+      backgroundPositionX: 'center',
+      backgroundPositionY: 'center',
+    });
+  
+    // Handle mouse move for zoom effect (optional)
+    const handleMouseMove = (event) => {
+      const { left, top, width, height } = event.target.getBoundingClientRect();
+      const x = ((event.pageX - left) / width) * 100;
+      const y = ((event.pageY - top) / height) * 100;
+  
+      setZoom({
+        backgroundPositionX: `${x}%`,
+        backgroundPositionY: `${y}%`,
+      });
+    };
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true, // Enables autoplay
+    autoplaySpeed: 3000, // Time in ms for each slide (3 seconds)
+  };
+ 
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`https://server.exportmark.com/loveprojectdelete/${id}`)
+          .then((response) => {
+            response.status === 204 &&
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            const deleted = filteredModel.filter((d) => d._id !== id);
+            setFilteredModel(deleted);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    });
+  };
 
   return (
     <div>
@@ -285,10 +343,10 @@ const LoveProduct = () => {
 
                       <Grid item xs={2} sm={4} md={8} pl={2} my={3}>
                         <Box style={{ textAlign: "left", marginTop: "-20px" }}>
-                          <h5 style={{ fontWeight: "700" }}>{product.categories}</h5>
+                          <h5 style={{ fontWeight: "600" }}>{product.categories.slice(0,22)}</h5>
                           
                           <Typography variant="body">
-                            <span style={{ fontWeight: "700" }}>
+                            <span style={{ fontWeight: "600" }}>
                               BDT: {product.ProductPrice}
                             </span>
                           </Typography>
@@ -297,12 +355,27 @@ const LoveProduct = () => {
                         <Grid   mt={1}>
                           <Grid xs={8} sm={4} md={12}>
                           <Button
-                                  sx={{ }}
+                                  sx={{ fontSize:"20px"}}
                                   onClick={() => handleOpenModal(product)}
                                   variant="outlined"
                                 >
-                                  Add Cart
+                                  <FaCartPlus />
                                 </Button>
+
+                                <Button
+                                      sx={{mt: { xs: 0, md: 1 }, mb: {xs:0,md:1}, marginLeft: "5px", background: "#113350",fontSize:"20px" }}
+                                      onClick={() => handleOpenCheckModal(product)}
+                                      variant="contained"
+                                    >
+                                     <CgDetailsMore  />
+                                    </Button>
+                                <Button
+                                      sx={{mt: { xs: 0, md: 1 }, mb: {xs:0,md:1}, marginLeft: "5px",fontSize:"20px"}}
+                                      onClick={() => handleDelete(product?._id)}
+                                      variant="outlined"
+                                    >
+                                      <MdDelete />
+                                    </Button>
                           </Grid>
                         </Grid>
                       </Grid>
@@ -485,6 +558,7 @@ const LoveProduct = () => {
               >
                 Add to Cart
               </Button>
+              
             </>
           )}
         </Box>
@@ -503,34 +577,39 @@ const LoveProduct = () => {
       top: "50%",
       left: "50%",
       transform: "translate(-50%, -50%)",
-      width: "90vw", // 90% of the viewport width
-      height: "90vh", // 90% of the viewport height
+      width: "90vw",
+      height: {
+        xs: "65vh",
+        sm: "75vh",
+        md: "80vh",
+        lg: "85vh",
+      },
       bgcolor: "background.paper",
       border: "2px solid #000",
       boxShadow: 24,
       p: 4,
-      overflowY: "auto", // Allow scrolling if content overflows
+      overflowY: "auto",
     }}
   >
     {selectedProduct && (
       <>
-        {/* Copy Button in the upper-right corner */}
+        {/* Copy Button */}
         <Button
           variant="contained"
           color="primary"
           sx={{
             position: "absolute",
             top: 16,
-            right: 16, // Positioning at the top-right corner
+            right: 16,
           }}
           onClick={() => {
             const productDetails = `
-              Product Name: ${selectedProduct.types}\n
-              Price: TK. ${selectedProduct.ProductPrice}\n
-              Category: ${selectedProduct.categories}\n
-              Size: ${selectedProduct.size || "N/A"}\n
+              Product Name: ${selectedProduct.types}
+              Price: TK. ${selectedProduct.ProductPrice}
+              Category: ${selectedProduct.categories}
+              Size: ${selectedProduct.size || "N/A"}
               Additional Info: ${selectedProduct.Fabric || "N/A"}
-              Additional Info: ${selectedProduct.description || "N/A"}
+              Description: ${selectedProduct.description || "N/A"}
             `;
             navigator.clipboard
               .writeText(productDetails)
@@ -542,11 +621,7 @@ const LoveProduct = () => {
                 );
               })
               .catch((err) => {
-                Swal.fire(
-                  "Error",
-                  "Failed to copy product details!",
-                  "error"
-                );
+                Swal.fire("Error", "Failed to copy product details!", "error");
                 console.error("Failed to copy: ", err);
               });
           }}
@@ -554,54 +629,104 @@ const LoveProduct = () => {
           Copy
         </Button>
 
-        <Typography
-          id="check-product-details-modal"
-          variant="h6"
-          component="h2"
+        {/* Content */}
+        <Box
+          sx={{
+            display: "flex",
+            gap: { xs: 1, md: 2 },
+            flexDirection: { xs: "column", md: "row" },
+            marginTop: "20px",
+          }}
         >
-          Types: {selectedProduct.types}
-        </Typography>
-        <Box style={{ fontWeight: "700" }}>
-          {user && user.email ? (
-            <Typography variant="body">
-              Price: {selectedProduct.ProductPrice}
+          {/* Image Slider */}
+          <Box style={{ width: "300px", margin: "auto" }}>
+            {selectedProduct?.multipleimg?.length > 0 ? (
+              <Slider {...sliderSettings}>
+                {selectedProduct.multipleimg.map((imgUrl, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      position: "relative",
+                      overflow: "hidden",
+                      height: "230px",
+                      width: "300px",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <img
+                      src={imgUrl}
+                      alt={`Product ${index}`}
+                      style={{
+                        height: "100%",
+                        width: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Box>
+                ))}
+              </Slider>
+            ) : (
+              <Typography>No Images Available</Typography>
+            )}
+          </Box>
+
+          {/* Product Details */}
+          <Box style={{ marginLeft: "10px" }}>
+            <Box style={{ fontWeight: "700" }}>
+              {user?.email && (
+                <Typography variant="body">
+                  Price: {selectedProduct.ProductPrice}
+                </Typography>
+              )}
+            </Box>
+            <Typography variant="body1" sx={{ fontWeight: 700 }}>
+              Category: {selectedProduct.categories}
             </Typography>
-          ) : null}
+            <Typography variant="body1" sx={{ fontWeight: 700 }}>
+              Size: {selectedProduct.size || "N/A"}
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontWeight: 700,
+                whiteSpace: "pre-line",
+                lineHeight: 1,
+              }}
+            >
+              Description: {selectedProduct.description || "N/A"}
+            </Typography>
+
+            {/* Buttons */}
+            <Box sx={{ display: "flex", gap: 1 }}>
+              <Button
+                variant="contained"
+                sx={{ mt: 2, background: "#113350" }}
+                onClick={() => handleLikeProducts(selectedProduct)}
+              >
+                <FcLike
+                  style={{
+                    cursor: "pointer",
+                    fontSize: "20px",
+                    color: "white",
+                  }}
+                />
+              </Button>
+
+              <Button
+                variant="contained"
+                sx={{ mt: 2, background: "#113350" }}
+                onClick={handleCloseCheckModal}
+              >
+                Close
+              </Button>
+            </Box>
+          </Box>
         </Box>
-        <Typography variant="body1" sx={{ fontWeight: 700 }}>
-          Category: {selectedProduct.categories}
-        </Typography>
-        <Typography variant="body1" sx={{ fontWeight: 700 }}>
-          Size: {selectedProduct.size}
-        </Typography>
-        <Typography variant="body1" sx={{ fontWeight: 700 }}>
-          Fabric: {selectedProduct.Fabric}
-        </Typography>
-        <Typography variant="body1" sx={{ fontWeight: 700 }}>
-          Description: {selectedProduct.description}
-        </Typography>
-        
-
-         {/* Like Button */}
-         <FcLike
-          onClick={() => handleLikeProducts(selectedProduct)} // Like handler
-          style={{ cursor: "pointer" }} // Make it look clickable
-        />
-        <br/>
-
-
-        {/* Close Button */}
-        <Button
-          variant="contained"
-          sx={{ mt: 2, background: "#113350" }}
-          onClick={handleCloseCheckModal}
-        >
-          Close
-        </Button>
       </>
     )}
   </Box>
 </Modal>
+
 
 <Footer/>
 

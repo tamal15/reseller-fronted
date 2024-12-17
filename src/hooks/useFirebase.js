@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  sendPasswordResetEmail,
   sendEmailVerification
 } from "firebase/auth";
 
@@ -103,7 +104,7 @@ const handleClick=()=>{
   // Save user to database
   const sendUser = (email, displayName, bkashNumber, refCode, status = "pending", method) => {
     const user = { email, displayName, bkashNumber, refCode, status, balance: 0 };
-    fetch('http://localhost:5000/users', {
+    fetch('https://server.exportmark.com/users', {
       method: method,
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(user)
@@ -130,7 +131,7 @@ const handleClick=()=>{
 
   // Load user roles from database
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user.email}`)
+    fetch(`https://server.exportmark.com/users/${user.email}`)
       .then(res => res.json())
       .then(data => {
         setBuyer(data?.buyer);
@@ -139,14 +140,25 @@ const handleClick=()=>{
 
   // Load admin role from database
   useEffect(() => {
-    fetch(`http://localhost:5000/userLogin/${user.email}`)
+    fetch(`https://server.exportmark.com/userLogin/${user.email}`)
       .then(res => res.json())
       .then(data => setAdmin(data?.admin));
   }, [user.email]);
 
+   // Send password reset email
+   const sendPasswordReset = async (email) => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      return { success: true, message: 'Password reset email sent successfully!' };
+    } catch (error) {
+      return { success: false, message: error.message };
+    }
+  };
+
+
   return {
     user,
-    // loginWithGoogle,
+    // loginWithGoogle,ggg
     registerUser,
     isLoading,
     authError,
@@ -157,6 +169,7 @@ const handleClick=()=>{
     buyer,
     buyers,
     userLogOut,
+    sendPasswordReset,
     loginWithOwnEmailAndPass
   };
 }

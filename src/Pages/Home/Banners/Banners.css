@@ -1,33 +1,27 @@
-.hero-section {
-    /* position: relative; */
+/* .hero-section {
     background-image: url("https://t4.ftcdn.net/jpg/01/67/25/37/360_F_167253732_FVaF7PyA5vat3JVPvP4F5AsCoZkYAnZF.jpg");
-    /* background-image: url("https://textildealcdn.sgp1.digitaloceanspaces.com/uploads/KIMORA-FASHION-KAJAL-VOL-6-PARTY-WEAR-WEDDING-SARIS-LATEST-COLLECTION-AT-BEST-PRICES-2.jpeg"); */
+    
     height: 83vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    /* z-index: 1; */
   }
 .hero-section2 {
-    /* position: relative; */
     background-image: url("https://textildealcdn.sgp1.digitaloceanspaces.com/uploads/KIMORA-FASHION-KAJAL-VOL-6-PARTY-WEAR-WEDDING-SARIS-LATEST-COLLECTION-AT-BEST-PRICES-22.jpeg");
-    /* background-image: url("https://i.pinimg.com/originals/f3/ca/a3/f3caa3a31100da48c5c09f14063fc9d7.jpg"); */
+    
     height: 83vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    /* z-index: 1; */
   }
 .hero-section3 {
-    /* position: relative; */
-    /* background-image: url("https://kusumsarees.in/files/9156574315048.jpeg"); */
+    
     background-image: url("https://textildealcdn.sgp1.digitaloceanspaces.com/uploads/KIMORA-FASHION-PRESENTS-KAJAL-VOL-8-5151-5161-SERIES-FANCY-HEAVY-DESIGNER-SAREE-WHOLESALER-11.jpeg");
     height: 83vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    /* z-index: 1; */
-  }
+  } */
  
   .hero-section::before{
     /* position: absolute; */

@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { ListItem, Step, StepConnector, StepLabel, Stepper, Tooltip, Typography, Fab } from '@mui/material';
+import { ListItem, Step, StepConnector, StepLabel, Stepper, Tooltip, Typography, Fab, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlined';
 import CheckCircle from '@mui/icons-material/CheckCircle';
@@ -9,6 +9,7 @@ import Cancel from '@mui/icons-material/Cancel';
 import { Link } from 'react-router-dom';
 import { FaEdit } from 'react-icons/fa';
 import { HourglassEmpty } from '@mui/icons-material';
+import Swal from 'sweetalert2';
 
 // Main component to track order status
 const CustomerAddress = ({ order, handleDelete }) => {
@@ -40,6 +41,20 @@ const CustomerAddress = ({ order, handleDelete }) => {
     if (order?.status) {
         statusSteps.push({ label: order.status, date: new Date().toLocaleString() });
     }
+
+     const copyToClipboard = () => {
+        const link = `${order?.courier_id}`;
+        navigator.clipboard.writeText(link).then(() => {
+          Swal.fire({
+                    title: "Success!",
+                    text: "copy link",
+                    icon: "success",
+                    timer: 2000,
+                  });
+        }).catch(err => {
+          console.error('Error copying link: ', err);
+        });
+      };
 
     return (
         <Box>
@@ -115,6 +130,13 @@ const CustomerAddress = ({ order, handleDelete }) => {
                     </Grid>
                     <Grid item xs={8}>
                         <Typography> {order?.courier_id}</Typography>
+                        <Typography> <Button
+        variant="contained" 
+        onClick={copyToClipboard}
+        
+      >
+        Copy
+      </Button></Typography>
                     </Grid>
                 </Grid>
             </ListItem>

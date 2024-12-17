@@ -157,6 +157,9 @@ const UpdateOrder = () => {
             <option value="Pending">Pending</option>
             <option value="Cancelled">Cancelled</option>
             <option value="Completed">Completed</option>
+            <option value="processing">processing</option>
+            <option value="return">return</option>
+            <option value="received from supplier">received from supplier</option>
             <option value="Given-To-Delivery">Given-To-Delivery</option>
         </select>
         <IconButton onClick={() => handleUpdate(order._id)} color="primary">

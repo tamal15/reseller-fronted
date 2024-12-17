@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel, Container } from 'react-bootstrap';
 // import slider1 from '../../../images/bike-11.png'
 // import slider2 from '../../../images/bike-12.png'
@@ -11,12 +11,40 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typewriter from 'typewriter-effect';
 const Banners = () => {
+
+    const [data, setData] = useState([]);
+      const [loading, setLoading] = useState(true);
+    
+      useEffect(() => {
+        async function fetchData() {
+          try {
+            const response = await fetch(
+              `https://server.exportmark.com/bannerparts`
+            );
+            const result = await response.json();
+            setData(result);
+            setLoading(false);
+          } catch (error) {
+            console.error(error);
+            setLoading(false);
+          }
+        }
+        fetchData();
+      }, []);
+
+
     return (
         <div>
 
 <Carousel className="banners">
   <Carousel.Item className="carousel-design valuesPicture">
-  <section className="hero-section">
+  <section className="" style={{
+      backgroundImage: `url(${data[0]?.image1 || "defaultImageURL"})`,
+      height: "83vh",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+    }}>
            
            <div className="container" >
                <div className="row mb-5 pb-5">
@@ -25,14 +53,14 @@ const Banners = () => {
                            <div id="home"  className="row align-items-center d-flex  justify-content-start px-5 my-5 py-5">
                                <div className=" text-center my-5 py-5 ">
                                    <h1 className="text-white fw-bold  display-2" >
-                                       <Typewriter
-                                       
-                                           options={{
-                                               strings: ["Reflect Your Patriotism By Wearing Your Dress "],
-                                               autoStart: true,
-                                               loop: true,
-                                           }}
-                                       />
+                                   <Typewriter
+    options={{
+        strings: [data[0]?.typewriter1 || ""], // Ensure it's a valid string
+        autoStart: true,
+        loop: true,
+    }}
+/>
+
                                    </h1>
                                </div>
 
@@ -77,7 +105,13 @@ const Banners = () => {
   
   {/* 2dn the item  */}
   <Carousel.Item className="carousel-design valuesPicture">
-  <section className="hero-section2">
+  <section className=""  style={{
+      backgroundImage: `url(${data[0]?.image2 || "defaultImageURL"})`,
+      height: "83vh",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+    }}>
            
            <div className="container">
                <div className="row mb-5 pb-5">
@@ -86,13 +120,14 @@ const Banners = () => {
                            <div id="home" className="row align-items-center d-flex  justify-content-start px-5 my-5 py-5">
                                <div className=" text-center my-5 py-5 ">
                                    <h1 className="text-white fw-bold  display-2">
-                                       <Typewriter
-                                           options={{
-                                               strings: ["Reflect Your Patriotism By Wearing Your Dress"],
-                                               autoStart: true,
-                                               loop: true,
-                                           }}
-                                       />
+                                   <Typewriter
+    options={{
+        strings: [data[0]?.typewriter2 || ""], // Ensure it's a valid string
+        autoStart: true,
+        loop: true,
+    }}
+/>
+
                                    </h1>
                                </div>
 
@@ -132,7 +167,13 @@ const Banners = () => {
 </Container>
   </Carousel.Item>
   <Carousel.Item className="carousel-design valuesPicture">
-  <section className="hero-section3">
+  <section className=""  style={{
+      backgroundImage: `url(${data[0]?.image3 || "defaultImageURL"})`,
+      height: "83vh",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+    }}>
            
            <div className="container">
                <div className="row mb-5 pb-5">
@@ -141,13 +182,14 @@ const Banners = () => {
                            <div id="home" className="row align-items-center d-flex  justify-content-start px-5 my-5 py-5">
                                <div className=" text-center my-5 py-5 ">
                                    <h1 className="text-white fw-bold  display-2">
-                                       <Typewriter
-                                           options={{
-                                               strings: ["Reflect Your Patriotism By Wearing Your Traditional"],
-                                               autoStart: true,
-                                               loop: true,
-                                           }}
-                                       />
+                                   <Typewriter
+    options={{
+        strings: [data[0]?.typewriter3 || ""], // Ensure it's a valid string
+        autoStart: true,
+        loop: true,
+    }}
+/>
+
                                    </h1>
                                </div>
 
