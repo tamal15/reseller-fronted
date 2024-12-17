@@ -7,7 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Header from '../../Shared/Header/Header';
 import Footer from '../../Shared/Footer/Footer';
 import useAuth from '../../Hooks/useAuth';
-
+// hdjdskjd fffffff
 const Register = () => {
   const { registerUser, loginWithGoogle, authError } = useAuth();
   const location = useLocation();
