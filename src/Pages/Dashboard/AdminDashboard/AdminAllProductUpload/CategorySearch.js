@@ -159,19 +159,29 @@ const CategorySearch = () => {
   const handleOnChange = (e) => {
     const values = e.target.value.toLowerCase();
     setSearchValue(values);
-
-    const newValue = model.filter((product) =>
-      product.services?.some((service) =>
-        service.categories?.toLowerCase().includes(values)
-      )
-    );
-
+  
+    // Filter products to include only relevant services
+    const newValue = model
+      .map((product) => {
+        const filteredServices = product.services.filter((service) =>
+          service.categories?.toLowerCase().includes(values)
+        );
+  
+        // Return the product only if it has matching services
+        if (filteredServices.length > 0) {
+          return { ...product, services: filteredServices };
+        }
+        return null;
+      })
+      .filter((product) => product !== null); // Remove null products
+  
     if (newValue.length === 0) {
       Swal.fire("Warning", "Not Found Your Result", "warning");
     }
-
+  
     setFilteredModel(newValue);
   };
+  
 
 
   const handleOpenModal = (product) => {

@@ -134,7 +134,7 @@ const AdminAllProductShow = () => {
                             {model?.map((single, index) => (
                                 <div key={index}>
                                     <p
-                                        style={{ cursor: 'pointer',fontSize:"30px",fontWeight:"700", color: selectedType === single.types ? 'blue' : 'black',marginTop:"25px" }}
+                                        style={{ cursor: 'pointer',fontSize:"27px",fontWeight:"700", color: selectedType === single.types ? 'blue' : 'black',marginTop:"25px" }}
                                         onClick={() => handleTypeClicks(single.types)}
                                     >
                                         {single?.types.slice(
@@ -165,7 +165,7 @@ const AdminAllProductShow = () => {
                                                 <Grid style={{}} item xs={2} sm={4} md={8} pl={2} my={3}>
                                                     <Box style={{ textAlign: "center",marginTop:"-16px",marginBottom:"-20px" }}>
                                                         <h4 variant="body" style={{ fontWeight: 700 }}>
-                                                            {category} ({count})
+                                                            {category.slice(0,15)} ({count})
                                                         </h4>
                                                         <Box style={{ marginTop: "10px", marginBottom: "10px" }}>
                                                             <button

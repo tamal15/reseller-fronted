@@ -66,13 +66,13 @@ const FirstProfile = () => {
   return (
     <Box className="dashboard">
       <Header/>
-      <Box
+      {/* <Box
   sx={{
-    p: 3, // Padding for the outer box
-    mt: 4, // Margin from the top
-    border: '1px solid #ddd', // Light border
-    borderRadius: '8px', // Rounded corners
-    backgroundColor: 'white', // Light gray background
+    p: 3, 
+    mt: 4, 
+    border: '1px solid #ddd', 
+    borderRadius: '8px', 
+    backgroundColor: 'white', 
      boxShadow: "0px 10px 22px rgb(42 135 158 / 50%)",
     marginLeft:"10px",
     marginRight:"10px"
@@ -82,7 +82,7 @@ const FirstProfile = () => {
     Welcome, {userData.name}
   </Typography>
   <Grid container spacing={2} sx={{ mt: 2 }}>
-    <Grid item xs={12} sm={3}> {/* Adjusting Grid size for responsiveness */}
+    <Grid item xs={12} sm={3}>
       <Box
         sx={{
           p: 2,
@@ -139,7 +139,7 @@ const FirstProfile = () => {
       </Box>
     </Grid>
     
-    {/* Updated Grid with clickable tran_id */}
+    
     <Grid item xs={12} sm={3}>
       <Box
         sx={{
@@ -164,7 +164,7 @@ const FirstProfile = () => {
       </Box>
     </Grid>
     <div className='mt-3 ms-3' style={{display:"flex",justifyContent:"right"}}>
-      {/* The link */}
+     
       <Box
        sx={{
         p: 2,
@@ -186,12 +186,12 @@ const FirstProfile = () => {
       </Link>
       </Box>
 
-      {/* Copy button */}
+     
      <Box>
      <Button
         variant="contained" 
         onClick={copyToClipboard}
-        startIcon={<ContentCopyIcon />} // Copy icon from Material-UI
+        startIcon={<ContentCopyIcon />} 
         style={{ marginLeft: '300px' }}
       >
         Copy Link
@@ -199,16 +199,16 @@ const FirstProfile = () => {
      </Box>
     </div>
   </Grid>
-</Box>
+</Box> */}
 
 
       {/* Grid Layout for Order, Wallet, Refer, Info */}
-      <Grid 
+      {/* <Grid 
         container 
         spacing={2} 
         mt={4} 
         justifyContent="center" 
-        sx={{ paddingX: 4 }}  // Adjust left and right padding
+        sx={{ paddingX: 4 }} 
       >
         <Grid item xs={12} sm={6} md={3}>
           <Box 
@@ -246,32 +246,35 @@ const FirstProfile = () => {
             <Typography variant="h6">Info</Typography>
           </Box>
         </Grid>
-      </Grid>
+      </Grid> */}
       
       {/* Render the selected page based on the activePage state */}
-      <Box mt={4}>
+      {/* <Box mt={4}>
         {activePage === 'order' && <OrderPage />}
         {activePage === 'wallet' && <NewUserDashboard />}
         {activePage === 'refer' && <RefferPage />}
         {activePage === 'info' && <UserProfile />}
-      </Box>
+      </Box> */}
 
-      {/* Only show below sections when no specific page is active */}
+     
       {activePage === '' && (
         <>
-          {/* YouTube Video Embedding */}
-          <Box mt={4} style={{ textAlign: "left", marginLeft: "30px" }}>
-            <Typography style={{ marginBottom: "20px", fontWeight: "600" }} variant="h4">Support Tutorial</Typography>
-            <iframe
-              width="360"
-              height="215"
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </Box>
+         {/* YouTube Video Embedding */}
+<Box mt={4} style={{ textAlign: "left", marginLeft: "30px" }}>
+  <Typography style={{ marginBottom: "20px", fontWeight: "600" }} variant="h4">
+    Support Tutorial
+  </Typography>
+  <iframe
+    width="360"
+    height="215"
+    src="https://www.youtube.com/embed/COBcWIekBHQ?autoplay=1"
+    title="YouTube video player"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+</Box>
+
 
           {/* Contact Us Section with 2 Rows and 3 Columns */}
           <Box mt={4} style={{ textAlign: "left", marginLeft: "30px" }}>
@@ -281,7 +284,13 @@ const FirstProfile = () => {
                 <Box style={{ display: "flex", alignItems: "center" }}>
                   <FaFacebook size={24} style={{ marginRight: "10px" }} />
                   <Box>
-                    <Typography><Link style={{ textDecoration: "none", color: "black" }} to="/">Follow us on Facebook</Link></Typography>
+                    <Typography><Link
+      to="#"
+      style={{ textDecoration: "none", color: "black" }}
+      onClick={() => window.open('https://web.facebook.com/ExportMarkR?_rdc=1&_rdr', '_blank', 'noopener,noreferrer')}
+    >
+      Follow us on Facebook
+    </Link></Typography>
                   </Box>
                 </Box>
               </Grid>
@@ -289,7 +298,13 @@ const FirstProfile = () => {
                 <Box style={{ display: "flex", alignItems: "center" }}>
                   <FaTwitter size={24} style={{ marginRight: "10px" }} />
                   <Box>
-                    <Typography><Link style={{ textDecoration: "none", color: "black" }} to="/">Follow us on Twitter</Link></Typography>
+                    <Typography><Link
+      to="#"
+      style={{ textDecoration: "none", color: "black" }}
+      onClick={() => window.open('https://x.com/ExportMarkR', '_blank', 'noopener,noreferrer')}
+    >
+      Follow us on Twitter
+    </Link></Typography>
                   </Box>
                 </Box>
               </Grid>
@@ -297,7 +312,13 @@ const FirstProfile = () => {
                 <Box style={{ display: "flex", alignItems: "center" }}>
                   <FaInstagram size={24} style={{ marginRight: "10px" }} />
                   <Box>
-                    <Typography><Link style={{ textDecoration: "none", color: "black" }} to="/">Follow us on Instagram</Link></Typography>
+                    <Typography><Link
+      to="#"
+      style={{ textDecoration: "none", color: "black" }}
+      onClick={() => window.open('https://web.facebook.com/ExportMarkR?_rdc=1&_rdr', '_blank', 'noopener,noreferrer')}
+    >
+      Follow us on Instragram
+    </Link></Typography>
                   </Box>
                 </Box>
               </Grid>
@@ -305,7 +326,13 @@ const FirstProfile = () => {
                 <Box style={{ display: "flex", alignItems: "center" }}>
                   <FaLinkedin size={24} style={{ marginRight: "10px" }} />
                   <Box>
-                    <Typography><Link style={{ textDecoration: "none", color: "black" }} to="/">Connect with us on LinkedIn</Link></Typography>
+                    <Typography><Link
+      to="#"
+      style={{ textDecoration: "none", color: "black" }}
+      onClick={() => window.open('https://www.linkedin.com/groups/14572102/', '_blank', 'noopener,noreferrer')}
+    >
+      Follow us on LinkedIn
+    </Link></Typography>
                   </Box>
                 </Box>
               </Grid>
@@ -313,7 +340,13 @@ const FirstProfile = () => {
                 <Box style={{ display: "flex", alignItems: "center" }}>
                   <FaYoutube size={24} style={{ marginRight: "10px" }} />
                   <Box>
-                    <Typography><Link style={{ textDecoration: "none", color: "black" }} to="/">Subscribe to our YouTube</Link></Typography>
+                    <Typography><Link
+      to="#"
+      style={{ textDecoration: "none", color: "black" }}
+      onClick={() => window.open('https://www.youtube.com/channel/UCENG7UBrEDElCGGqCpXAwOg', '_blank', 'noopener,noreferrer')}
+    >
+      Follow us on YouTube
+    </Link></Typography>
                   </Box>
                 </Box>
               </Grid>
@@ -321,7 +354,7 @@ const FirstProfile = () => {
                 <Box style={{ display: "flex", alignItems: "center" }}>
                   <FaEnvelope size={24} style={{ marginRight: "10px" }} />
                   <Box>
-                    <Typography><Link style={{ textDecoration: "none", color: "black" }} to="/">Email Us</Link></Typography>
+                    <Typography><Link style={{ textDecoration: "none", color: "black" }} to="/">exportmark.info@gmail.com </Link></Typography>
                   </Box>
                 </Box>
               </Grid>

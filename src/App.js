@@ -89,6 +89,11 @@ import LoveProduct from './Pages/Home/HomeDataShow/LoveProduct';
 import AdminSeeSuport from './Pages/Dashboard/AdminSeeSupport';
 import SaveUserAddress from './Pages/Home/Feedback/SaveUserAddress';
 import UserAllWithdraw from './Components/PaymentData/UserAllWithdraw';
+import Bannerpart from 'Pages/Dashboard/DashboardBanner/Bannerpart';
+import Editbannerpart from 'Pages/Dashboard/DashboardBanner/Editbannerpart';
+import Upcommingproduct from 'Pages/Dashboard/DashboardBanner/Upcommingproduct';
+import Editupcomming from 'Pages/Dashboard/DashboardBanner/Editupcomming';
+import AdminPending from 'Pages/AdminPending/AdminPending';
 
 
 
@@ -199,9 +204,11 @@ function App() {
               <Route path="/dashboard/sellerOverview" element={<OverView/>} />
               <Route path="/dashboard/userfeedback" element={<AdminSeeFeedback/>} />
               <Route path="/dashboard/useraddress" element={<UserAddress/>} />
+              <Route path="/dashboard/getbannerpart" element={<Bannerpart/>} />
               <Route path="/dashboard/saveuseraddress" element={<SaveUserAddress/>} />
               <Route path="/dashboard/userdesignsee" element={<AdminSeeDesign/>} />
               <Route path="/dashboard/feedback" element={<Feedback/>} />
+              <Route path="/dashboard/adminpendings" element={<AdminPending/>} />
               <Route path="/dashboard/buyerOrder" element={<BuyerOrder/>} />
               <Route path="/dashboard/uploadProduct" element={<ProductBuyer />} />
               <Route path="/dashboard/potterupload" element={<PotterService />} />
@@ -219,6 +226,7 @@ function App() {
               <Route path="/dashboard/newuserdashboard" element={<NewUserDashboard />} />
               <Route path="/dashboard/rafferinfo" element={<RefferPage />} />
               <Route path="/dashboard/adminsupport" element={<AdminSeeSuport />} />
+              <Route path="/dashboard/upcommingproducts" element={<Upcommingproduct />} />
               <Route path="/dashboard/userallwithdraw" element={<UserAllWithdraw />} />
               {/* <Route path="/dashboard/sellerwelcome" element={<SellerWelcome />} /> */}
 
@@ -230,6 +238,8 @@ function App() {
               <Route path="/dashboard/usercustomerorder" element={<UserOrders />} />
               <Route path="/dashboard/potterDataUpload" element={<PotterDataUpload />} />
               <Route path="/dashboard/users/update/:id" element={<UpdateProducts />} />
+              <Route path="/dashboard/editbannerpart/:id" element={<Editbannerpart />} />
+              <Route path="/dashboard/editupcommingparts/:id" element={<Editupcomming />} />
               <Route path="/dashboard/userspotter/updatepotter/:id" element={<EditPotterData />} />
               <Route path="/dashboard/updateadminproducts/:parentId/:index" element={<EditAdminProduct />} />
 

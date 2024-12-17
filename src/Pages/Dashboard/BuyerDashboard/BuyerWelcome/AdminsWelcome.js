@@ -267,7 +267,10 @@ const AdminsWelcome = () => {
                                                 <option value="approved">Approved</option>
                                                 <option value="cancelled">Cancelled</option>
                                                 <option value="completed">Completed</option>
-                                                <option value="given-to-delivery">Given-To-Delivery</option>
+                                                <option value="processing">processing</option>
+            <option value="return">return</option>
+            <option value="received from supplier">received from supplier</option>
+            <option value="Given-To-Delivery">Given-To-Delivery</option>
                                             </select>
                                             <IconButton onClick={() => handleUpdate(order._id, order.status)} color="primary">
                                                 {/* <InfoIcon /> */}

@@ -106,6 +106,16 @@ const Dashboard = () => {
                                 })}><FaBookmark className='me-1' /> Make Admin</NavLink>
                             </li>
                               <li>
+                                <NavLink className="des fw-bold" to={`getbannerpart`} style={({ isActive }) => ({
+                                    color: isActive ? "black" : "black",
+                                })}><FaBookmark className='me-1' /> Banner Part</NavLink>
+                            </li>
+                              <li>
+                                <NavLink className="des fw-bold" to={`upcommingproducts`} style={({ isActive }) => ({
+                                    color: isActive ? "black" : "black",
+                                })}><FaBookmark className='me-1' /> Upcomming</NavLink>
+                            </li>
+                              <li>
                                 <NavLink className="des fw-bold" to={`overview`} style={({ isActive }) => ({
                                     color: isActive ? "black" : "black",
                                 })}><FaBookmark className='me-1' /> OverView</NavLink>
@@ -134,6 +144,7 @@ const Dashboard = () => {
                                       color: isActive ? "black" : "black",
                                   })}><FaBookmark className='me-1' /> All Products</NavLink>
                               </li>
+                              
                              
                               <li>
                                   <NavLink className="des fw-bold " to={`adminpage`} style={({ isActive }) => ({

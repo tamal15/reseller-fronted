@@ -273,7 +273,7 @@ const Payment = (props) => {
                   <Grid item xs={12}>
 
                  <h6> ★ শুধুমাত্র ডেলিভারি চার্জ এডভান্স করতে হবে <span style={{color:"red",fontWeight:"500"}}>( Dhaka city তে 60Tk এবং ঢাকা Dhaka city এর বাহিরে 120Tk ) ।</span></h6>
-               <h6 style={{textAlign:"left"}}>★ এই নাম্বারে <span style={{color:"red",fontWeight:"500"}}>01511-514172</span> ডেলিভারি চার্জ সেন্ড মানি করুন(বিকাশ, নগদ, রকেট)।</h6>
+               <h6 style={{textAlign:"left"}}>★ এই নাম্বারে <span style={{color:"red",fontWeight:"500"}}>01714191051</span> ডেলিভারি চার্জ সেন্ড মানি করুন(বিকাশ, নগদ, রকেট)।</h6>
                 <h6 style={{textAlign:"left"}}>★ যে নাম্বার থেকে সেন্ড মানি করেছেন সেই নাম্বারটি নিচের বক্সে সাবমিট করুন।</h6>
 
 
